@@ -8,14 +8,14 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SQLManager {
-    private SQL_DATAHANDLING dataHand;
+    private SQL_Test sql;
     //Start
     public SQLManager(String user, String password){
         String url = "";
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            dataHand = new SQL_DATAHANDLING(stmt);
+            sql = new SQL_Test(stmt);
         } catch (SQLException e) {
             System.out.println("Failure in: establishConnection");
         }
@@ -30,9 +30,9 @@ public class SQLManager {
     }
     //ArrayLists
     public ArrayList<Costumer> getCostumerList(){
-        return dataHand.getCostumerData();
     }
-    public ArrayList<Subscription> getSubscriptonList(){}
+    public ArrayList<Subscription> getSubscriptonList(){
+    }
     public ArrayList<Payment> getPaymentList(){}
 
 
