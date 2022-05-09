@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class SQL_Manager {
     private SQL_Import sqlImport;
     private SQL_Export sqlExport;
+    private SQL_Update sqlUpdate;
 
     //Start
     public SQL_Manager(String user, String password){
@@ -40,7 +41,7 @@ public class SQL_Manager {
     public ArrayList<Costumer> getCostumerList(){
         return sqlImport.getCostumerList();
     }
-    public ArrayList<Subscription> getSubscriptonList(){
+    public ArrayList<Subscription> getSubscriptionList(){
         return sqlImport.getSubscriptionList();
     }
     public ArrayList<Payment> getPaymentList(){
@@ -50,6 +51,17 @@ public class SQL_Manager {
     //Add Object
     public void addData(Object object){
         sqlExport.addData(object);
+    }
+
+    //Remove Object
+    public void deleteData(Object object){
+        sqlUpdate.deleteData(object);
+    }
+
+    //Update Object
+    public void updateData(Object object){
+        deleteData(object);
+        addData(object);
     }
 
 
