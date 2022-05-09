@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModelService {
+    //Generate Model
     public Costumer generateCostumer(ResultSet rs){
         try {
             return new Costumer(rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"),
@@ -33,17 +34,7 @@ public class ModelService {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    
     public Costumer here (String costumer){
         String[] data = costumer.split("\\|");
         String firstName = data[0];
