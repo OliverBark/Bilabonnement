@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class DamageRapport {
     private final String subscriptionID;
-    private ArrayList<Damage> damages;
+    private final ArrayList<Damage> damages;
 
-    public DamageRapport(String subscriptionID) {
+    public DamageRapport(String subscriptionID, ArrayList<Damage> damages) {
+        this.damages = damages;
         this.subscriptionID = subscriptionID;
     }
 
@@ -16,8 +17,5 @@ public class DamageRapport {
 
     public ArrayList<Damage> getDamages() {
         return damages;
-    }
-    public void setDamages(ArrayList<Damage> damages) {
-        this.damages = damages;
     }
 }

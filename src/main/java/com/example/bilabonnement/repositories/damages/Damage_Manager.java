@@ -1,7 +1,9 @@
 package com.example.bilabonnement.repositories.damages;
 
+
 import com.example.bilabonnement.models.damage.Damage;
-import com.example.bilabonnement.models.data.Costumer;
+import com.example.bilabonnement.models.damage.DamageRapport;
+import com.example.bilabonnement.repositories.SQL_String;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,5 +11,27 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Damage_Manager {
-    //idk yet
+    SQL_String sqlString;
+    private Damage_Data data;
+
+    public DamageRapport getDamageRapport(String id, String value){
+        try {
+            Statement stmt;
+            return generateDamageRapport(id, stmt.executeQuery("SELECT * FROM damage_rapport_" + id + " ORDER BY " + data.getPrimary_key()));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private DamageRapport generateDamageRapport(String id, ResultSet rs){
+        ArrayList<Damage> damages = new ArrayList<>();
+        try {
+            while(rs.next()){
+                damages.add(rs.getString("damage"), rs.getDouble("price"));
+            }
+            return new DamageRapport(id, damages);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
