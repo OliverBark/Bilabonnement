@@ -16,9 +16,9 @@ public class SQL_Manager {
 
     //Start
     public SQL_Manager(){
-        String url = "";
-        String user = "";
-        String password = "";
+        String url = "jdbc:mysql://localhost:3306/?user=root";
+        String user = "root";
+        String password = "testtest";
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
