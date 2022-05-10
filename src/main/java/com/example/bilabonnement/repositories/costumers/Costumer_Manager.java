@@ -1,6 +1,7 @@
 package com.example.bilabonnement.repositories.costumers;
 
 import com.example.bilabonnement.models.data.Costumer;
+import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_String;
 
 import java.sql.ResultSet;
@@ -10,11 +11,12 @@ import java.util.ArrayList;
 
 public class Costumer_Manager {
     SQL_String sqlString;
+    SQL_Manager sqlManager;
     private Costumer_Data data;
 
     public Costumer getCostumer(String value){
         try {
-            Statement stmt;
+            Statement stmt = sqlManager.establishConnection();
             return generateCostumer(stmt.executeQuery(sqlString.getData(data.getDatabase(), data.getPrimary_key(), value)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -23,7 +25,7 @@ public class Costumer_Manager {
     public ArrayList<Costumer> getCostumerList(){
         ArrayList<Costumer> costumers = new ArrayList<>();
         try {
-            Statement stmt;
+            Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(data.getDatabase(), data.getPrimary_key()));
             while(rs.next()){
                 costumers.add(generateCostumer(rs));
@@ -35,7 +37,7 @@ public class Costumer_Manager {
     }
     public void createCostumer(Costumer costumer){
         try {
-            Statement stmt;
+            Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.createData(data.getDatabase(), data.getSections(), generateValues(costumer)));
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -43,7 +45,7 @@ public class Costumer_Manager {
     }
     public void deleteCostumer(String value){
         try {
-            Statement stmt;
+            Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(data.getDatabase(), data.getPrimary_key(), value));
         } catch (SQLException e) {
             throw new RuntimeException(e);
