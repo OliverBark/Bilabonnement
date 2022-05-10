@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Forside</title>
-    <link rel="stylesheet" th:href="@{forside.css}" href="forside.css">
+    <link href="forside.css" rel="stylesheet" th:href="@{forside.css}">
 </head>
 <body>
 <div class="grid place-items-center w-full overflow-x-hidden">
 
-    <section id="clock" class="font-display text-6xl md:text-8xl xl:text-9xl mt-10 mb-10"></section>
+    <section class="font-display text-6xl md:text-8xl xl:text-9xl mt-10 mb-10" id="clock"></section>
 
-    <section id="apps" class="
+    <section class="
       flex flex-col
       md:grid md:grid-cols-2
       md:gap-1
       xl:grid-cols-3
       2xl:grid-cols-4
       font-display
-      text-2xl ">
-        <a href="#" rel="noopener noreferrer nofollow" class="
+      text-2xl " id="apps">
+        <a class="
         app
         grid
         place-items-center
@@ -30,14 +30,14 @@
         pb-2
         cursor-pointer
         mb-5
-      ">
+      " href="#" rel="noopener noreferrer nofollow">
             <div class="flex items-center justify-center gap-1">
-                <img src="https://assets.codepen.io/3607040/source_icons_list.svg" alt="Tasks Icon" class="w-12" />
+                <img alt="Tasks Icon" class="w-12" src="https://assets.codepen.io/3607040/source_icons_list.svg"/>
                 <span>Data</span>
             </div>
         </a>
 
-        <a href="#" rel="noopener noreferrer nofollow" class="
+        <a class="
         app
         grid
         place-items-center
@@ -48,14 +48,14 @@
         pb-2
         cursor-pointer
         mb-5
-      ">
+      " href="#" rel="noopener noreferrer nofollow">
             <div class="flex items-center justify-center gap-1">
-                <img src="https://assets.codepen.io/3607040/source_icons_trello.svg" alt="Boards Icon" class="w-12" />
+                <img alt="Boards Icon" class="w-12" src="https://assets.codepen.io/3607040/source_icons_trello.svg"/>
                 <span>Skade</span>
             </div>
         </a>
 
-        <a href="#" rel="noopener noreferrer nofollow" class="
+        <a class="
         app
         grid
         place-items-center
@@ -66,9 +66,9 @@
         pb-2
         cursor-pointer
         mb-5
-      ">
+      " href="#" rel="noopener noreferrer nofollow">
             <div class="flex items-center justify-center gap-1">
-                <img src="https://assets.codepen.io/3607040/source_icons_trello.svg" alt="Calendar Icon" class="w-12" />
+                <img alt="Calendar Icon" class="w-12" src="https://assets.codepen.io/3607040/source_icons_trello.svg"/>
                 <span>Forretning</span>
             </div>
         </a>

@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>login</title>
-    <link rel="stylesheet" th:href="@{login.css}" href="login.css">
+    <link href="login.css" rel="stylesheet" th:href="@{login.css}">
 </head>
 <body>
-<img src="/templates/Images/kwbruun.png" alt="Italian Trulli" style="width: 700px; padding-left: 350px;
+<img alt="Italian Trulli" src="/templates/Images/kwbruun.png" style="width: 700px; padding-left: 350px;
  padding-top: 20px; ">
 <div class="login form">
-    <input type="email" placeholder="Email" class="email"><br>
-    <input type="password" placeholder="Adgangskode" class="password"><br>
-    <button type="submit" class="button">Log In</button>
+    <label>
+        <input class="email" placeholder="Email" type="email">
+    </label><br>
+    <label>
+        <input class="password" placeholder="Adgangskode" type="password">
+    </label><br>
+    <button class="button" type="submit">Log In</button>
 </div>
 </body>
 </html>
