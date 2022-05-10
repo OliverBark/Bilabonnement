@@ -1,7 +1,7 @@
 package com.example.bilabonnement.repositories.subscriptions;
 
 import com.example.bilabonnement.models.data.Subscription;
-import com.example.bilabonnement.repositories.sqlfunctions.SQL_String;
+import com.example.bilabonnement.repositories.SQL_String;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

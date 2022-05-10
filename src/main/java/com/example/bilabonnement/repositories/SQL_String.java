@@ -1,4 +1,4 @@
-package com.example.bilabonnement.repositories.sqlfunctions;
+package com.example.bilabonnement.repositories;
 
 public class SQL_String {
     public String getData(String database, String primary_key, String value){
