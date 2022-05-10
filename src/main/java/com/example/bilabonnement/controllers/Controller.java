@@ -8,7 +8,6 @@ public class Controller {
 
     @GetMapping("/")
     public String index(){
-
-        return "forside/index";
+        return "index";
     }
 }

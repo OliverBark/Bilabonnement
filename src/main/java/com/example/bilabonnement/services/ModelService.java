@@ -13,7 +13,7 @@ public class ModelService {
     public Costumer generateCostumer(ResultSet rs){
         try {
             return new Costumer(rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"),
-                    rs.getString("moble"), rs.getString("cpr_nr"), rs.getString("reg_nr"), rs.getString("account nr"));
+                    rs.getString("mobile"), rs.getString("cpr_nr"), rs.getString("reg_nr"), rs.getString("account nr"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
