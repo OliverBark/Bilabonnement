@@ -25,16 +25,14 @@ public class LoginController {
 
     @GetMapping("logout")
     public String logout(HttpSession session, @RequestParam String status){
-        if(status!=null){
-            switch (status){
-                case "true":
-                    session.removeAttribute("username");
-
-            }
+        //LocalHost:8080/logout?status=true
+        if(status==null) {
+            return "login/logout";
+        } else {
+            session = conService.resetSession(session);
+            return "redirect:/login";
         }
-        return "login/logout";
     }
-
     @PostMapping("logging-in")
     public String loggingIn(HttpSession session, WebRequest dataFromForm){
         SQL_Manager sqlManager = new SQL_Manager();
