@@ -13,8 +13,10 @@ public class SQL_Manager {
     private SQL_Update sqlUpdate;
 
     //Start
-    public SQL_Manager(String user, String password){
+    public SQL_Manager(){
         String url = "";
+        String user = "";
+        String password = "";
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
