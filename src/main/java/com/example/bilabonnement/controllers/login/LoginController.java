@@ -42,7 +42,7 @@ public class LoginController {
                 return "redirect:/login?status=invalid";
             }
             session.setAttribute("username", user.getUsername());
-            return "";
+            return "redirect:/front-page";
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
