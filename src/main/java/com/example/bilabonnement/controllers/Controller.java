@@ -9,6 +9,6 @@ public class Controller {
     @GetMapping("/")
     public String index(){
 
-        return "index";
+        return "forside/index";
     }
 }

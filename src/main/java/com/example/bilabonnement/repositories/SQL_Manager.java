@@ -16,7 +16,7 @@ public class SQL_Manager {
 
     //Start
     public SQL_Manager(){
-        String url = "jdbc:mysql://localhost:3306/?user=root";
+        String url = "jdbc:mysql://localhost:3306";
         String user = "root";
         String password = "testtest";
         try {
