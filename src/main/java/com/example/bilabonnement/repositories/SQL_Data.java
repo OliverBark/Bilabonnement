@@ -13,6 +13,9 @@ public class SQL_Data {
     //Payment
     private String payment_database = "payments";
     private String payment_primary_key = "payment_id";
+    //User
+    private String user_database = "users";
+    private String user_primary_key = "username";
 
     public SQL_Data(String current_user){
         this.current_user = current_user;
@@ -44,5 +47,13 @@ public class SQL_Data {
 
     public String getPayment_primary_key() {
         return payment_primary_key;
+    }
+
+    public String getUser_database() {
+        return user_database;
+    }
+
+    public String getUser_primary_key() {
+        return user_primary_key;
     }
 }

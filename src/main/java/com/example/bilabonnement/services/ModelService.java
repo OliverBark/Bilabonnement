@@ -1,5 +1,6 @@
 package com.example.bilabonnement.services;
 
+import com.example.bilabonnement.models.admin.User;
 import com.example.bilabonnement.models.data.Costumer;
 import com.example.bilabonnement.models.data.Subscription;
 import com.example.bilabonnement.models.economy.Payment;
@@ -29,6 +30,13 @@ public class ModelService {
         try {
             return new Payment(rs.getString("payment_id"), rs.getString("reg_nr"), rs.getString("account_nr"),
                     rs.getDouble("price"));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public User generateUser(ResultSet rs){
+        try {
+            return new User(rs.getString("username"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

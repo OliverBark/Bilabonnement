@@ -1,5 +1,6 @@
 package com.example.bilabonnement.repositories;
 
+import com.example.bilabonnement.models.admin.User;
 import com.example.bilabonnement.models.data.Costumer;
 import com.example.bilabonnement.models.data.Subscription;
 import com.example.bilabonnement.models.economy.Payment;
@@ -11,6 +12,7 @@ public class SQL_Manager {
     private SQL_Import sqlImport;
     private SQL_Export sqlExport;
     private SQL_Update sqlUpdate;
+    private SQL_Login sqlLogin;
 
     //Start
     public SQL_Manager(){
@@ -23,12 +25,18 @@ public class SQL_Manager {
             SQL_Data data = new SQL_Data(user);
             sqlImport = new SQL_Import(stmt, data);
             sqlExport = new SQL_Export(stmt, data);
+            sqlUpdate = new SQL_Update(stmt, data);
+            sqlLogin = new SQL_Login(stmt, data);
         } catch (SQLException e) {
             System.out.println("Failure in: establishConnection");
         }
     }
 
+
     //Single Object
+    public User getUser(String username, String password){
+        return sqlLogin.getUser(username, password);
+    }
     public Costumer getCostumer(String value){
         return sqlImport.getCostumer(value);
     }
