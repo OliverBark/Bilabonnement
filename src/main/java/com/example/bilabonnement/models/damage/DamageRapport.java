@@ -3,16 +3,16 @@ package com.example.bilabonnement.models.damage;
 import java.util.ArrayList;
 
 public class DamageRapport {
-    private final String subscriptionID;
+    private final String damageRapportID;
     private final ArrayList<Damage> damages;
 
-    public DamageRapport(String subscriptionID, ArrayList<Damage> damages) {
+    public DamageRapport(String damageRapportID, ArrayList<Damage> damages) {
         this.damages = damages;
-        this.subscriptionID = subscriptionID;
+        this.damageRapportID = damageRapportID;
     }
 
-    public String getSubscriptionID() {
-        return subscriptionID;
+    public String getDamageRapportID() {
+        return damageRapportID;
     }
 
     public ArrayList<Damage> getDamages() {

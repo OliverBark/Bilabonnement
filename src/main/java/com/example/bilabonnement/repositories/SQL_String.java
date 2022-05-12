@@ -15,4 +15,10 @@ public class SQL_String {
     public String deleteData(String database, String primary_key, String value){
         return "DELETE FROM " + database + " WHERE " + primary_key + " = '" + value + "'";
     }
+    public String createTable(String database, String tableSections){
+        return "CREATE TABLE " + database + tableSections;
+    }
+    public String deleteTable(String database){
+        return "DROP TABLE " + database;
+    }
 }

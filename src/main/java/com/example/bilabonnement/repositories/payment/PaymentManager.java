@@ -1,4 +1,4 @@
-package com.example.bilabonnement.repositories.payments;
+package com.example.bilabonnement.repositories.payment;
 
 import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.repositories.SQL_Manager;
@@ -9,24 +9,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Payment_Manager {
+public class PaymentManager {
+    private String database;
+    private String primaryKey;
+    private String sections;
     SQL_Manager sqlManager;
     SQL_String sqlString;
-    private Payment_Data data;
 
-    public Payment getPayment(String value){
+    public Payment getPayment(String paymentID){
         try {
             Statement stmt = sqlManager.establishConnection();
-            return generatePayment(stmt.executeQuery(sqlString.getData(data.getDatabase(), data.getPrimary_key(), value)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, paymentID));
+            return generatePayment(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<Payment> getPaymentList(){
+    public ArrayList<Payment> getCostumerList(){
         ArrayList<Payment> payments = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getDataList(data.getDatabase(), data.getPrimary_key()));
+            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, "first_name"));
             while(rs.next()){
                 payments.add(generatePayment(rs));
             }
@@ -38,15 +41,15 @@ public class Payment_Manager {
     public void createPayment(Payment payment){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(data.getDatabase(), data.getSections(), generateValues(payment)));
+            stmt.executeUpdate(sqlString.createData(database, sections, generateValues(payment)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void deletePayment(String value){
+    public void deleteCostumer(String cpr){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(data.getDatabase(), data.getPrimary_key(), value));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, cpr));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -54,17 +57,14 @@ public class Payment_Manager {
 
     private Payment generatePayment(ResultSet rs){
         try {
-            return new Payment(rs.getString("payment_id"), rs.getString("reg_nr"), rs.getString("account_nr"),
-                    rs.getDouble("price"));
+            return new Payment(rs.getString("payment_id"), rs.getDouble("amount"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     private String generateValues(Payment payment){
-        return "('" +
-        payment.getPaymentID() + "', '" +
-                payment.getRegNr() + "', '" +
-                payment.getAccountNr() + "', '" +
+        return "('" + payment.getPaymentID() + "', '" +
                 payment.getPrice() + "')";
+
     }
 }

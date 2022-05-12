@@ -2,14 +2,16 @@ package com.example.bilabonnement.models.data;
 
 public class Subscription {
     private final String subscriptionID;
+    private final String holder;
     private final String model;
     private final String color;
     private final boolean afleveringsforsikring;
     private final boolean selvrisiko;
     private final String location;
 
-    public Subscription(String subscriptionID, String model, String color, boolean afleveringsforsikring, boolean selvrisiko, String location){
+    public Subscription(String subscriptionID, String holder, String model, String color, boolean afleveringsforsikring, boolean selvrisiko, String location){
         this.subscriptionID = subscriptionID;
+        this.holder = holder;
         this.model = model;
         this.color = color;
         this.afleveringsforsikring = afleveringsforsikring;
@@ -20,7 +22,9 @@ public class Subscription {
     public String getSubscriptionID() {
         return subscriptionID;
     }
-
+    public String getHolder() {
+        return holder;
+    }
     public String getModel() {
         return model;
     }
@@ -46,4 +50,6 @@ public class Subscription {
                 ", selvrisiko=" + selvrisiko +
                 '}';
     }
+
+
 }

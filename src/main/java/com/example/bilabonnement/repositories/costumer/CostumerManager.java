@@ -1,24 +1,27 @@
-package com.example.bilabonnement.repositories.costumers;
+package com.example.bilabonnement.repositories.costumer;
 
 import com.example.bilabonnement.models.data.Costumer;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_String;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Costumer_Manager {
-    SQL_String sqlString;
+public class CostumerManager {
     SQL_Manager sqlManager;
-    private Costumer_Data data;
+    SQL_String sqlString;
+    private String database;
+    private String primaryKey;
+    private String sections;
 
-    public Costumer getCostumer(String value){
+
+    public Costumer getCostumer(String cpr){
         try {
             Statement stmt = sqlManager.establishConnection();
-            return generateCostumer(stmt.executeQuery(sqlString.getData(data.getDatabase(), data.getPrimary_key(), value)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, cpr));
+            return generateCostumer(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -27,7 +30,7 @@ public class Costumer_Manager {
         ArrayList<Costumer> costumers = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getDataList(data.getDatabase(), data.getPrimary_key()));
+            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, "first_name"));
             while(rs.next()){
                 costumers.add(generateCostumer(rs));
             }
@@ -39,15 +42,15 @@ public class Costumer_Manager {
     public void createCostumer(Costumer costumer){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(data.getDatabase(), data.getSections(), generateValues(costumer)));
+            stmt.executeUpdate(sqlString.createData(database, sections, generateValues(costumer)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void deleteCostumer(String value){
+    public void deleteCostumer(String cpr){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(data.getDatabase(), data.getPrimary_key(), value));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, cpr));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -56,19 +59,19 @@ public class Costumer_Manager {
     private Costumer generateCostumer(ResultSet rs){
         try {
             return new Costumer(rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"),
-                    rs.getString("mobile"), rs.getString("cpr_nr"), rs.getString("reg_nr"), rs.getString("account nr"));
+                    rs.getString("mobile"), rs.getString("cpr_nr"), rs.getString("reg_nr"), rs.getString("account_nr"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     private String generateValues(Costumer costumer){
-        return "'" + costumer.getFirstName() + "', '" +
+        return "('" + costumer.getFirstName() + "', '" +
                 costumer.getLastName() + "', '" +
                 costumer.getAddress() + "', '" +
                 costumer.getMobile() + "', '" +
                 costumer.getCprNr() + "', '" +
                 costumer.getRegNr() + "', '" +
                 costumer.getAccountNr() + "')";
-    }
 
+    }
 }

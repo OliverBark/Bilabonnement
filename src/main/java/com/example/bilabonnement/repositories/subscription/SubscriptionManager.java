@@ -1,4 +1,4 @@
-package com.example.bilabonnement.repositories.subscriptions;
+package com.example.bilabonnement.repositories.subscription;
 
 import com.example.bilabonnement.models.data.Subscription;
 import com.example.bilabonnement.repositories.SQL_Manager;
@@ -9,24 +9,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Subscription_Manager {
+public class SubscriptionManager {
+    private String database;
+    private String primaryKey;
+    private String sections;
     SQL_Manager sqlManager;
     SQL_String sqlString;
-    private Subscription_Data data;
 
-    public Subscription getSubscription(String value){
+    public Subscription getSubscription(String subscriptionID){
         try {
             Statement stmt = sqlManager.establishConnection();
-            return generateSubscription(stmt.executeQuery(sqlString.getData(data.getDatabase(), data.getPrimary_key(), value)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, subscriptionID));
+            return generateSubscription(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<Subscription> getSubscription(){
+    public ArrayList<Subscription> getSubscriptionList(){
         ArrayList<Subscription> subscriptions = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getDataList(data.getDatabase(), data.getPrimary_key()));
+            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
                 subscriptions.add(generateSubscription(rs));
             }
@@ -38,15 +41,15 @@ public class Subscription_Manager {
     public void createSubscription(Subscription subscription){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(data.getDatabase(), data.getSections(), generateValues(subscription)));
+            stmt.executeUpdate(sqlString.createData(database, sections, generateValues(subscription)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void deleteSubscription(String value){
+    public void deleteSubscription(String subscriptionID){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(data.getDatabase(), data.getPrimary_key(), value));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, subscriptionID));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -54,19 +57,21 @@ public class Subscription_Manager {
 
     private Subscription generateSubscription(ResultSet rs){
         try {
-            return new Subscription(rs.getString("subscription_id"), rs.getString("model"), rs.getString("color"),
-                    Boolean.getBoolean(rs.getString("afleveringsforsikring")), Boolean.getBoolean(rs.getString("selvrisiko")), rs.getString("location"));
+            return new Subscription(rs.getString("subscription_id"), rs.getString("holder"), rs.getString("model"),
+                    rs.getString("color"), rs.getBoolean("afleveringsforsikring"), rs.getBoolean("selvrisiko"),
+                    rs.getString("location"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     private String generateValues(Subscription subscription){
-        return "('" +
-        subscription.getSubscriptionID() + "', '" +
+        return "('" + subscription.getSubscriptionID() + "', '" +
+                subscription.getHolder() + "', '" +
                 subscription.getModel() + "', '" +
                 subscription.getColor() + "', '" +
                 subscription.isAfleveringsforsikring() + "', '" +
                 subscription.isSelvrisiko() + "', '" +
                 subscription.getLocation() + "')";
+
     }
 }
