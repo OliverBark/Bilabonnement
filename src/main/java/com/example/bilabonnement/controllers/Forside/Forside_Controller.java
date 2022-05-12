@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class Forside_Controller {
 
-    @GetMapping("/")
+    @GetMapping("/forside")
     public String index(){
         return "forside/index";
     }

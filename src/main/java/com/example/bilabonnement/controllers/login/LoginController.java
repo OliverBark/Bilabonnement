@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     ControllerService conService = new ControllerService();
 
-    @GetMapping("login")
+    @GetMapping("/")
     public String login(HttpSession session, @RequestParam String status){
         if(session!=null){
             return "login/logout";
