@@ -11,4 +11,5 @@ public class Forside_Controller {
     public String index(){
         return "forside/index";
     }
+
 }
