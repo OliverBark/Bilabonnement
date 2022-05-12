@@ -95,3 +95,11 @@ a {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     position: absolute;
 }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 40%;
+    height: 40%;
+}

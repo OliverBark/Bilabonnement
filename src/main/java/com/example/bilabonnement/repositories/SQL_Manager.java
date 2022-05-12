@@ -69,4 +69,8 @@ public class SQL_Manager {
         }
         return false;
     }
+
+    public void start() {
+        establishConnection();
+    }
 }
