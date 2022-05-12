@@ -1,10 +1,11 @@
-package com.example.bilabonnement.controllers;
+package com.example.bilabonnement.controllers.Forside;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@org.springframework.stereotype.Controller
-public class Controller {
+@Controller
+public class Forside_Controller {
 
     @GetMapping("/")
     public String index(){
