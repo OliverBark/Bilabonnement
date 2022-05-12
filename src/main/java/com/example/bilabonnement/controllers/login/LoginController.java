@@ -17,9 +17,11 @@ public class LoginController {
     @GetMapping("/")
     public String login(HttpSession session, @RequestParam String status){
         if(session!=null){
-            return "login/logout";
+            //allerede logget ind
+            return "";
         }
-        return "login/login";
+        //Ikke logge ind
+        return "";
     }
     @PostMapping("/logging") //log into an existing user
     public String logging(WebRequest dataFromForm, HttpSession session) {
