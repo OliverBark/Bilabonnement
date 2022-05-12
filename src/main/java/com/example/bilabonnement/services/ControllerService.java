@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 public class ControllerService {
 
     public String errorPage(){
-        return "error";
+        return "Error/Error";
     }
 
     public HttpSession resetSession(HttpSession session){

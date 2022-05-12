@@ -17,7 +17,7 @@ public class LoginController {
     @GetMapping("/")
     public String login(HttpSession session, @RequestParam String status){
         if(session!=null){
-            //allerede logget ind
+            //Allerede logget ind
             return "";
         }
         //Ikke logge ind
