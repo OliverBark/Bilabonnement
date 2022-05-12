@@ -1,25 +1,52 @@
 package com.example.bilabonnement.repositories;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class SQL_Manager {
-
+    private static Connection conn;
     private ResultSet rs;
     private Statement stmt;
 
 
-    public Statement establishConnection(){
-        String url = "jdbc:mysql://localhost:3306/Bilabonnement";
-        String user = "root";
-        String password = "testtest";
-        try {
+    public Statement establishConnection() {
+
+        try (InputStream propertiesFiles = new FileInputStream("src/main/resources/application.properties")) {
+            Properties properties = new Properties();
+            properties.load(propertiesFiles);
+            String url = properties.getProperty("db.url");
+            String user = properties.getProperty("db.username");
+            String password = properties.getProperty("db.password");
             Connection con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            return stmt;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
         }
+        return stmt;
     }
+
+    //Ny get connection metode, I skal ændre jeres adgangskode i application.properties til jeres egen i jeres Workbench
+    /*public static Connection getConnection() {
+        if (conn != null) {
+            return conn;
+        }
+
+        try (InputStream propertiesFiles = new FileInputStream("src/main/resources/application.properties")) {
+            Properties properties = new Properties();
+            properties.load(propertiesFiles);
+            String url = properties.getProperty("db.url");
+            String username = properties.getProperty("db.username");
+            String password = properties.getProperty("db.password");
+            conn = DriverManager.getConnection(url, username, password);
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+        return conn;
+    }*/
+
 
     public boolean login(String username, String password) { //User can log in, and program registers credentials
         try {
@@ -41,9 +68,5 @@ public class SQL_Manager {
             System.out.println("error?");
         }
         return false;
-    }
-
-    public void start() {
-        establishConnection();
     }
 }
