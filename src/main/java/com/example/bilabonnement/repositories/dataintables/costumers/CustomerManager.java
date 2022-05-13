@@ -1,7 +1,6 @@
-package com.example.bilabonnement.repositories.costumers;
+package com.example.bilabonnement.repositories.dataintables.costumers;
 
 import com.example.bilabonnement.models.data.Customer;
-import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_String;
 

@@ -1,6 +1,5 @@
-package com.example.bilabonnement.repositories.salesrecords;
+package com.example.bilabonnement.repositories.dataintables.salesrecords;
 
-import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.models.economy.SaleRecord;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_String;

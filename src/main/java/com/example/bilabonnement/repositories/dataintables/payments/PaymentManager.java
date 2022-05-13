@@ -1,4 +1,4 @@
-package com.example.bilabonnement.repositories.payments;
+package com.example.bilabonnement.repositories.dataintables.payments;
 
 import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.repositories.SQL_Manager;

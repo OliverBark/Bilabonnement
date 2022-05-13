@@ -41,12 +41,11 @@ CREATE TABLE `SalesRecords` (
                          `date` varchar(45),
                          PRIMARY KEY (`payment_id`));
 
-CREATE TABLE `PendingSubscriptions` (
+CREATE TABLE `ActiveSubscriptions` (
+                         `active_subscription_id` varchar(45) NOT NULL,
                          `subscription_id` varchar(45) NOT NULL,
-                         `holder` varchar(45) NOT NULL,
-                         `model` varchar(45) NOT NULL,
-                         `color` varchar(45) NOT NULL,
-                         `afleveringsforsikring` tinyint(1) DEFAULT NULL,
-                         `selvrisiko` tinyint(1) DEFAULT NULL,
-                         `location` varchar(45) NOT NULL,
-                         PRIMARY KEY (`subscription_id`));
+                         `price_pr_km` double NOT NULL,
+                         `damage_prices` varchar(45) NOT NULL,
+                         `start_date` varchar(45) NOT NULL,
+                         `end_date` varchar(45) NOT NULL,
+                         PRIMARY KEY (`active_subscription_id`));

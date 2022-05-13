@@ -1,10 +1,8 @@
-package com.example.bilabonnement.repositories.subscriptions;
+package com.example.bilabonnement.repositories.dataintables.subscriptions;
 
-import com.example.bilabonnement.models.data.Customer;
 import com.example.bilabonnement.models.data.Subscription;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_String;
-import com.example.bilabonnement.repositories.costumers.CustomerManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
