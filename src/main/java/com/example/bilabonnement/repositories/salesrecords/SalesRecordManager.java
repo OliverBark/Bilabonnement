@@ -1,5 +1,6 @@
-package com.example.bilabonnement.repositories.sales_record;
+package com.example.bilabonnement.repositories.salesrecords;
 
+import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.models.economy.SaleRecord;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_String;
@@ -12,29 +13,29 @@ import java.util.ArrayList;
 public class SalesRecordManager {
     SQL_Manager sqlManager = new SQL_Manager();
     SQL_String sqlString = new SQL_String();
-    private final String database = "SalesRecords";
-    private final String primaryKey = "username";
+    private final String database = "salesrecords";
+    private final String primary_key = "payment_id";
     private final String sections = "(payment_id, amount, type, date)";
 
-
-    public SaleRecord getSalesRecord(String value){
+    public SaleRecord getSalesRecord(String paymentID){
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, value));
-            return generateSalesRecord(rs);
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primary_key, paymentID));
+            rs.next();
+            return generateSaleRecord(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     public ArrayList<SaleRecord> getSalesRecordList(){
-        ArrayList<SaleRecord> records = new ArrayList<>();
+        ArrayList<SaleRecord> saleRecords = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, "first_name"));
+            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primary_key));
             while(rs.next()){
-                records.add(generateSalesRecord(rs));
+                saleRecords.add(generateSaleRecord(rs));
             }
-            return records;
+            return saleRecords;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -42,31 +43,33 @@ public class SalesRecordManager {
     public void createSalesRecord(SaleRecord saleRecord){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(database, sections, generateValues(saleRecord)));
-        } catch (Exception e) {
+            stmt.executeUpdate(sqlString.createData(database,sections,generateValues(saleRecord)));
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void deleteSalesRecord(String value){
+    public void SalesRecord(String paymentID){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, value));
+            stmt.executeUpdate(sqlString.deleteData(database, primary_key, paymentID));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private SaleRecord generateSalesRecord(ResultSet rs){
+    private SaleRecord generateSaleRecord(ResultSet rs){
         try {
-            return new SaleRecord(rs.getString("payment_id"), rs.getDouble("amount"), rs.getString("type"));
+            return new SaleRecord(rs.getString("payment_id"), rs.getDouble("amount"),
+                    rs.getString("type"), rs.getString("data"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
     private String generateValues(SaleRecord saleRecord){
         return "('" + saleRecord.getPayment_id() + "', '" +
                 saleRecord.getAmount() + "', '" +
-                saleRecord.getType() + "')";
-
+                saleRecord.getType() + "', '" +
+                saleRecord.getDate() + "')";
     }
 }

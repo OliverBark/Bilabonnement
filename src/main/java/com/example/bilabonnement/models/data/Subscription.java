@@ -44,12 +44,13 @@ public class Subscription {
     @Override
     public String toString() {
         return "Subscription{" +
-                "model='" + model + '\'' +
+                "subscriptionID='" + subscriptionID + '\'' +
+                ", holder='" + holder + '\'' +
+                ", model='" + model + '\'' +
                 ", color='" + color + '\'' +
                 ", afleveringsforsikring=" + afleveringsforsikring +
                 ", selvrisiko=" + selvrisiko +
+                ", location='" + location + '\'' +
                 '}';
     }
-
-
 }

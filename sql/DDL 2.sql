@@ -20,6 +20,7 @@ CREATE TABLE `Payments` (
 
 CREATE TABLE `Subscriptions` (
                                  `subscription_id` varchar(45) NOT NULL,
+                                 `holder` varchar(45) NOT NULL,
                                  `model` varchar(45) NOT NULL,
                                  `color` varchar(45) NOT NULL,
                                  `afleveringsforsikring` tinyint(1) DEFAULT NULL,
@@ -42,6 +43,7 @@ CREATE TABLE `SalesRecords` (
 
 CREATE TABLE `PendingSubscriptions` (
                          `subscription_id` varchar(45) NOT NULL,
+                         `holder` varchar(45) NOT NULL,
                          `model` varchar(45) NOT NULL,
                          `color` varchar(45) NOT NULL,
                          `afleveringsforsikring` tinyint(1) DEFAULT NULL,

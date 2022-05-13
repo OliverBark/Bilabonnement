@@ -1,6 +1,6 @@
 package com.example.bilabonnement.models.data;
 
-public class Costumer {
+public class Customer {
     private final String firstName;
     private final String lastName;
     private final String address;
@@ -9,7 +9,7 @@ public class Costumer {
     private final String regNr;
     private final String accountNr;
 
-    public Costumer(String firstName, String lastName, String address, String mobile, String cprNr, String regNr, String accountNr){
+    public Customer(String firstName, String lastName, String address, String mobile, String cprNr, String regNr, String accountNr){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

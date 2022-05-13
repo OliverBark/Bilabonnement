@@ -21,4 +21,13 @@ public class Payment {
     public String getDate() {
         return date;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "paymentID='" + paymentID + '\'' +
+                ", price=" + price +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }
