@@ -19,8 +19,8 @@ public class ContingentManager {
     private final String primaryKey = "payment_id";
     private final String tableSections = "('payment_id' varchar(45) NOT NULL)";
     private PaymentManager paymentManager;
-    SQL_Manager sqlManager;
-    SQL_String sqlString;
+    SQL_Manager sqlManager = new SQL_Manager();
+    SQL_String sqlString = new SQL_String();
 
     public Contingent getContingent(Costumer costumer){
         ArrayList<Payment> payments = new ArrayList<>();

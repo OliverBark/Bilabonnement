@@ -17,8 +17,8 @@ public class DamageRapportManager {
     }
     private final String primaryKey = "DamageRapport_id";
     private final String tableSections = "(damage, price)";
-    SQL_Manager sqlManager;
-    SQL_String sqlString;
+    SQL_Manager sqlManager = new SQL_Manager();
+    SQL_String sqlString = new SQL_String();
 
     public DamageRapport getDamageRapport(Subscription subscription){
         ArrayList<Damage> damages = new ArrayList<>();

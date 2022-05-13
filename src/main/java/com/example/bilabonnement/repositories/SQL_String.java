@@ -9,7 +9,7 @@ public class SQL_String {
         return "SELECT * FROM " + database + " ORDER BY " + primary_key;
     }
     public String createData(String database, String sections, String values){
-        return "INSERT INTO * " + database + sections +
+        return "INSERT INTO " + database + sections +
                 "VALUES" + values;
     }
     public String deleteData(String database, String primary_key, String value){

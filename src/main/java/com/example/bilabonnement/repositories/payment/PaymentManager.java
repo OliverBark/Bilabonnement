@@ -13,8 +13,8 @@ public class PaymentManager {
     private final String database = "Payments";
     private final String primaryKey = "payment_id";
     private final String sections = "(payment_id, price, date)";
-    SQL_Manager sqlManager;
-    SQL_String sqlString;
+    SQL_Manager sqlManager = new SQL_Manager();
+    SQL_String sqlString = new SQL_String();
 
     public Payment getPayment(String paymentID){
         try {

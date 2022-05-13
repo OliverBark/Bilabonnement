@@ -15,8 +15,8 @@ public class PendingSubscriptionsManager {
     private final String primaryKey = "subscription_id";
     private final String sections = "(subscription_id, model, color, afleveringsforsikring, selvrisiko, location)";
     private SubscriptionManager subscriptionManager;
-    SQL_Manager sqlManager;
-    SQL_String sqlString;
+    SQL_Manager sqlManager = new SQL_Manager();
+    SQL_String sqlString = new SQL_String();
 
     public Subscription getPendingSubscription(String subscriptionID){
         return subscriptionManager.getSubscription(subscriptionID);

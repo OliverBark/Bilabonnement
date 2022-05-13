@@ -10,8 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SalesRecordManager {
-    SQL_Manager sqlManager;
-    SQL_String sqlString;
+    SQL_Manager sqlManager = new SQL_Manager();
+    SQL_String sqlString = new SQL_String();
     private final String database = "SalesRecords";
     private final String primaryKey = "username";
     private final String sections = "(payment_id, amount, type, date)";
