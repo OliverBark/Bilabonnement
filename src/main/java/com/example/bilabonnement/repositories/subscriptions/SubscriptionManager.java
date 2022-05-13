@@ -76,9 +76,4 @@ public class SubscriptionManager {
                 subscription.isSelvrisiko() + "', '" +
                 subscription.getLocation() + "')";
     }
-
-    public static void main(String[] args) {
-        SubscriptionManager subscriptionManager = new SubscriptionManager();
-        System.out.println(subscriptionManager.getSubscription("test"));
-    }
 }

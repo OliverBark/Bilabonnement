@@ -74,9 +74,4 @@ public class CustomerManager {
                 customer.getRegNr() + "', '" +
                 customer.getAccountNr() + "')";
     }
-
-    public static void main(String[] args) {
-        CustomerManager customerManager = new CustomerManager();
-        System.out.println(customerManager.getCustomer("2000"));
-    }
 }
