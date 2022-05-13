@@ -10,9 +10,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SubscriptionManager {
-    private String database;
-    private String primaryKey;
-    private String sections;
+    private String database = "Subscriptions";
+    private String primaryKey = "subscription_id";
+    private String sections = "(subscription_id, model, color, afleveringsforsikring, selvrisiko, location)";
     SQL_Manager sqlManager;
     SQL_String sqlString;
 

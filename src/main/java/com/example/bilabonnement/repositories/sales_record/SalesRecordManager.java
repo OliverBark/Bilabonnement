@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class SalesRecordManager {
     SQL_Manager sqlManager;
     SQL_String sqlString;
-    private String database;
-    private String primaryKey;
-    private String sections;
+    private final String database = "SalesRecords";
+    private final String primaryKey = "username";
+    private final String sections = "(payment_id, amount, type, date)";
 
 
     public SaleRecord getSalesRecord(String value){

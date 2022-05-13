@@ -16,8 +16,8 @@ public class ContingentManager {
     private String database(Costumer costumer){
         return "contingent_" + costumer.getCprNr();
     }
-    private String primaryKey;
-    private String tableSections;
+    private final String primaryKey = "payment_id";
+    private final String tableSections = "('payment_id' varchar(45) NOT NULL)";
     private PaymentManager paymentManager;
     SQL_Manager sqlManager;
     SQL_String sqlString;

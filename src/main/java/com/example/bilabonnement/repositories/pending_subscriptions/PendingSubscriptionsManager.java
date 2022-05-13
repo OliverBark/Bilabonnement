@@ -11,9 +11,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PendingSubscriptionsManager {
-    private String database;
-    private String primaryKey;
-    private String sections;
+    private final String database = "PendingSubscriptions";
+    private final String primaryKey = "subscription_id";
+    private final String sections = "(subscription_id, model, color, afleveringsforsikring, selvrisiko, location)";
     private SubscriptionManager subscriptionManager;
     SQL_Manager sqlManager;
     SQL_String sqlString;

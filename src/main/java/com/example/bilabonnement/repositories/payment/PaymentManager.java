@@ -10,9 +10,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PaymentManager {
-    private String database;
-    private String primaryKey;
-    private String sections;
+    private final String database = "Payments";
+    private final String primaryKey = "payment_id";
+    private final String sections = "(payment_id, price, date)";
     SQL_Manager sqlManager;
     SQL_String sqlString;
 
@@ -25,7 +25,7 @@ public class PaymentManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<Payment> getCostumerList(){
+    public ArrayList<Payment> getPaymentList(){
         ArrayList<Payment> payments = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
@@ -57,7 +57,7 @@ public class PaymentManager {
 
     private Payment generatePayment(ResultSet rs){
         try {
-            return new Payment(rs.getString("payment_id"), rs.getDouble("amount"));
+            return new Payment(rs.getString("payment_id"), rs.getDouble("amount"), rs.getString("date"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

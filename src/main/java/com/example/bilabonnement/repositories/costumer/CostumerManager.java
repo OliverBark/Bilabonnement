@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class CostumerManager {
     SQL_Manager sqlManager;
     SQL_String sqlString;
-    private String database;
-    private String primaryKey;
-    private String sections;
+    private final String database = "Costumers";
+    private final String primaryKey = "cpr_nr";
+    private final String sections = "(first_name, last_name, address, mobile, cpr_nr, reg_nr, account_nr)";
 
 
     public Costumer getCostumer(String cpr){

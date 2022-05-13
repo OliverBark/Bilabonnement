@@ -15,8 +15,8 @@ public class DamageRapportManager {
     private String database(Subscription subscription){
         return "contingent_" + subscription.getSubscriptionID();
     }
-    private String primaryKey;
-    private String tableSections;
+    private final String primaryKey = "DamageRapport_id";
+    private final String tableSections = "(damage, price)";
     SQL_Manager sqlManager;
     SQL_String sqlString;
 
