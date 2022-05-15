@@ -30,7 +30,7 @@ public class DamageRapport {
     @GetMapping("/create-damage-rapport")
     public String createDamageRapport(HttpSession session, Model model){
         model.addAttribute("damages", session.getAttribute("damage-rapport-damages"));
-        model.addAttribute("damage-name", session.getAttribute("damage-rapport-name"));
+        model.addAttribute("damage_name", session.getAttribute("damage-rapport-name"));
         return "damagerapports/create-damage-rapport";
     }
     @GetMapping("/submit-damage-rapport")
