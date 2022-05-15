@@ -15,7 +15,8 @@ public class DamageRapportManger {
     SQL_Manager sqlManager = new SQL_Manager();
     SQL_String sqlString = new SQL_String();
     private final String primaryKey = "damage";
-    private final String tableSections = "(damage varchar(45) NOT NULL, price double NOT NULL, PRIMARY KEY('damage'))";
+    private final String sections = "(damage, price)";
+    private final String tableSections = "(damage varchar(45) NOT NULL, price double NOT NULL, PRIMARY KEY(damage))";
 
     public DamageRapport getDamageRapport(String damageRapportID){
         ArrayList<Damage> damages = new ArrayList<>();
@@ -30,15 +31,13 @@ public class DamageRapportManger {
             throw new RuntimeException(e);
         }
     }
-    public void createDamageRapport(boolean matrix, ActiveSubscription activeSubscription, ArrayList<Damage> damages){
+    public void createDamageRapport(String damageRapportID, ArrayList<Damage> damages){
         try {
             Statement stmt = sqlManager.establishConnection();
-            if(matrix){
-                stmt.executeUpdate(sqlString.createTable("damagerapport_matrix_" +
-                        activeSubscription.getActiveSubscriptionID(), tableSections));
-            } else {
-                stmt.executeUpdate(sqlString.createTable("damagerapport_registered_" +
-                        activeSubscription.getActiveSubscriptionID(), tableSections));
+            stmt.executeUpdate(sqlString.createTable(damageRapportID, tableSections));
+            for (int i = 0; i < damages.size(); i++) {
+                stmt.executeUpdate(sqlString.createData(damageRapportID, sections, "('"+
+                        damages.get(i).getDamage() + "', '" + damages.get(i).getPrice() + "')"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

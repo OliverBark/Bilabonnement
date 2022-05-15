@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating Damage Rapport</title>
+</head>
+<body>
+
+<h1>Add Damage</h1>
+<form method="POST" action="/add-damage">
+    <div>
+        <label for="damage_name">
+            <span class="hidden">Damage Name</span></label>
+        <input autocomplete="damage_name" id="damage_name" type="text" name="damage_name"
+               placeholder=" name " required>
+
+        <label for="damage_price">
+            <span class="hidden">Damage Price</span></label>
+        <input autocomplete="damage_price" id="damage_price" type="number" name="damage_price" class="damage_price"
+               placeholder=" price " required>
+        <button type="submit" >+</button>
+    </div>
+</form>
+<h1>Remove Damage</h1>
+<form method="POST" action="/remove-damage">
+    <div>
+        <label for="damage_name_remove">
+            <span class="hidden">Damage Name</span></label>
+        <input id="damage_name_remove" type="text" name="damage_name_remove"
+               placeholder=" name " required>
+        <button type="submit" >+</button>
+    </div>
+</form>
+
+<form method="get" action="/submit-damage-rapport">
+    <button type="submit" > create damage rapport </button>
+</form>
+
+<div>
+<table>
+    <thead>
+    <th>
+        Damage
+    </th>
+    <th>
+        Price
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each = "damage: ${damages}">
+        <td th:text="${damage.damage}"/>
+        <td th:text="${damage.price}"/>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
