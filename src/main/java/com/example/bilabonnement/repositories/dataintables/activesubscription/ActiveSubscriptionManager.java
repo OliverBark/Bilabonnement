@@ -15,7 +15,7 @@ public class ActiveSubscriptionManager {
     SQL_String sqlString = new SQL_String();
     private final String database = "activesubscriptions";
     private final String primary_key = "active_subscription_id";
-    private final String sections = "(active_subscription_id, subscription_id, price_pr_km, damage_prices, start_date, end_date)";
+    private final String sections = "(active_subscription_id, subscription_id, price_pr_km, damage_prices, start_date, end_date, monthly_fee)";
 
     public ActiveSubscription getActiveSubscription(String activeSubscriptionID){
         try {
@@ -62,7 +62,7 @@ public class ActiveSubscriptionManager {
             DamageRapportManger damageRapportManger = new DamageRapportManger();
             return new ActiveSubscription(rs.getString("active_subscription_id"), rs.getString("subscription_id"),
                     rs.getDouble("price_pr_km"), damageRapportManger.getDamageRapport(rs.getString("damage_prices")).getDamages(),
-                    rs.getString("start_date"), rs.getString("end_date"));
+                    rs.getString("start_date"), rs.getString("end_date"), rs.getDouble("monthly_fee"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -73,6 +73,8 @@ public class ActiveSubscriptionManager {
                 activeSubscription.getPrice_pr_km() + "', '" +
                 activeSubscription.getDamagePrices() + "', '" +
                 activeSubscription.getStartDate() + "', '" +
-                activeSubscription.getEndDate() + "')";
+                activeSubscription.getEndDate() + "', '" +
+                activeSubscription.getMonthly_Fee() + "')";
+
     }
 }

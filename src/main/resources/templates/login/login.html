@@ -2,21 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>login</title>
     <link rel="stylesheet" th:href="@{login.css}">
 </head>
-<body style="background-color: aliceblue">
-<img alt="K.W Bruun" src="/Images/kwbruun.png" style="width: 600px; padding-left: 400px;
- padding-top: 20px; ">
-<div class="login form">
-    <label>
-        <input class="email" placeholder="Email" type="email">
-    </label><br>
-    <label>
-        <input class="password" placeholder="Adgangskode" type="password">
-    </label><br>
-    <button class="button" type="submit">Log In</button>
-</div>
+<body style="background-color: aliceblue; margin: 0;">
+<img alt="K.W Bruun" src="/Images/kwbruun.png">
+
+<form method="POST" action="/logging" class="form login">
+
+
+    <form>
+        <label for="username">
+        <div class="form-field">
+            <input id="username" type="text" name="username" placeholder="username" required/>
+        </div>
+        </label>
+
+        <label for="password">
+        <div class="form-field">
+            <input id = "password" type="password" name="password" placeholder="password" required/></div>
+        </label>
+
+        <div class="form-field">
+            <button class="btn" type="submit">Log in</button>
+        </div>
+    </form>
+
+</form>
 </body>
 </html>

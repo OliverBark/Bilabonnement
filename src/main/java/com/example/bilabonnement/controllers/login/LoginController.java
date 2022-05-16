@@ -15,25 +15,27 @@ public class LoginController {
     ControllerService conService = new ControllerService();
 
     @GetMapping("/")
-    public String login(HttpSession session, @RequestParam String status){
-        if(session!=null){
+    public String login(HttpSession session){
+        if(session.getAttribute("username")!=null){
             //Allerede logget ind
-            return "";
+            return "redirect:/forside";
         }
         //Ikke logge ind
-        return "";
+        return "login/login";
     }
     @PostMapping("/logging") //log into an existing user
     public String logging(WebRequest dataFromForm, HttpSession session) {
         SQL_Manager sql = new SQL_Manager();
         sql.start();
         try {
+            System.out.println("data username" + dataFromForm.getParameter("username"));
             if (sql.login(dataFromForm.getParameter("username"), dataFromForm.getParameter("password"))) {
                 //successful login
                 session.setAttribute("username", dataFromForm.getParameter("username"));
                 return "redirect:/forside";
             } else {
                 //invalid login
+                System.out.println("Invalid login");
                 return "redirect:/login";
             }
         } catch (Exception e) {

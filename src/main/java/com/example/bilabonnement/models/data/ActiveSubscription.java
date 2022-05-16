@@ -12,14 +12,18 @@ public class ActiveSubscription {
     private final String startDate;
     private final String endDate;
 
+    private final double monthly_Fee;
+
+
     public ActiveSubscription(String activeSubscriptionID, String subscriptionID, double price_pr_km,
-                              ArrayList<Damage> damagePrices, String startDate, String endDate) {
+                              ArrayList<Damage> damagePrices, String startDate, String endDate, double monthly_fee) {
         this.activeSubscriptionID = activeSubscriptionID;
         this.subscriptionID = subscriptionID;
         this.price_pr_km = price_pr_km;
         this.damagePrices = damagePrices;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.monthly_Fee = monthly_fee;
     }
 
     public String getActiveSubscriptionID() {
@@ -44,5 +48,8 @@ public class ActiveSubscription {
 
     public String getEndDate() {
         return endDate;
+    }
+    public double getMonthly_Fee() {
+        return monthly_Fee;
     }
 }

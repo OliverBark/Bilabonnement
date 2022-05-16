@@ -49,6 +49,9 @@ public class SQL_Manager {
 
 
     public boolean login(String username, String password) { //User can log in, and program registers credentials
+        System.out.println("invalid login");
+        System.out.println("username" + username);
+        System.out.println("password" + password);
         try {
             rs = stmt.executeQuery("SELECT * FROM users ORDER BY username");
             while (rs.next()) {

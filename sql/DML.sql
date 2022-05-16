@@ -6,4 +6,4 @@ VALUES ('Oliver',
 
 INSERT INTO Users (`username`,`password`)
 VALUES ('Shaun',
-        'admin1');
+        'admin');

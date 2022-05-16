@@ -48,4 +48,5 @@ CREATE TABLE `ActiveSubscriptions` (
                          `damage_prices` varchar(45) NOT NULL,
                          `start_date` varchar(45) NOT NULL,
                          `end_date` varchar(45) NOT NULL,
+                         `monthly_fee` double NOT NULL,
                          PRIMARY KEY (`active_subscription_id`));
