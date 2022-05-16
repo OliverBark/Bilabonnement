@@ -19,6 +19,11 @@ public class DamageRapport {
 
     @GetMapping("/new-damage-rapport")
     public String newDamageRapport(HttpSession session){
+        //Test Function right now
+
+        //Before going to create-damage-rapport
+        //session(damage-rapport-name) could be name of owner and type of rapport
+        //session(damage-rapport-id) needs to be made
         DamageManager damageManager = new DamageManager();
         DamageRapportManager damageRapportManager = new DamageRapportManager();
         session.setAttribute("damage-rapport-name", "Test Damage Rapport");
@@ -43,16 +48,12 @@ public class DamageRapport {
 
     @PostMapping("/remove-damage")
     public String removeDamage(HttpSession session, WebRequest dataFromForm){
-        System.out.println("remove damage");
         DamageManager damageManager = new DamageManager();
         ArrayList<Damage> damages = damageManager.getDamageList();
         for (int i = 0; i < damages.size(); i++) {
-            System.out.println("i - " + i);
             System.out.println(damages.get(i));
             if(damages.get(i).getRapportID() == (Integer) session.getAttribute("damage-rapport-id")){
-                System.out.println("first if");
                 if(damages.get(i).getDamage().equalsIgnoreCase(dataFromForm.getParameter("damage_name_remove"))){
-                    System.out.println("second if");
                     damageManager.deleteDamage(damages.get(i).getDamageID());
                 }
             }
