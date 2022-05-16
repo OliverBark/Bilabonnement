@@ -2,6 +2,7 @@ package com.example.bilabonnement.models.data;
 
 import com.example.bilabonnement.models.damage.Damage;
 
+import java.time.DateTimeException;
 import java.util.ArrayList;
 
 public class ActiveSubscription {
@@ -13,6 +14,7 @@ public class ActiveSubscription {
     private final String endDate;
 
     private final double monthly_Fee;
+
 
 
     public ActiveSubscription(String activeSubscriptionID, String subscriptionID, double price_pr_km,
