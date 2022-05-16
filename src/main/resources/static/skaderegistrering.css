@@ -25,3 +25,14 @@ h1{
 .createbutton{
 margin: auto;
 }
+
+.padding-left{
+    padding-left: 30%;
+}
+
+input {
+    width: 25%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-color: cadetblue;
+}
