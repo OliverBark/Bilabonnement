@@ -1,25 +1,19 @@
 package com.example.bilabonnement.models.damage;
 
-import java.util.ArrayList;
-
 public class DamageRapport {
-    /*
-    damagerapport_matrix_id
-    damagerapport_registered_id
-     */
-    private final String damageRapportID;
-    private final ArrayList<Damage> damages;
+    private final int id;
+    private final int subscription_id;
 
-    public DamageRapport(String damageRapportID, ArrayList<Damage> damages) {
-        this.damages = damages;
-        this.damageRapportID = damageRapportID;
+    public DamageRapport(int id, int subscription_id) {
+        this.id = id;
+        this.subscription_id = subscription_id;
     }
 
-    public String getDamageRapportID() {
-        return damageRapportID;
+    public int getId() {
+        return id;
     }
 
-    public ArrayList<Damage> getDamages() {
-        return damages;
+    public int getSubscription_id() {
+        return subscription_id;
     }
 }

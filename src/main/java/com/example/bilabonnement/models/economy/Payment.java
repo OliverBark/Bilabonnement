@@ -1,33 +1,34 @@
 package com.example.bilabonnement.models.economy;
 
-public class Payment {
-    private final String paymentID;
-    private final double price;
-    private final String date;
+import java.time.LocalDate;
 
-    public Payment(String paymentID, double price, String date) {
+public class Payment {
+    private final int paymentID;
+    private final double price;
+    private final LocalDate date;
+    private final int subscriptionID;
+
+
+    public Payment(int paymentID, double price, LocalDate date, int subscriptionID) {
         this.paymentID = paymentID;
         this.price = price;
         this.date = date;
+        this.subscriptionID = subscriptionID;
     }
 
-    public String getPaymentID() {
+    public int getPaymentID() {
         return paymentID;
     }
+
     public double getPrice() {
         return price;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentID='" + paymentID + '\'' +
-                ", price=" + price +
-                ", date='" + date + '\'' +
-                '}';
+    public int getSubscriptionID() {
+        return subscriptionID;
     }
 }

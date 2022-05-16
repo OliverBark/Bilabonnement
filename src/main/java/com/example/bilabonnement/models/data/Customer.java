@@ -6,10 +6,10 @@ public class Customer {
     private final String address;
     private final String mobile;
     private final String cprNr;
-    private final String regNr;
-    private final String accountNr;
+    private final int regNr;
+    private final int accountNr;
 
-    public Customer(String firstName, String lastName, String address, String mobile, String cprNr, String regNr, String accountNr){
+    public Customer(String firstName, String lastName, String address, String mobile, String cprNr, int regNr, int accountNr){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -37,10 +37,10 @@ public class Customer {
         return cprNr;
     }
 
-    public String getRegNr() {
+    public int getRegNr() {
         return regNr;
     }
-    public String getAccountNr() {
+    public int getAccountNr() {
         return accountNr;
     }
 

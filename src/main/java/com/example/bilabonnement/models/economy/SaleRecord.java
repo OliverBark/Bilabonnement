@@ -1,12 +1,14 @@
 package com.example.bilabonnement.models.economy;
 
+import java.time.LocalDate;
+
 public class SaleRecord {
     private final String payment_id;
     private final double amount;
     private final String type;
-    private final String date;
+    private final LocalDate date;
 
-    public SaleRecord(String payment_id, double amount, String type, String date) {
+    public SaleRecord(String payment_id, double amount, String type, LocalDate date) {
         this.payment_id = payment_id;
         this.amount = amount;
         this.type = type;
@@ -25,7 +27,7 @@ public class SaleRecord {
         return type;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 }

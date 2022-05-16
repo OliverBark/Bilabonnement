@@ -46,7 +46,7 @@ CREATE TABLE `SalesRecords` (
                          `payment_id` varchar(45) NOT NULL,
                          `amount` double NOT NULL,
                          `type` varchar(45),
-                         `date` varchar(45),
+                         `date` date,
                          PRIMARY KEY (`payment_id`));
 
 CREATE TABLE `Pending_subscriptions`(
