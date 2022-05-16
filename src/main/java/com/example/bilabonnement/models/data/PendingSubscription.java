@@ -54,5 +54,19 @@ public class PendingSubscription {
     public double getMonthlyFee() {
         return monthlyFee;
     }
+
+    @Override
+    public String toString() {
+        return "PendingSubscription{" +
+                "id=" + id +
+                ", customerCPR='" + customerCPR + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", afleveringsforsikring=" + afleveringsforsikring +
+                ", selvrisiko=" + selvrisiko +
+                ", location='" + location + '\'' +
+                ", monthlyFee=" + monthlyFee +
+                '}';
+    }
 }
 

@@ -16,7 +16,7 @@ CREATE TABLE `Customers` (
 
 CREATE TABLE `Payments` (
                             `payment_id` INT NOT NULL AUTO_INCREMENT,
-                            `price` double NOT NULL,
+                            `amount` double NOT NULL,
                             `date` DATETIME NOT NULL,
                             `subscription_id` INT NOT NULL,
                             PRIMARY KEY (`payment_id`));
@@ -42,8 +42,8 @@ CREATE TABLE `Users` (
                          PRIMARY KEY (`username`),
                          UNIQUE KEY `username_UNIQUE` (`username`));
 
-CREATE TABLE `SalesRecords` (
-                         `payment_id` varchar(45) NOT NULL,
+CREATE TABLE `Sales_records` (
+                         `payment_id` INT NOT NULL AUTO_INCREMENT,
                          `amount` double NOT NULL,
                          `type` varchar(45),
                          `date` date,
@@ -60,13 +60,15 @@ CREATE TABLE `Pending_subscriptions`(
                         `monthly_fee` DOUBLE NOT NULL,
                         PRIMARY KEY (`id`));
 
-CREATE TABLE `Damage_report` (
+CREATE TABLE `Damage_rapport` (
                         `id` INT NOT NULL AUTO_INCREMENT,
                         `subscription_id` INT NOT NULL,
+                        `description` varchar(1000),
                         PRIMARY KEY (`id`));
 
 CREATE TABLE `Damages`(
                         `damage_id` INT NOT NULL AUTO_INCREMENT,
+                        `rapport_id` INT NOT NULL,
                         `damage` VARCHAR(100),
                         `price` DOUBLE,
                         PRIMARY KEY (damage_id));

@@ -2,24 +2,40 @@ package com.example.bilabonnement.models.damage;
 
 public class Damage {
     private final int damageID;
-    private final String damage;
-    private final double price;
+    private final int rapportID;
+    private final String price;
+    private final double amount;
 
-    public Damage(int damageID, String damage, double price) {
+    public Damage(int damageID, int rapportID, String damage, double price) {
         this.damageID = damageID;
-        this.damage = damage;
-        this.price = price;
+        this.rapportID = rapportID;
+        this.price = damage;
+        this.amount = price;
     }
 
     public int getDamageID() {
         return damageID;
     }
 
-    public String getDamage() {
-        return damage;
+    public int getRapportID() {
+        return rapportID;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Damage{" +
+                "damageID=" + damageID +
+                ", rapportID=" + rapportID +
+                ", damage='" + price + '\'' +
+                ", price=" + amount +
+                '}';
     }
 }

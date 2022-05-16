@@ -1,17 +1,17 @@
 package com.example.bilabonnement.models.economy;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Payment {
     private final int paymentID;
-    private final double price;
-    private final LocalDate date;
+    private final double amount;
+    private final Date date;
     private final int subscriptionID;
 
 
-    public Payment(int paymentID, double price, LocalDate date, int subscriptionID) {
+    public Payment(int paymentID, double price, Date date, int subscriptionID) {
         this.paymentID = paymentID;
-        this.price = price;
+        this.amount = price;
         this.date = date;
         this.subscriptionID = subscriptionID;
     }
@@ -20,11 +20,11 @@ public class Payment {
         return paymentID;
     }
 
-    public double getPrice() {
-        return price;
+    public double getAmount() {
+        return amount;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 

@@ -1,26 +1,26 @@
 package com.example.bilabonnement.models.data;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Subscription {
     private final int subscriptionID;
-    private final String holder;
+    private final String customerCPR;
     private final String model;
     private final String color;
     private final boolean afleveringsforsikring;
     private final boolean selvrisiko;
     private final String location;
     private final double pricePrKm;
-    private final LocalDate startDate;
-    private final LocalDate endDate;
+    private final Date startDate;
+    private final Date endDate;
     private final double monthlyFee;
     private final boolean active;
 
     public Subscription(int subscriptionID, String holder, String model, String color, boolean afleveringsforsikring,
-                        boolean selvrisiko, String location, double pricePrKm, LocalDate startDate, LocalDate endDate,
+                        boolean selvrisiko, String location, double pricePrKm, Date startDate, Date endDate,
                         double monthlyFee, boolean active) {
         this.subscriptionID = subscriptionID;
-        this.holder = holder;
+        this.customerCPR = holder;
         this.model = model;
         this.color = color;
         this.afleveringsforsikring = afleveringsforsikring;
@@ -37,8 +37,8 @@ public class Subscription {
         return subscriptionID;
     }
 
-    public String getHolder() {
-        return holder;
+    public String getCustomerCPR() {
+        return customerCPR;
     }
 
     public String getModel() {
@@ -65,11 +65,11 @@ public class Subscription {
         return pricePrKm;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
