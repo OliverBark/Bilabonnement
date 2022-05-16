@@ -11,7 +11,6 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Objects;
 
 @Controller
 public class DamageRapport {
@@ -31,7 +30,7 @@ public class DamageRapport {
     public String createDamageRapport(HttpSession session, Model model){
         model.addAttribute("damages", session.getAttribute("damage-rapport-damages"));
         model.addAttribute("damage_name", session.getAttribute("damage-rapport-name"));
-        return "damagerapports/create-damage-rapport";
+        return "skadesregistrering/create-damage-rapport";
     }
     @GetMapping("/submit-damage-rapport")
     public String submitDamageRapport(HttpSession session){

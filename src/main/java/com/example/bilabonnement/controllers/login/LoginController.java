@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     ControllerService conService = new ControllerService();
 
+    @GetMapping("/login")
+    public String index(){ return "login/login";}
+
     @GetMapping("/")
     public String login(HttpSession session){
         if(session.getAttribute("username")!=null){
