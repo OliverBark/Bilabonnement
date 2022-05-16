@@ -3,13 +3,13 @@ package com.example.bilabonnement.models.damage;
 public class Damage {
     private final int damageID;
     private final int rapportID;
-    private final String price;
+    private final String damage;
     private final double amount;
 
     public Damage(int damageID, int rapportID, String damage, double price) {
         this.damageID = damageID;
         this.rapportID = rapportID;
-        this.price = damage;
+        this.damage = damage;
         this.amount = price;
     }
 
@@ -21,8 +21,8 @@ public class Damage {
         return rapportID;
     }
 
-    public String getPrice() {
-        return price;
+    public String getDamage() {
+        return damage;
     }
 
     public double getAmount() {
@@ -34,7 +34,7 @@ public class Damage {
         return "Damage{" +
                 "damageID=" + damageID +
                 ", rapportID=" + rapportID +
-                ", damage='" + price + '\'' +
+                ", damage='" + damage + '\'' +
                 ", price=" + amount +
                 '}';
     }

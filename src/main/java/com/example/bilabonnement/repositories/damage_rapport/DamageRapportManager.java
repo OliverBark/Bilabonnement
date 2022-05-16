@@ -19,6 +19,9 @@ public class DamageRapportManager {
     private final String primaryKey = "id";
     private final String sections = "(subscription_id, description)";
 
+
+
+    //Basic
     public DamageRapport getDamageRapport(int id){
         try {
             Statement stmt = sqlManager.establishConnection();

@@ -19,6 +19,24 @@ public class DamageManager {
     private final String primaryKey = "damage_id";
     private final String sections = "(rapport_id, damage, price)";
 
+
+
+    public ArrayList<Damage> findDamages(int damageRapportID){
+        ArrayList<Damage> damages = new ArrayList<>();
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database,
+                    "rapport_id", String.valueOf(damageRapportID)));
+            while(rs.next()){
+                damages.add(generateDamage(rs));
+            }
+            return damages;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //basic
     public Damage getDamage(int damageID){
         try {
             Statement stmt = sqlManager.establishConnection();
@@ -54,6 +72,7 @@ public class DamageManager {
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(damageID)));
+            System.out.println("stmt executed");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -46,7 +46,7 @@ public class SQL_Models {
     }
     public String generateDamageValues(Damage damage){
         return "('" + damage.getRapportID() + "', '" +
-                damage.getPrice() + "', '" +
+                damage.getDamage() + "', '" +
                 damage.getAmount() + "')";
     }
     public String generateDamageRapportValues(DamageRapport damageRapport){
