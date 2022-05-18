@@ -60,7 +60,7 @@ CREATE TABLE `Pending_rentals`(
                         `monthly_fee` DOUBLE NOT NULL,
                         PRIMARY KEY (`pending_rental_id`));
 
-CREATE TABLE `Damage_report` (
+CREATE TABLE `Damage_reports` (
                         `report_id` INT NOT NULL AUTO_INCREMENT,
                         `rental_id` INT NOT NULL,
                         `description` varchar(1000),

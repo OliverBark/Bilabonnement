@@ -17,7 +17,7 @@ public class PaymentManager {
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Payments";
     private final String primaryKey = "payment_id";
-    private final String sections = "(amount, date, subscription_id)";
+    private final String sections = "(amount, date, rental_id)";
 
     public Payment getPayment(int paymentID){
         try {
@@ -62,7 +62,7 @@ public class PaymentManager {
     private Payment generatePayment(ResultSet rs){
         try {
             return new Payment(rs.getInt("payment_id"), rs.getDouble("amount"),
-                    rs.getDate("date"), rs.getInt("subscription_id"));
+                    rs.getDate("date"), rs.getInt("rental_id"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -2,7 +2,7 @@ package com.example.bilabonnement.controllers.damagerapport;
 
 import com.example.bilabonnement.models.damage.Damage;
 import com.example.bilabonnement.repositories.damage.DamageManager;
-import com.example.bilabonnement.repositories.damage_rapport.DamageRapportManager;
+import com.example.bilabonnement.repositories.damage_report.DamageRapportManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

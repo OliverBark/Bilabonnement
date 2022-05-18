@@ -17,7 +17,7 @@ public class DamageManager {
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Damages";
     private final String primaryKey = "damage_id";
-    private final String sections = "(rapport_id, damage, price)";
+    private final String sections = "(report_id, damage, price)";
 
 
 
@@ -80,7 +80,7 @@ public class DamageManager {
 
     private Damage generateDamage(ResultSet rs){
         try {
-            return new Damage(rs.getInt("damage_id"), rs.getInt("rapport_id"), rs.getString("damage"), rs.getDouble("price"));
+            return new Damage(rs.getInt("damage_id"), rs.getInt("report_id"), rs.getString("damage"), rs.getDouble("price"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
