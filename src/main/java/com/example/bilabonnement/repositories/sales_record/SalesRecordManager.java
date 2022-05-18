@@ -1,6 +1,5 @@
 package com.example.bilabonnement.repositories.sales_record;
 
-import com.example.bilabonnement.models.data.PendingSubscription;
 import com.example.bilabonnement.models.economy.SalesRecord;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;

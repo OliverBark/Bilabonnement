@@ -2,13 +2,13 @@ package com.example.bilabonnement.models.damage;
 
 public class Damage {
     private final int damageID;
-    private final int rapportID;
+    private final int reportID;
     private final String damage;
     private final double amount;
 
-    public Damage(int damageID, int rapportID, String damage, double price) {
+    public Damage(int damageID, int reportID, String damage, double price) {
         this.damageID = damageID;
-        this.rapportID = rapportID;
+        this.reportID = reportID;
         this.damage = damage;
         this.amount = price;
     }
@@ -17,8 +17,8 @@ public class Damage {
         return damageID;
     }
 
-    public int getRapportID() {
-        return rapportID;
+    public int getReportID() {
+        return reportID;
     }
 
     public String getDamage() {
@@ -33,7 +33,7 @@ public class Damage {
     public String toString() {
         return "Damage{" +
                 "damageID=" + damageID +
-                ", rapportID=" + rapportID +
+                ", rapportID=" + reportID +
                 ", damage='" + damage + '\'' +
                 ", price=" + amount +
                 '}';

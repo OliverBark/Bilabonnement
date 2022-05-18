@@ -1,7 +1,6 @@
 package com.example.bilabonnement.repositories.subscription;
 
-import com.example.bilabonnement.models.data.PendingSubscription;
-import com.example.bilabonnement.models.data.Subscription;
+import com.example.bilabonnement.models.data.Rental;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
@@ -20,7 +19,7 @@ public class SubscriptionManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
             "location, price_pr_km, start_date, end_date, monthly_fee, active, monthly_fee)";
 
-    public Subscription getSubscription(int subscriptionID){
+    public Rental getSubscription(int subscriptionID){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(subscriptionID)));
@@ -30,23 +29,23 @@ public class SubscriptionManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<Subscription> getSubscriptionList(){
-        ArrayList<Subscription> subscriptions = new ArrayList<>();
+    public ArrayList<Rental> getSubscriptionList(){
+        ArrayList<Rental> rentals = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                subscriptions.add(generateSubscription(rs));
+                rentals.add(generateSubscription(rs));
             }
-            return subscriptions;
+            return rentals;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createSubscription(Subscription subscription){
+    public void createSubscription(Rental rental){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(subscription)));
+            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(rental)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -60,9 +59,9 @@ public class SubscriptionManager {
         }
     }
 
-    private Subscription generateSubscription(ResultSet rs){
+    private Rental generateSubscription(ResultSet rs){
         try {
-            return new Subscription(rs.getInt("subscription_id"), rs.getString("customer_cpr"), rs.getString("model"),
+            return new Rental(rs.getInt("subscription_id"), rs.getString("customer_cpr"), rs.getString("model"),
                     rs.getString("color"), rs.getBoolean("afleveringsforsikring"), rs.getBoolean("selvrisiko"),
                     rs.getString("location"), rs.getDouble("price_pr_km"), rs.getDate("start_date"),
                     rs.getDate("end_date"), rs.getDouble("monthly_fee"), rs.getBoolean("active"));

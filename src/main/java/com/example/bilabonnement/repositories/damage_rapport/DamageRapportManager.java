@@ -1,7 +1,6 @@
 package com.example.bilabonnement.repositories.damage_rapport;
 
-import com.example.bilabonnement.models.damage.Damage;
-import com.example.bilabonnement.models.damage.DamageRapport;
+import com.example.bilabonnement.models.damage.DamageReport;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
@@ -22,7 +21,7 @@ public class DamageRapportManager {
 
 
     //Basic
-    public DamageRapport getDamageRapport(int id){
+    public DamageReport getDamageRapport(int id){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(id)));
@@ -32,23 +31,23 @@ public class DamageRapportManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<DamageRapport> getDamageRapportList(){
-        ArrayList<DamageRapport> damageRapports = new ArrayList<>();
+    public ArrayList<DamageReport> getDamageRapportList(){
+        ArrayList<DamageReport> damageReports = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                damageRapports.add(generateDamageRapport(rs));
+                damageReports.add(generateDamageRapport(rs));
             }
-            return damageRapports;
+            return damageReports;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createDamageRapport(DamageRapport damageRapport){
+    public void createDamageRapport(DamageReport damageReport){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(damageRapport)));
+            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(damageReport)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -62,9 +61,9 @@ public class DamageRapportManager {
         }
     }
 
-    private DamageRapport generateDamageRapport(ResultSet rs){
+    private DamageReport generateDamageRapport(ResultSet rs){
         try {
-            return new DamageRapport(rs.getInt("id"), rs.getInt("subscription_id"), rs.getString("description"));
+            return new DamageReport(rs.getInt("id"), rs.getInt("subscription_id"), rs.getString("description"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

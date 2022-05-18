@@ -1,7 +1,6 @@
 package com.example.bilabonnement.repositories.pending_subscription;
 
-import com.example.bilabonnement.models.damage.DamageRapport;
-import com.example.bilabonnement.models.data.PendingSubscription;
+import com.example.bilabonnement.models.data.PendingRental;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
@@ -20,7 +19,7 @@ public class PendingSubscriptionManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
         "location, monthly_fee)";
 
-    public PendingSubscription getPendingSubscription(int id){
+    public PendingRental getPendingSubscription(int id){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(id)));
@@ -30,23 +29,23 @@ public class PendingSubscriptionManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<PendingSubscription> getPendingSubscriptionList(){
-        ArrayList<PendingSubscription> pendingSubscriptions = new ArrayList<>();
+    public ArrayList<PendingRental> getPendingSubscriptionList(){
+        ArrayList<PendingRental> pendingRentals = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                pendingSubscriptions.add(generatePendingSubscription(rs));
+                pendingRentals.add(generatePendingSubscription(rs));
             }
-            return pendingSubscriptions;
+            return pendingRentals;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createPendingSubscription(PendingSubscription pendingSubscription){
+    public void createPendingSubscription(PendingRental pendingRental){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(pendingSubscription)));
+            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(pendingRental)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -60,9 +59,9 @@ public class PendingSubscriptionManager {
         }
     }
 
-    private PendingSubscription generatePendingSubscription(ResultSet rs){
+    private PendingRental generatePendingSubscription(ResultSet rs){
         try {
-            return new PendingSubscription(rs.getInt("id"), rs.getString("customer_cpr"), rs.getString("model"),
+            return new PendingRental(rs.getInt("id"), rs.getString("customer_cpr"), rs.getString("model"),
                     rs.getString("color"), rs.getBoolean("afleveringsforsikring"), rs.getBoolean("selvrisiko"),
                     rs.getString("location"), rs.getDouble("monthly_fee"));
         } catch (SQLException e) {

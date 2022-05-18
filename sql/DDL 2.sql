@@ -18,11 +18,11 @@ CREATE TABLE `Payments` (
                             `payment_id` INT NOT NULL AUTO_INCREMENT,
                             `amount` double NOT NULL,
                             `date` DATETIME NOT NULL,
-                            `subscription_id` INT NOT NULL,
+                            `rental_id` INT NOT NULL,
                             PRIMARY KEY (`payment_id`));
 
-CREATE TABLE `Subscriptions` (
-                                 `subscription_id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Rentals` (
+                                 `rental_id` INT NOT NULL AUTO_INCREMENT,
                                  `customer_cpr` varchar(15) NOT NULL,
                                  `model` varchar(45) NOT NULL,
                                  `color` varchar(45) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `Subscriptions` (
                                  `end_date` DATETIME NOT NULL,
                                  `monthly_fee` DOUBLE NOT NULL,
                                  `active` BOOLEAN NOT NULL,
-                                 PRIMARY KEY (`subscription_id`));
+                                 PRIMARY KEY (`rental_id`));
 
 CREATE TABLE `Users` (
                          `username` varchar(45) NOT NULL,
@@ -42,15 +42,15 @@ CREATE TABLE `Users` (
                          PRIMARY KEY (`username`),
                          UNIQUE KEY `username_UNIQUE` (`username`));
 
-CREATE TABLE `Sales_records` (
+CREATE TABLE `Sale_records` (
                          `payment_id` INT NOT NULL AUTO_INCREMENT,
                          `amount` double NOT NULL,
                          `type` varchar(45),
                          `date` date,
                          PRIMARY KEY (`payment_id`));
 
-CREATE TABLE `Pending_subscriptions`(
-                        `id` INT NOT NULL AUTO_INCREMENT ,
+CREATE TABLE `Pending_rentals`(
+                        `pending_rental_id` INT NOT NULL AUTO_INCREMENT ,
                         `customer_cpr` varchar(15) NOT NULL,
                         `model` varchar(45) NOT NULL,
                         `color` varchar(45) NOT NULL,
@@ -58,17 +58,17 @@ CREATE TABLE `Pending_subscriptions`(
                         `selvrisiko` BOOLEAN DEFAULT NULL,
                         `location` varchar(45) NOT NULL,
                         `monthly_fee` DOUBLE NOT NULL,
-                        PRIMARY KEY (`id`));
+                        PRIMARY KEY (`pending_rental_id`));
 
-CREATE TABLE `Damage_rapport` (
-                        `id` INT NOT NULL AUTO_INCREMENT,
-                        `subscription_id` INT NOT NULL,
+CREATE TABLE `Damage_report` (
+                        `report_id` INT NOT NULL AUTO_INCREMENT,
+                        `rental_id` INT NOT NULL,
                         `description` varchar(1000),
-                        PRIMARY KEY (`id`));
+                        PRIMARY KEY (`report_id`));
 
 CREATE TABLE `Damages`(
                         `damage_id` INT NOT NULL AUTO_INCREMENT,
-                        `rapport_id` INT NOT NULL,
+                        `report_id` INT NOT NULL,
                         `damage` VARCHAR(100),
                         `price` DOUBLE,
                         PRIMARY KEY (damage_id));

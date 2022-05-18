@@ -1,30 +1,40 @@
 package com.example.bilabonnement.models.data;
 
-public class PendingSubscription {
-    private final int id;
+import java.util.Date;
+
+public class Rental {
+    private final int rentalID;
     private final String customerCPR;
     private final String model;
     private final String color;
     private final boolean afleveringsforsikring;
     private final boolean selvrisiko;
     private final String location;
+    private final double pricePrKm;
+    private final Date startDate;
+    private final Date endDate;
     private final double monthlyFee;
+    private final boolean active;
 
-
-    public PendingSubscription(int id, String customerCPR, String model, String color, boolean afleveringsforsikring,
-                               boolean selvrisiko, String location, double monthlyFee) {
-        this.id = id;
-        this.customerCPR = customerCPR;
+    public Rental(int subscriptionID, String holder, String model, String color, boolean afleveringsforsikring,
+                  boolean selvrisiko, String location, double pricePrKm, Date startDate, Date endDate,
+                  double monthlyFee, boolean active) {
+        this.rentalID = subscriptionID;
+        this.customerCPR = holder;
         this.model = model;
         this.color = color;
         this.afleveringsforsikring = afleveringsforsikring;
         this.selvrisiko = selvrisiko;
         this.location = location;
+        this.pricePrKm = pricePrKm;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.monthlyFee = monthlyFee;
+        this.active = active;
     }
 
-    public int getId() {
-        return id;
+    public int getRentalID() {
+        return rentalID;
     }
 
     public String getCustomerCPR() {
@@ -51,22 +61,23 @@ public class PendingSubscription {
         return location;
     }
 
+    public double getPricePrKm() {
+        return pricePrKm;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
     public double getMonthlyFee() {
         return monthlyFee;
     }
 
-    @Override
-    public String toString() {
-        return "PendingSubscription{" +
-                "id=" + id +
-                ", customerCPR='" + customerCPR + '\'' +
-                ", model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", afleveringsforsikring=" + afleveringsforsikring +
-                ", selvrisiko=" + selvrisiko +
-                ", location='" + location + '\'' +
-                ", monthlyFee=" + monthlyFee +
-                '}';
+    public boolean isActive() {
+        return active;
     }
 }
-

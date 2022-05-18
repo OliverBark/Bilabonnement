@@ -1,13 +1,13 @@
 package com.example.bilabonnement.models.damage;
 
-public class DamageRapport {
+public class DamageReport {
     private final int id;
-    private final int subscription_id;
+    private final int rental_id;
     private final String description;
 
-    public DamageRapport(int id, int subscription_id, String description) {
+    public DamageReport(int id, int subscription_id, String description) {
         this.id = id;
-        this.subscription_id = subscription_id;
+        this.rental_id = subscription_id;
         this.description = description;
     }
 
@@ -15,8 +15,8 @@ public class DamageRapport {
         return id;
     }
 
-    public int getSubscription_id() {
-        return subscription_id;
+    public int getRental_id() {
+        return rental_id;
     }
 
     public String getDescription() {

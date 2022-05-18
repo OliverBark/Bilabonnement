@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
@@ -52,7 +51,7 @@ public class DamageRapport {
         ArrayList<Damage> damages = damageManager.getDamageList();
         for (int i = 0; i < damages.size(); i++) {
             System.out.println(damages.get(i));
-            if(damages.get(i).getRapportID() == (Integer) session.getAttribute("damage-rapport-id")){
+            if(damages.get(i).getReportID() == (Integer) session.getAttribute("damage-rapport-id")){
                 if(damages.get(i).getDamage().equalsIgnoreCase(dataFromForm.getParameter("damage_name_remove"))){
                     damageManager.deleteDamage(damages.get(i).getDamageID());
                 }

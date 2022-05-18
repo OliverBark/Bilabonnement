@@ -6,14 +6,14 @@ public class Payment {
     private final int paymentID;
     private final double amount;
     private final Date date;
-    private final int subscriptionID;
+    private final int rentalID;
 
 
-    public Payment(int paymentID, double price, Date date, int subscriptionID) {
+    public Payment(int paymentID, double price, Date date, int rentalID) {
         this.paymentID = paymentID;
         this.amount = price;
         this.date = date;
-        this.subscriptionID = subscriptionID;
+        this.rentalID = rentalID;
     }
 
     public int getPaymentID() {
@@ -28,7 +28,7 @@ public class Payment {
         return date;
     }
 
-    public int getSubscriptionID() {
-        return subscriptionID;
+    public int getRentalID() {
+        return rentalID;
     }
 }
