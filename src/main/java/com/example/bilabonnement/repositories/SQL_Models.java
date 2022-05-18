@@ -50,13 +50,11 @@ public class SQL_Models {
                 damage.getAmount() + "')";
     }
     public String generateDamageRapportValues(DamageReport damageReport){
-        return "('" + damageReport.getReportId() + "', '" +
-                damageReport.getRentalId() + "', '" +
+        return "('" + damageReport.getRentalId() + "', '" +
                 damageReport.getDescription() + "')";
     }
     public String generatePaymentValues(Payment payment){
-        return "('" + payment.getPaymentId() + "', '" +
-                payment.getAmount() + "', '" +
+        return "('" + payment.getAmount() + "', '" +
                 payment.getDate() + "', '" +
                 payment.getRentalId() + "')";
     }
