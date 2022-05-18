@@ -19,7 +19,7 @@ public class RentalManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
             "location, price_pr_km, start_date, end_date, monthly_fee, active, monthly_fee)";
 
-    public Rental getSubscription(int subscriptionID){
+    public Rental getRental(int subscriptionID){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(subscriptionID)));
@@ -29,7 +29,7 @@ public class RentalManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<Rental> getSubscriptionList(){
+    public ArrayList<Rental> getRentalList(){
         ArrayList<Rental> rentals = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
@@ -42,7 +42,7 @@ public class RentalManager {
             throw new RuntimeException(e);
         }
     }
-    public void createSubscription(Rental rental){
+    public void createRental(Rental rental){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(rental)));
@@ -50,7 +50,7 @@ public class RentalManager {
             throw new RuntimeException(e);
         }
     }
-    public void deleteSubscription(int subscriptionID){
+    public void deleteRental(int subscriptionID){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(subscriptionID)));

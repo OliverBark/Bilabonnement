@@ -17,19 +17,19 @@ public class SQL_Models {
             return generateDamageValues((Damage) object);
         }
         if(object instanceof DamageReport){
-            return generateDamageRapportValues((DamageReport) object);
+            return generateDamageReportValues((DamageReport) object);
         }
         if(object instanceof Payment){
             return generatePaymentValues((Payment) object);
         }
         if(object instanceof PendingRental){
-            return generatePendingSubscriptionValues((PendingRental) object);
+            return generatePendingRentalValues((PendingRental) object);
         }
         if(object instanceof SaleRecord){
-            return generateSalesRecordValues((SaleRecord) object);
+            return generateSaleRecordValues((SaleRecord) object);
         }
         if(object instanceof Rental){
-            return generateSubscriptionValues((Rental) object);
+            return generateRentalValues((Rental) object);
         }
         else {
             return "oof";
@@ -49,7 +49,7 @@ public class SQL_Models {
                 damage.getDamage() + "', '" +
                 damage.getAmount() + "')";
     }
-    public String generateDamageRapportValues(DamageReport damageReport){
+    public String generateDamageReportValues(DamageReport damageReport){
         return "('" + damageReport.getRentalId() + "', '" +
                 damageReport.getDescription() + "')";
     }
@@ -58,7 +58,7 @@ public class SQL_Models {
                 payment.getDate() + "', '" +
                 payment.getRentalId() + "')";
     }
-    public String generatePendingSubscriptionValues(PendingRental pendingRental){
+    public String generatePendingRentalValues(PendingRental pendingRental){
         return "('" + pendingRental.getPendingRentalId() + "', '" +
                 pendingRental.getCustomerCPR() + "', '" +
                 pendingRental.getModel() + "', '" +
@@ -68,13 +68,13 @@ public class SQL_Models {
                 pendingRental.getLocation() + "', '" +
                 pendingRental.getMonthlyFee() + "')";
     }
-    public String generateSalesRecordValues(SaleRecord saleRecord){
+    public String generateSaleRecordValues(SaleRecord saleRecord){
         return "('" + saleRecord.getPaymentId() + "', '" +
                 saleRecord.getAmount() + "', '" +
                 saleRecord.getType() + "', '" +
                 saleRecord.getDate() + "')";
     }
-    public String generateSubscriptionValues(Rental rental){
+    public String generateRentalValues(Rental rental){
         return "('" + rental.getRentalId() + "', '" +
                 rental.getCustomerCPR() + "', '" +
                 rental.getModel() + "', '" +

@@ -49,7 +49,7 @@ public class CustomerManager {
             throw new RuntimeException(e);
         }
     }
-    public void deleteSalesRecord(int cprNr){
+    public void deleteCustomer(int cprNr){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(cprNr)));

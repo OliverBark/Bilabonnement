@@ -16,11 +16,11 @@ public class Rental {
     private final double monthlyFee;
     private final boolean active;
 
-    public Rental(int rentalId, String holder, String model, String color, boolean afleveringsforsikring,
+    public Rental(int rentalId, String customerCPR, String model, String color, boolean afleveringsforsikring,
                   boolean selvrisiko, String location, double pricePrKm, Date startDate, Date endDate,
                   double monthlyFee, boolean active) {
         this.rentalId = rentalId;
-        this.customerCPR = holder;
+        this.customerCPR = customerCPR;
         this.model = model;
         this.color = color;
         this.afleveringsforsikring = afleveringsforsikring;

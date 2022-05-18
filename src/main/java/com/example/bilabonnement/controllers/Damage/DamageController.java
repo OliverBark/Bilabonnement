@@ -34,7 +34,7 @@ public class DamageController {
     @GetMapping("/damage-test")
     public String damageTest(HttpSession session) {
         RentalManager rentalManager = new RentalManager();
-        session.setAttribute("rental", rentalManager.getSubscription(1));
+        session.setAttribute("rental", rentalManager.getRental(1));
         return "redirect:/damage";
     }
 
@@ -51,7 +51,7 @@ public class DamageController {
     @GetMapping("/choose-rental")
     public String chooseRental(HttpSession session, Model model) {
         RentalManager rentalManager = new RentalManager();
-        ArrayList<Rental> rentals = rentalManager.getSubscriptionList();
+        ArrayList<Rental> rentals = rentalManager.getRentalList();
         model.addAttribute("rentals", rentals);
         return "Damage/rental-list";
     }
@@ -59,7 +59,7 @@ public class DamageController {
     @PostMapping("/choosing-rental")
     public String choosingRental(HttpSession session, WebRequest dataFromForm) {
         RentalManager rentalManager = new RentalManager();
-        Rental rental = rentalManager.getSubscription(Integer.parseInt(dataFromForm.getParameter("rental_id")));
+        Rental rental = rentalManager.getRental(Integer.parseInt(dataFromForm.getParameter("rental_id")));
         session.setAttribute("rental", rental);
         return "redirect:/damage";
     }
@@ -80,8 +80,6 @@ public class DamageController {
         return "Damage/damage-report-create";
     }
 
-
-
     //Post Mappings
     @PostMapping("/create-damage-report")
     public String creatingDamageReport(HttpSession session, WebRequest dataFromForm){
@@ -91,14 +89,14 @@ public class DamageController {
         DamageReportManager damageReportManager = new DamageReportManager();
         DamageReport report = new DamageReport(0, ((Rental) session.getAttribute("rental")).getRentalId(),
                 dataFromForm.getParameter("report_description"));
-        damageReportManager.createDamageRapport(report);
+        damageReportManager.createDamageReport(report);
         return "redirect:/damage-page";
     }
     @PostMapping("/choosing-damage-report")
     public String choosingDamageReport(HttpSession session, WebRequest dataFromForm) {
         System.out.println("post start");
         DamageReportManager damageReportManager = new DamageReportManager();
-        DamageReport temp = damageReportManager.getDamageRapport(Integer.parseInt(dataFromForm.getParameter("report_id")));
+        DamageReport temp = damageReportManager.getDamageReport(Integer.parseInt(dataFromForm.getParameter("report_id")));
         System.out.println("damage report : " + temp);
         session.setAttribute("damage-report", temp);
         System.out.println("redirect");

@@ -26,7 +26,7 @@ public class DamageReportManager {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database,primaryKey));
             while(rs.next()){
-                DamageReport temp = generateDamageRapport(rs);
+                DamageReport temp = generateDamageReport(rs);
                 if(temp.getRentalId()==rentalID){
                     reports.add(temp);
                 }
@@ -39,30 +39,30 @@ public class DamageReportManager {
 
 
     //Basic
-    public DamageReport getDamageRapport(int id){
+    public DamageReport getDamageReport(int reportId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(id)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(reportId)));
             rs.next();
-            return generateDamageRapport(rs);
+            return generateDamageReport(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<DamageReport> getDamageRapportList(){
+    public ArrayList<DamageReport> getDamageReportList(){
         ArrayList<DamageReport> damageReports = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                damageReports.add(generateDamageRapport(rs));
+                damageReports.add(generateDamageReport(rs));
             }
             return damageReports;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createDamageRapport(DamageReport damageReport){
+    public void createDamageReport(DamageReport damageReport){
         System.out.println(damageReport);
         try {
             Statement stmt = sqlManager.establishConnection();
@@ -71,16 +71,16 @@ public class DamageReportManager {
             throw new RuntimeException(e);
         }
     }
-    public void deleteDamage(int id){
+    public void deleteDamageReport(int reportId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(id)));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(reportId)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private DamageReport generateDamageRapport(ResultSet rs){
+    private DamageReport generateDamageReport(ResultSet rs){
         try {
             return new DamageReport(rs.getInt("report_id"), rs.getInt("rental_id"), rs.getString("description"));
         } catch (SQLException e) {

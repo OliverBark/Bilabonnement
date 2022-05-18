@@ -18,30 +18,30 @@ public class SaleRecordManager {
     private final String primaryKey = "payment_id";
     private final String sections = "(amount, type, date)";
 
-    public SaleRecord getSalesRecord(int paymentID){
+    public SaleRecord getSaleRecord(int paymentID){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(paymentID)));
             rs.next();
-            return generateSalesRecord(rs);
+            return generateSaleRecord(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<SaleRecord> getSalesRecordList(){
+    public ArrayList<SaleRecord> getSaleRecordList(){
         ArrayList<SaleRecord> saleRecords = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                saleRecords.add(generateSalesRecord(rs));
+                saleRecords.add(generateSaleRecord(rs));
             }
             return saleRecords;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createSalesRecord(SaleRecord saleRecord){
+    public void createSaleRecord(SaleRecord saleRecord){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(saleRecord)));
@@ -49,7 +49,7 @@ public class SaleRecordManager {
             throw new RuntimeException(e);
         }
     }
-    public void deleteSalesRecord(int paymentID){
+    public void deleteSaleRecord(int paymentID){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(paymentID)));
@@ -58,7 +58,7 @@ public class SaleRecordManager {
         }
     }
 
-    private SaleRecord generateSalesRecord(ResultSet rs){
+    private SaleRecord generateSaleRecord(ResultSet rs){
         try {
             return new SaleRecord(rs.getInt("payment_id"), rs.getDouble("amount"), rs.getString("type"),
                     rs.getDate("date"));

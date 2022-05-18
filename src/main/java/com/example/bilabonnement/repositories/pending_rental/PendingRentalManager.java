@@ -19,30 +19,30 @@ public class PendingRentalManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
         "location, monthly_fee)";
 
-    public PendingRental getPendingSubscription(int id){
+    public PendingRental getPendingRental(int id){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(id)));
             rs.next();
-            return generatePendingSubscription(rs);
+            return generatePendingRental(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<PendingRental> getPendingSubscriptionList(){
+    public ArrayList<PendingRental> getPendingRentalList(){
         ArrayList<PendingRental> pendingRentals = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                pendingRentals.add(generatePendingSubscription(rs));
+                pendingRentals.add(generatePendingRental(rs));
             }
             return pendingRentals;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createPendingSubscription(PendingRental pendingRental){
+    public void createPendingRental(PendingRental pendingRental){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(pendingRental)));
@@ -50,7 +50,7 @@ public class PendingRentalManager {
             throw new RuntimeException(e);
         }
     }
-    public void deletePendingSubscription(int id){
+    public void deletePendingRental(int id){
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(id)));
@@ -59,7 +59,7 @@ public class PendingRentalManager {
         }
     }
 
-    private PendingRental generatePendingSubscription(ResultSet rs){
+    private PendingRental generatePendingRental(ResultSet rs){
         try {
             return new PendingRental(rs.getInt("id"), rs.getString("customer_cpr"), rs.getString("model"),
                     rs.getString("color"), rs.getBoolean("afleveringsforsikring"), rs.getBoolean("selvrisiko"),
