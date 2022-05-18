@@ -23,8 +23,8 @@ public class DamageController {
      */
 
     @GetMapping("/damage")
-    public String damage(HttpSession session){
-        if(session.getAttribute("rental")==null){
+    public String damage(HttpSession session) {
+        if (session.getAttribute("rental") == null) {
             return "redirect:/choose-rental";
         }
         session.removeAttribute("damage-report");
@@ -32,34 +32,24 @@ public class DamageController {
     }
 
     @GetMapping("/damage-test")
-    public String damageTest(HttpSession session){
+    public String damageTest(HttpSession session) {
         RentalManager rentalManager = new RentalManager();
         session.setAttribute("rental", rentalManager.getSubscription(1));
         return "redirect:/damage";
     }
 
     @GetMapping("/damage-page")
-    public String damagePage(HttpSession session, Model model){
+    public String damagePage(HttpSession session, Model model) {
         DamageReportManager damageReportManager = new DamageReportManager();
         ArrayList<DamageReport> reports =
                 damageReportManager.findRentalDamageReports(((Rental) session.getAttribute("rental")).getRentalId());
         model.addAttribute("reports", reports);
+        System.out.println("page found");
         return "Damage/damage-page";
     }
 
-    @GetMapping("/damage-report-page")
-    public String damageReportPage(HttpSession session, Model model){
-        if(session.getAttribute("damage-report")==null){
-            return "redirect:/damage";
-        }
-        DamageManager damageManager = new DamageManager();
-        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
-        model.addAttribute("damages", damages);
-        return "damage-report-page";
-    }
-
     @GetMapping("/choose-rental")
-    public String chooseRental(HttpSession session, Model model){
+    public String chooseRental(HttpSession session, Model model) {
         RentalManager rentalManager = new RentalManager();
         ArrayList<Rental> rentals = rentalManager.getSubscriptionList();
         model.addAttribute("rentals", rentals);
@@ -67,25 +57,70 @@ public class DamageController {
     }
 
     @PostMapping("/choosing-rental")
-    public String choosingRental(HttpSession session, WebRequest dataFromForm){
+    public String choosingRental(HttpSession session, WebRequest dataFromForm) {
         RentalManager rentalManager = new RentalManager();
         Rental rental = rentalManager.getSubscription(Integer.parseInt(dataFromForm.getParameter("rental_id")));
         session.setAttribute("rental", rental);
         return "redirect:/damage";
     }
 
+    @GetMapping("/damage-report-page")
+    public String damageReportPage(HttpSession session, Model model) {
+        if (session.getAttribute("damage-report") == null) {
+            return "redirect:/damage";
+        }
+        DamageManager damageManager = new DamageManager();
+        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
+        model.addAttribute("damages", damages);
+        return "Damage/damage-report-page";
+    }
+
+    @GetMapping("/damage-report-create")
+    public String damageReportCreate(HttpSession session){
+        return "Damage/damage-report-create";
+    }
+
+
+
+    //Post Mappings
+    @PostMapping("/creating-damage-report")
+    public String creatingDamageReport(HttpSession session, WebRequest dataFromForm){
+        DamageReportManager damageReportManager = new DamageReportManager();
+        DamageReport report = new DamageReport(0, ((Rental) session.getAttribute("rental")).getRentalId(),
+                dataFromForm.getParameter("report_description"));
+        damageReportManager.createDamageRapport(report);
+        return "redirect:/damage-page";
+    }
     @PostMapping("/choosing-damage-report")
-    public String choosingDamageReport(HttpSession session, WebRequest dataFromForm){
+    public String choosingDamageReport(HttpSession session, WebRequest dataFromForm) {
+        System.out.println("post start");
         DamageReportManager damageReportManager = new DamageReportManager();
         DamageReport temp = damageReportManager.getDamageRapport(Integer.parseInt(dataFromForm.getParameter("report_id")));
+        System.out.println("damage report : " + temp);
         session.setAttribute("damage-report", temp);
+        System.out.println("redirect");
         return "redirect:/damage-report-page";
     }
 
-
-    private void resetDamage(HttpSession session){
-
+    @PostMapping("/add-damage")
+    public String addDamage(HttpSession session, WebRequest dataFromForm) {
+        DamageManager damageManager = new DamageManager();
+        Damage temp = new Damage(0, ((DamageReport) session.getAttribute("damage-report")).getReportId(), dataFromForm.getParameter("damage_name"),
+                Double.parseDouble(dataFromForm.getParameter("damage_price")));
+        damageManager.createDamage(temp);
+        return "redirect:/damage-report-page";
     }
 
-
+    @PostMapping("/remove-damage")
+    public String removeDamage(HttpSession session, WebRequest dataFromForm) {
+        DamageManager damageManager = new DamageManager();
+        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
+        for (int i = 0; i < damages.size(); i++) {
+            if(damages.get(i).getDamage().equalsIgnoreCase(dataFromForm.getParameter("damage_name_remove"))){
+                damageManager.deleteDamage(damages.get(i).getDamageId());
+                System.out.println("deleting: " + damages.get(i));
+            }
+        }
+        return "redirect:/damage-report-page";
+    }
 }

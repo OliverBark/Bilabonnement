@@ -5,6 +5,73 @@
     <title>Rental List</title>
 </head>
 <body>
+<h1> List of Rentals</h1>
+<h2> Choose rental</h2>
+<form method="POST" action="/choosing-rental">
+    <div>
+        <label for="rental_id">
+            <span class="hidden">Skade navn</span></label>
+        <input id="rental_id" type="text" name="rental_id"
+               placeholder="rental id " required>
+        <button type="submit" > vælg </button>
+    </div>
+</form>
+<table>
+    <thead>
+    <th>
+        Rental ID
+    </th>
+    <th>
+        Customer CPR
+    </th>
+    <th>
+        Car Model
+    </th>
+    <th>
+        Color
+    </th>
+    <th>
+        Afleveringsforsikring
+    </th>
+    <th>
+        Selvrisiko
+    </th>
+    <th>
+        Location
+    </th>
+    <th>
+        Price Pr Km
+    </th>
+    <th>
+        Start Date
+    </th>
+    <th>
+        End Date
+    </th>
+    <th>
+        Monthly Fee
+    </th>
+    <th>
+        Active
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each = "rental: ${rentals}">
+        <td th:text="${rental.rentalId}"/>
+        <td th:text="${rental.customerCPR}"/>
+        <td th:text="${rental.model}"/>
+        <td th:text="${rental.color}"/>
+        <td th:text="${rental.afleveringsforsikring}"/>
+        <td th:text="${rental.selvrisiko}"/>
+        <td th:text="${rental.location}"/>
+        <td th:text="${rental.pricePrKm}"/>
+        <td th:text="${rental.startDate}"/>
+        <td th:text="${rental.endDate}"/>
+        <td th:text="${rental.monthlyFee}"/>
+        <td th:text="${rental.active}"/>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

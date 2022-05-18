@@ -9,6 +9,16 @@
 <h1> Rental Damage Page</h1>
 <h3> List of Damage Reports </h3>
 
+<form method="POST" action="/choosing-damage-report">
+    <div>
+        <label for="report_id">
+            <span class="hidden">Skade navn</span></label>
+        <input id="report_id" type="text" name="report_id"
+               placeholder="Report Id" required>
+        <button type="submit" > Vælg </button>
+    </div>
+</form>
+
 <table>
     <thead>
     <th>

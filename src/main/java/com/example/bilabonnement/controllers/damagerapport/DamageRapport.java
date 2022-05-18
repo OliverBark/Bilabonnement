@@ -45,7 +45,7 @@ public class DamageRapport {
         return "redirect:/";
     }
 
-    @PostMapping("/remove-damage")
+    @PostMapping("/remove-damage1")
     public String removeDamage(HttpSession session, WebRequest dataFromForm){
         DamageManager damageManager = new DamageManager();
         ArrayList<Damage> damages = damageManager.getDamageList();
@@ -60,7 +60,7 @@ public class DamageRapport {
         return "redirect:/create-damage-rapport";
     }
 
-    @PostMapping("/add-damage")
+    @PostMapping("/add-damage1")
     public String addDamage(HttpSession session, WebRequest dataFromForm){
         DamageManager damageManager = new DamageManager();
         Damage tempDamage = new Damage(0, ((Integer) session.getAttribute("damage-rapport-id")),

@@ -21,12 +21,12 @@ public class DamageManager {
 
 
 
-    public ArrayList<Damage> findDamages(int damageRapportID){
+    public ArrayList<Damage> findDamages(int reportId){
         ArrayList<Damage> damages = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database,
-                    "rapport_id", String.valueOf(damageRapportID)));
+                    "report_id", String.valueOf(reportId)));
             while(rs.next()){
                 damages.add(generateDamage(rs));
             }
