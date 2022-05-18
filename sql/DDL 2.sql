@@ -77,6 +77,9 @@ INSERT INTO Users (`username`,`password`)
 
 VALUES ('Oliver',
         'admin');
+INSERT INTO Users (`username`,`password`)
+VALUES ('Shaun',
+        'admin');
 
 INSERT INTO Rentals (customer_cpr, model, color, afleveringsforsikring, selvrisiko, location, price_pr_km, start_date, end_date, monthly_fee, active)
 VALUES('testCPR','test','test',1,1,'test',100,'2010-01-01','2015-01-01', 150, 1);
