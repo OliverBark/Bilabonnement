@@ -2,7 +2,7 @@ package com.example.bilabonnement.controllers.damagerapport;
 
 import com.example.bilabonnement.models.damage.Damage;
 import com.example.bilabonnement.repositories.damage.DamageManager;
-import com.example.bilabonnement.repositories.damage_report.DamageRapportManager;
+import com.example.bilabonnement.repositories.damage_report.DamageReportManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class DamageRapport {
         //session(damage-rapport-name) could be name of owner and type of rapport
         //session(damage-rapport-id) needs to be made
         DamageManager damageManager = new DamageManager();
-        DamageRapportManager damageRapportManager = new DamageRapportManager();
+        DamageReportManager damageReportManager = new DamageReportManager();
         session.setAttribute("damage-rapport-name", "Test Damage Rapport");
         session.setAttribute("damage-rapport-id", 1);
         return "redirect:/create-damage-rapport";

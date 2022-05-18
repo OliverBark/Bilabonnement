@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class DamageRapportManager {
+public class DamageReportManager {
     SQL_Manager sqlManager = new SQL_Manager();
     SQL_String sqlString = new SQL_String();
     SQL_Models sqlModels = new SQL_Models();
@@ -18,6 +18,24 @@ public class DamageRapportManager {
     private final String primaryKey = "id";
     private final String sections = "(rental_id, description)";
 
+
+
+    public ArrayList<DamageReport> findRentalDamageReports(int rentalID){
+        ArrayList<DamageReport> reports = new ArrayList<>();
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database,primaryKey));
+            while(rs.next()){
+                DamageReport temp = generateDamageRapport(rs);
+                if(temp.getRental_id()==rentalID){
+                    reports.add(temp);
+                }
+            }
+            return reports;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     //Basic

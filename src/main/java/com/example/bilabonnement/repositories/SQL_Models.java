@@ -50,7 +50,7 @@ public class SQL_Models {
                 damage.getAmount() + "')";
     }
     public String generateDamageRapportValues(DamageReport damageReport){
-        return "('" + damageReport.getId() + "', '" +
+        return "('" + damageReport.getReport_id() + "', '" +
                 damageReport.getRental_id() + "', '" +
                 damageReport.getDescription() + "')";
     }
