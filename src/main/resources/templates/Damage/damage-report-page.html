@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creating Damage Rapport</title>
+  <link rel="stylesheet" th:href="@{skaderegistrering.css}">
+</head>
+<body style="background-color: aliceblue;">
+<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<h3 style="padding-left: 45%; padding-top: 10px; font-family: AppleSystemUIFont,serif; font-size: x-large">Skade rapport</h3>
+<h3 th:text="${damage_name}"></h3>
+<form method="POST" action="/add-damage">
+  <div>
+    <label for="damage_name">
+      <span class="hidden">Skade navn</span></label>
+    <input autocomplete="damage_name" id="damage_name" type="text" name="damage_name"
+           placeholder="Navn" required>
+
+    <label for="damage_price">
+      <span class="hidden">Skade pris</span></label>
+    <input autocomplete="damage_price" id="damage_price" type="number" name="damage_price" class="damage_price"
+           placeholder="Pris " required>
+    <button type="submit" >+</button>
+  </div>
+</form>
+<h1>Slet skade</h1>
+<form method="POST" action="/remove-damage">
+  <div>
+    <label for="damage_name_remove">
+      <span class="hidden">Skade navn</span></label>
+    <input id="damage_name_remove" type="text" name="damage_name_remove"
+           placeholder="Navn" required>
+    <button type="submit" >+</button>
+  </div>
+</form>
+
+<div class="createbutton" method="get" action="/submit-damage-rapport">
+  <button type="submit" >Opret skaderapport</button>
+</div>
+
+<div>
+  <table>
+    <thead>
+    <th>
+      Skade
+    </th>
+    <th>
+      Pris:
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each = "damage: ${damages}">
+      <td th:text="${damage.damage}"/>
+      <td th:text="${damage.amount}"/>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
