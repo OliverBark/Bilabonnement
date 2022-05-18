@@ -63,6 +63,7 @@ public class DamageReportManager {
         }
     }
     public void createDamageRapport(DamageReport damageReport){
+        System.out.println(damageReport);
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(damageReport)));
