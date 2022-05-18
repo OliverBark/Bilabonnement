@@ -2,13 +2,13 @@ package com.example.bilabonnement.models.economy;
 
 import java.sql.Date;
 
-public class SalesRecord {
+public class SaleRecord {
     private final int paymentId;
     private final double amount;
     private final String type;
     private final Date date;
 
-    public SalesRecord(int payment_id, double amount, String type, Date date) {
+    public SaleRecord(int payment_id, double amount, String type, Date date) {
         this.paymentId = payment_id;
         this.amount = amount;
         this.type = type;

@@ -1,6 +1,6 @@
 package com.example.bilabonnement.repositories.sale_record;
 
-import com.example.bilabonnement.models.economy.SalesRecord;
+import com.example.bilabonnement.models.economy.SaleRecord;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
@@ -18,7 +18,7 @@ public class SaleRecordManager {
     private final String primaryKey = "payment_id";
     private final String sections = "(amount, type, date)";
 
-    public SalesRecord getSalesRecord(int paymentID){
+    public SaleRecord getSalesRecord(int paymentID){
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(paymentID)));
@@ -28,23 +28,23 @@ public class SaleRecordManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<SalesRecord> getSalesRecordList(){
-        ArrayList<SalesRecord> salesRecords = new ArrayList<>();
+    public ArrayList<SaleRecord> getSalesRecordList(){
+        ArrayList<SaleRecord> saleRecords = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
             while(rs.next()){
-                salesRecords.add(generateSalesRecord(rs));
+                saleRecords.add(generateSalesRecord(rs));
             }
-            return salesRecords;
+            return saleRecords;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void createSalesRecord(SalesRecord salesRecord){
+    public void createSalesRecord(SaleRecord saleRecord){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(salesRecord)));
+            stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(saleRecord)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -58,9 +58,9 @@ public class SaleRecordManager {
         }
     }
 
-    private SalesRecord generateSalesRecord(ResultSet rs){
+    private SaleRecord generateSalesRecord(ResultSet rs){
         try {
-            return new SalesRecord(rs.getInt("payment_id"), rs.getDouble("amount"), rs.getString("type"),
+            return new SaleRecord(rs.getInt("payment_id"), rs.getDouble("amount"), rs.getString("type"),
                     rs.getDate("date"));
         } catch (SQLException e) {
             throw new RuntimeException(e);

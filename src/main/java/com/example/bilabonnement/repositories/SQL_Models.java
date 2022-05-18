@@ -6,7 +6,7 @@ import com.example.bilabonnement.models.data.Customer;
 import com.example.bilabonnement.models.data.PendingRental;
 import com.example.bilabonnement.models.data.Rental;
 import com.example.bilabonnement.models.economy.Payment;
-import com.example.bilabonnement.models.economy.SalesRecord;
+import com.example.bilabonnement.models.economy.SaleRecord;
 
 public class SQL_Models {
     public String generateValues(Object object){
@@ -25,8 +25,8 @@ public class SQL_Models {
         if(object instanceof PendingRental){
             return generatePendingSubscriptionValues((PendingRental) object);
         }
-        if(object instanceof SalesRecord){
-            return generateSalesRecordValues((SalesRecord) object);
+        if(object instanceof SaleRecord){
+            return generateSalesRecordValues((SaleRecord) object);
         }
         if(object instanceof Rental){
             return generateSubscriptionValues((Rental) object);
@@ -70,11 +70,11 @@ public class SQL_Models {
                 pendingRental.getLocation() + "', '" +
                 pendingRental.getMonthlyFee() + "')";
     }
-    public String generateSalesRecordValues(SalesRecord salesRecord){
-        return "('" + salesRecord.getPaymentId() + "', '" +
-                salesRecord.getAmount() + "', '" +
-                salesRecord.getType() + "', '" +
-                salesRecord.getDate() + "')";
+    public String generateSalesRecordValues(SaleRecord saleRecord){
+        return "('" + saleRecord.getPaymentId() + "', '" +
+                saleRecord.getAmount() + "', '" +
+                saleRecord.getType() + "', '" +
+                saleRecord.getDate() + "')";
     }
     public String generateSubscriptionValues(Rental rental){
         return "('" + rental.getRentalID() + "', '" +

@@ -1,7 +1,6 @@
 package com.example.bilabonnement.repositories.payment;
 
 import com.example.bilabonnement.models.economy.Payment;
-import com.example.bilabonnement.models.economy.SalesRecord;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
