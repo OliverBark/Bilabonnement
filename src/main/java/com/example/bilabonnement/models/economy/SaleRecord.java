@@ -8,8 +8,8 @@ public class SaleRecord {
     private final String type;
     private final Date date;
 
-    public SaleRecord(int payment_id, double amount, String type, Date date) {
-        this.paymentId = payment_id;
+    public SaleRecord(int paymentId, double amount, String type, Date date) {
+        this.paymentId = paymentId;
         this.amount = amount;
         this.type = type;
         this.date = date;

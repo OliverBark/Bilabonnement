@@ -1,22 +1,22 @@
 package com.example.bilabonnement.models.damage;
 
 public class DamageReport {
-    private final int report_id;
-    private final int rental_id;
+    private final int reportId;
+    private final int rentalId;
     private final String description;
 
     public DamageReport(int id, int subscription_id, String description) {
-        this.report_id = id;
-        this.rental_id = subscription_id;
+        this.reportId = id;
+        this.rentalId = subscription_id;
         this.description = description;
     }
 
-    public int getReport_id() {
-        return report_id;
+    public int getReportId() {
+        return reportId;
     }
 
-    public int getRental_id() {
-        return rental_id;
+    public int getRentalId() {
+        return rentalId;
     }
 
     public String getDescription() {

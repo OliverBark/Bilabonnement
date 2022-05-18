@@ -35,14 +35,14 @@ public class DamageController {
     public String damageTest(HttpSession session){
         RentalManager rentalManager = new RentalManager();
         session.setAttribute("rental", rentalManager.getSubscription(1));
-        return "redirect:/damage-page";
+        return "redirect:/damage";
     }
 
     @GetMapping("/damage-page")
     public String damagePage(HttpSession session, Model model){
         DamageReportManager damageReportManager = new DamageReportManager();
         ArrayList<DamageReport> reports =
-                damageReportManager.findRentalDamageReports(((Rental) session.getAttribute("rental")).getRentalID());
+                damageReportManager.findRentalDamageReports(((Rental) session.getAttribute("rental")).getRentalId());
         model.addAttribute("reports", reports);
         return "Damage/damage-page";
     }
@@ -53,7 +53,7 @@ public class DamageController {
             return "redirect:/damage";
         }
         DamageManager damageManager = new DamageManager();
-        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReport_id());
+        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
         model.addAttribute("damages", damages);
         return "damage-report-page";
     }

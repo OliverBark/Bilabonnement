@@ -6,5 +6,24 @@
 </head>
 <body>
 
+<h1> Rental Damage Page</h1>
+<h3> List of Damage Reports </h3>
+
+<table>
+    <thead>
+    <th>
+        Report ID
+    </th>
+    <th>
+        Description
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each = "report: ${reports}">
+        <td th:text="${report.reportId}"/>
+        <td th:text="${report.description}"/>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

@@ -3,21 +3,21 @@ package com.example.bilabonnement.models.economy;
 import java.util.Date;
 
 public class Payment {
-    private final int paymentID;
+    private final int paymentId;
     private final double amount;
     private final Date date;
-    private final int rentalID;
+    private final int rentalId;
 
 
-    public Payment(int paymentID, double price, Date date, int rentalID) {
-        this.paymentID = paymentID;
+    public Payment(int paymentId, double price, Date date, int rentalId) {
+        this.paymentId = paymentId;
         this.amount = price;
         this.date = date;
-        this.rentalID = rentalID;
+        this.rentalId = rentalId;
     }
 
-    public int getPaymentID() {
-        return paymentID;
+    public int getPaymentId() {
+        return paymentId;
     }
 
     public double getAmount() {
@@ -28,7 +28,7 @@ public class Payment {
         return date;
     }
 
-    public int getRentalID() {
-        return rentalID;
+    public int getRentalId() {
+        return rentalId;
     }
 }

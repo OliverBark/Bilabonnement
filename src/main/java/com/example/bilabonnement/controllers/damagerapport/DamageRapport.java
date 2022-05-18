@@ -51,9 +51,9 @@ public class DamageRapport {
         ArrayList<Damage> damages = damageManager.getDamageList();
         for (int i = 0; i < damages.size(); i++) {
             System.out.println(damages.get(i));
-            if(damages.get(i).getReportID() == (Integer) session.getAttribute("damage-rapport-id")){
+            if(damages.get(i).getReportId() == (Integer) session.getAttribute("damage-rapport-id")){
                 if(damages.get(i).getDamage().equalsIgnoreCase(dataFromForm.getParameter("damage_name_remove"))){
-                    damageManager.deleteDamage(damages.get(i).getDamageID());
+                    damageManager.deleteDamage(damages.get(i).getDamageId());
                 }
             }
         }

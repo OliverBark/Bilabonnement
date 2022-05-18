@@ -1,24 +1,24 @@
 package com.example.bilabonnement.models.damage;
 
 public class Damage {
-    private final int damageID;
-    private final int reportID;
+    private final int damageId;
+    private final int reportId;
     private final String damage;
     private final double amount;
 
-    public Damage(int damageID, int reportID, String damage, double price) {
-        this.damageID = damageID;
-        this.reportID = reportID;
+    public Damage(int damageId, int reportID, String damage, double price) {
+        this.damageId = damageId;
+        this.reportId = reportID;
         this.damage = damage;
         this.amount = price;
     }
 
-    public int getDamageID() {
-        return damageID;
+    public int getDamageId() {
+        return damageId;
     }
 
-    public int getReportID() {
-        return reportID;
+    public int getReportId() {
+        return reportId;
     }
 
     public String getDamage() {
@@ -32,8 +32,8 @@ public class Damage {
     @Override
     public String toString() {
         return "Damage{" +
-                "damageID=" + damageID +
-                ", rapportID=" + reportID +
+                "damageID=" + damageId +
+                ", rapportID=" + reportId +
                 ", damage='" + damage + '\'' +
                 ", price=" + amount +
                 '}';

@@ -3,7 +3,7 @@ package com.example.bilabonnement.models.data;
 import java.util.Date;
 
 public class Rental {
-    private final int rentalID;
+    private final int rentalId;
     private final String customerCPR;
     private final String model;
     private final String color;
@@ -16,10 +16,10 @@ public class Rental {
     private final double monthlyFee;
     private final boolean active;
 
-    public Rental(int subscriptionID, String holder, String model, String color, boolean afleveringsforsikring,
+    public Rental(int rentalId, String holder, String model, String color, boolean afleveringsforsikring,
                   boolean selvrisiko, String location, double pricePrKm, Date startDate, Date endDate,
                   double monthlyFee, boolean active) {
-        this.rentalID = subscriptionID;
+        this.rentalId = rentalId;
         this.customerCPR = holder;
         this.model = model;
         this.color = color;
@@ -33,8 +33,8 @@ public class Rental {
         this.active = active;
     }
 
-    public int getRentalID() {
-        return rentalID;
+    public int getRentalId() {
+        return rentalId;
     }
 
     public String getCustomerCPR() {

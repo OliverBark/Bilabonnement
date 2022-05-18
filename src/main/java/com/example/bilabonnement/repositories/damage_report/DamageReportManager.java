@@ -15,7 +15,7 @@ public class DamageReportManager {
     SQL_String sqlString = new SQL_String();
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Damage_reports";
-    private final String primaryKey = "id";
+    private final String primaryKey = "report_id";
     private final String sections = "(rental_id, description)";
 
 
@@ -27,7 +27,7 @@ public class DamageReportManager {
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database,primaryKey));
             while(rs.next()){
                 DamageReport temp = generateDamageRapport(rs);
-                if(temp.getRental_id()==rentalID){
+                if(temp.getRentalId()==rentalID){
                     reports.add(temp);
                 }
             }

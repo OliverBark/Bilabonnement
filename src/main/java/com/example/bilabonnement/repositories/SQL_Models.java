@@ -45,20 +45,20 @@ public class SQL_Models {
                 customer.getAccountNr() + "')";
     }
     public String generateDamageValues(Damage damage){
-        return "('" + damage.getReportID() + "', '" +
+        return "('" + damage.getReportId() + "', '" +
                 damage.getDamage() + "', '" +
                 damage.getAmount() + "')";
     }
     public String generateDamageRapportValues(DamageReport damageReport){
-        return "('" + damageReport.getReport_id() + "', '" +
-                damageReport.getRental_id() + "', '" +
+        return "('" + damageReport.getReportId() + "', '" +
+                damageReport.getRentalId() + "', '" +
                 damageReport.getDescription() + "')";
     }
     public String generatePaymentValues(Payment payment){
-        return "('" + payment.getPaymentID() + "', '" +
+        return "('" + payment.getPaymentId() + "', '" +
                 payment.getAmount() + "', '" +
                 payment.getDate() + "', '" +
-                payment.getRentalID() + "')";
+                payment.getRentalId() + "')";
     }
     public String generatePendingSubscriptionValues(PendingRental pendingRental){
         return "('" + pendingRental.getPendingRentalId() + "', '" +
@@ -77,7 +77,7 @@ public class SQL_Models {
                 saleRecord.getDate() + "')";
     }
     public String generateSubscriptionValues(Rental rental){
-        return "('" + rental.getRentalID() + "', '" +
+        return "('" + rental.getRentalId() + "', '" +
                 rental.getCustomerCPR() + "', '" +
                 rental.getModel() + "', '" +
                 rental.getColor() + "', '" +
