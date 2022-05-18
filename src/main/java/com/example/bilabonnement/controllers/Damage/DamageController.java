@@ -83,8 +83,11 @@ public class DamageController {
 
 
     //Post Mappings
-    @PostMapping("/creating-damage-report")
+    @PostMapping("/create-damage-report")
     public String creatingDamageReport(HttpSession session, WebRequest dataFromForm){
+        if(session.getAttribute("rental")==null){
+            return "redirect:/damage";
+        }
         DamageReportManager damageReportManager = new DamageReportManager();
         DamageReport report = new DamageReport(0, ((Rental) session.getAttribute("rental")).getRentalId(),
                 dataFromForm.getParameter("report_description"));
