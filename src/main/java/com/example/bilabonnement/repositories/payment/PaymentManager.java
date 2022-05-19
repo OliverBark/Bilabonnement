@@ -57,6 +57,14 @@ public class PaymentManager {
             throw new RuntimeException(e);
         }
     }
+    public void updatePayment(int paymentId, String field, String newValue){
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(paymentId)));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private Payment generatePayment(ResultSet rs){
         try {

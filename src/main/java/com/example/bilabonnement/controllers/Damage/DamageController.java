@@ -70,7 +70,7 @@ public class DamageController {
             return "redirect:/damage";
         }
         DamageManager damageManager = new DamageManager();
-        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
+        ArrayList<Damage> damages = damageManager.findReportDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
         model.addAttribute("damages", damages);
         return "Damage/damage-report-page";
     }
@@ -115,7 +115,7 @@ public class DamageController {
     @PostMapping("/remove-damage")
     public String removeDamage(HttpSession session, WebRequest dataFromForm) {
         DamageManager damageManager = new DamageManager();
-        ArrayList<Damage> damages = damageManager.findDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
+        ArrayList<Damage> damages = damageManager.findReportDamages(((DamageReport) session.getAttribute("damage-report")).getReportId());
         for (int i = 0; i < damages.size(); i++) {
             if(damages.get(i).getDamage().equalsIgnoreCase(dataFromForm.getParameter("damage_name_remove"))){
                 damageManager.deleteDamage(damages.get(i).getDamageId());

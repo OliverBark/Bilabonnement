@@ -15,4 +15,8 @@ public class SQL_String {
     public String deleteData(String database, String primary_key, String value){
         return "DELETE FROM " + database + " WHERE " + primary_key + " = '" + value + "'";
     }
+
+    public String updateData(String database, String field, String value, String primaryKey, String objectPrimaryKey){
+        return "UPDATE " + database + " SET " + field + " = '" + value + "' WHERE (" + primaryKey + " = '" + objectPrimaryKey + "')";
+    }
 }

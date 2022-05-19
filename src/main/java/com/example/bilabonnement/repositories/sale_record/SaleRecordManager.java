@@ -18,10 +18,10 @@ public class SaleRecordManager {
     private final String primaryKey = "payment_id";
     private final String sections = "(amount, type, date)";
 
-    public SaleRecord getSaleRecord(int paymentID){
+    public SaleRecord getSaleRecord(int recordId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(paymentID)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(recordId)));
             rs.next();
             return generateSaleRecord(rs);
         } catch (SQLException e) {
@@ -49,10 +49,18 @@ public class SaleRecordManager {
             throw new RuntimeException(e);
         }
     }
-    public void deleteSaleRecord(int paymentID){
+    public void deleteSaleRecord(int recordId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(paymentID)));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(recordId)));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateSaleRecord(int recordId, String field, String newValue){
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(recordId)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -19,10 +19,10 @@ public class PendingRentalManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
         "location, monthly_fee)";
 
-    public PendingRental getPendingRental(int id){
+    public PendingRental getPendingRental(int pendingRentalId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(id)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(pendingRentalId)));
             rs.next();
             return generatePendingRental(rs);
         } catch (SQLException e) {
@@ -50,10 +50,18 @@ public class PendingRentalManager {
             throw new RuntimeException(e);
         }
     }
-    public void deletePendingRental(int id){
+    public void deletePendingRental(int pendingRentalId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(id)));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(pendingRentalId)));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updatePendingRental(int pendingRentalId, String field, String newValue){
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(pendingRentalId)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

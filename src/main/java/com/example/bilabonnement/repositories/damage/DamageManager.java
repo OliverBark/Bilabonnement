@@ -5,7 +5,6 @@ import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +20,7 @@ public class DamageManager {
 
 
 
-    public ArrayList<Damage> findDamages(int reportId){
+    public ArrayList<Damage> findReportDamages(int reportId){
         ArrayList<Damage> damages = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
@@ -73,6 +72,14 @@ public class DamageManager {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(damageID)));
             System.out.println("stmt executed");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateDamage(int damageId, String field, String newValue){
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(damageId)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

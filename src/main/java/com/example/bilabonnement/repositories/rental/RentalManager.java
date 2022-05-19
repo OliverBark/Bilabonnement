@@ -19,10 +19,10 @@ public class RentalManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
             "location, price_pr_km, start_date, end_date, monthly_fee, active, monthly_fee)";
 
-    public Rental getRental(int subscriptionID){
+    public Rental getRental(int rentalId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(subscriptionID)));
+            ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(rentalId)));
             rs.next();
             return generateSubscription(rs);
         } catch (SQLException e) {
@@ -50,10 +50,18 @@ public class RentalManager {
             throw new RuntimeException(e);
         }
     }
-    public void deleteRental(int subscriptionID){
+    public void deleteRental(int rentalId){
         try {
             Statement stmt = sqlManager.establishConnection();
-            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(subscriptionID)));
+            stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(rentalId)));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateRental(int rentalId, String field, String newValue){
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(rentalId)));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

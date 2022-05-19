@@ -79,6 +79,14 @@ public class DamageReportManager {
             throw new RuntimeException(e);
         }
     }
+    public void updateDamageReport(int reportId, String field, String newValue){
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(reportId)));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private DamageReport generateDamageReport(ResultSet rs){
         try {
