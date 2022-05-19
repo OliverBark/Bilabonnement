@@ -80,4 +80,22 @@ public class Rental {
     public boolean isActive() {
         return active;
     }
+
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "rentalId=" + rentalId +
+                ", customerCPR='" + customerCPR + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", afleveringsforsikring=" + afleveringsforsikring +
+                ", selvrisiko=" + selvrisiko +
+                ", location='" + location + '\'' +
+                ", pricePrKm=" + pricePrKm +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", monthlyFee=" + monthlyFee +
+                ", active=" + active +
+                '}';
+    }
 }
