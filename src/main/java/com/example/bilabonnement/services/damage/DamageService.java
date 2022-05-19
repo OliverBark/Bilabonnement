@@ -1,16 +1,10 @@
 package com.example.bilabonnement.services.damage;
 
 import com.example.bilabonnement.models.damage.Damage;
-import com.example.bilabonnement.models.damage.DamageReport;
-import com.example.bilabonnement.models.data.Rental;
-import com.example.bilabonnement.repositories.damage.DamageManager;
-import com.example.bilabonnement.repositories.damage_report.DamageReportManager;
-import com.example.bilabonnement.repositories.rental.RentalManager;
 
 import java.util.ArrayList;
 
 public class DamageService {
-
 
     //Indsæt en damage liste med skaderne samt priserne aftalt i matrix
     //Indsæt en damage liste med skaderne registreret efter aflevering i registered

@@ -17,7 +17,7 @@ public class RentalManager {
     private final String database = "Rentals";
     private final String primaryKey = "rental_id";
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
-            "location, price_pr_km, start_date, end_date, monthly_fee, active, monthly_fee)";
+            "location, price_pr_km, start_date, end_date, monthly_fee, active)";
 
     public Rental getRental(int rentalId){
         try {

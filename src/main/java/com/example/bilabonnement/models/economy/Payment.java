@@ -1,6 +1,6 @@
 package com.example.bilabonnement.models.economy;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Payment {
     private final int paymentId;

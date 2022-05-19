@@ -3,9 +3,6 @@ package com.example.bilabonnement.services.statistic;
 import com.example.bilabonnement.models.data.Rental;
 import com.example.bilabonnement.repositories.rental.RentalManager;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 

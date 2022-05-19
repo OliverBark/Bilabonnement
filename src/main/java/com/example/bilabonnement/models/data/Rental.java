@@ -1,6 +1,6 @@
 package com.example.bilabonnement.models.data;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Rental {
     private final int rentalId;

@@ -75,19 +75,24 @@ public class SQL_Models {
                 saleRecord.getDate() + "')";
     }
     public String generateRentalValues(Rental rental){
-        return "('" + rental.getRentalId() + "', '" +
-                rental.getCustomerCPR() + "', '" +
+        return "('" + rental.getCustomerCPR() + "', '" +
                 rental.getModel() + "', '" +
                 rental.getColor() + "', '" +
-                rental.isAfleveringsforsikring() + "', '" +
-                rental.isSelvrisiko() + "', '" +
+                booleanConversion(rental.isAfleveringsforsikring()) + "', '" +
+                booleanConversion(rental.isSelvrisiko()) + "', '" +
                 rental.getLocation() + "', '" +
                 rental.getPricePrKm() + "', '" +
                 rental.getStartDate() + "', '" +
                 rental.getEndDate() + "', '" +
                 rental.getMonthlyFee() + "', '" +
-                rental.isActive() + "')";
+                booleanConversion(rental.isActive()) + "')";
     }
 
-
+    private int booleanConversion(boolean input){
+        if(input){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
