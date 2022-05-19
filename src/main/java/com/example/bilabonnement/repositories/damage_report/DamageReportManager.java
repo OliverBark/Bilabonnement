@@ -18,8 +18,6 @@ public class DamageReportManager {
     private final String primaryKey = "report_id";
     private final String sections = "(rental_id, description)";
 
-
-
     public ArrayList<DamageReport> findRentalDamageReports(int rentalID){
         ArrayList<DamageReport> reports = new ArrayList<>();
         try {
