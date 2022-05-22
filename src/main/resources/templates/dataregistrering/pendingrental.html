@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ny bestilling</title>
   <link rel="stylesheet" th:href="@{pendingrental.css}">
 </head>
-<body>
+<body style="background-color: aliceblue">
+<p style="padding-left: 45%; padding-top: 15%; font-size: x-large;">Godkend lejeaftale</p>
+<p th:text="${prtest}" />
+
+<button type="button">Godkend</button>
+<!--
 <div class="inputWithIcon">
   <p>Bestillings ID</p>
   <input type="text" placeholder="ID">
@@ -57,7 +62,8 @@
   <i class="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i>
 
     <button type="button">Godkend</button>
-</div>
+   -->
+</body>
 
 
 </html>
