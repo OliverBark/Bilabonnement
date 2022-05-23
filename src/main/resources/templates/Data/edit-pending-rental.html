@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form method="POST" action="/activate-pending-rental">
+        <div>
+            <label for="price_pr_km">
+                <span class="hidden">Pris Pr Km</span></label>
+            <input id="price_pr_km" type="number" name="price_pr_km"
+                   placeholder="Pris Pr Km" required>
+
+            <label for="start_date">
+                <span class="hidden">Skade navn</span></label>
+            <input id="start_date" type="date" name="start_date"
+                   placeholder="Start Date" required>
+
+            <label for="end_date">
+                <span class="hidden">Skade navn</span></label>
+            <input id="end_date" type="date" name="end_date"
+                   placeholder="End Date" required>
+            <button type="submit" > Activate Rental</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

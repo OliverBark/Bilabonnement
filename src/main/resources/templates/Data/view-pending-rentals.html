@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .prental {
+            margin-left: 50%;
+            margin-right: 50%;
+            transform: translateX(-50%);
+            margin-top: 5%;
+            background-color: aqua;
+            font-family: sans-serif;
+            width: 1300px;
+        }
+        .prental th{
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 22px;
+        }
+        .prental td {
+            text-align: center;
+            background-color: #00ecec;
+            font-size: 18px;
+        }
+        .choose-prental {
+            margin-right: 50%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: 720px;
+            background-color: #00ecec;
+        }
+    </style>
+</head>
+<body>
+<div class="choose-prental">
+    <form method="POST" action="/choose-pending-rental">
+        <div>
+            <label for="pending_rental_id">
+                <span class="hidden">Skade navn</span></label>
+            <input id="pending_rental_id" type="number" name="pending_rental_id"
+                   placeholder="Rental Id" required>
+            <button type="submit" >+</button>
+        </div>
+    </form>
+</div>
+    <table class="prental">
+        <thead>
+        <th>
+            Pending Rental Id
+        </th>
+        <th>
+            Customer CPR
+        </th>
+        <th>
+            Car Model
+        </th>
+        <th>
+            Car Color
+        </th>
+        <th>
+            Afleveringsforsikring
+        </th>
+        <th>
+            Selvrisiko
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Monthly Fee
+        </th>
+        </thead>
+        <tbody>
+        <tr th:each = "rental: ${rentals}">
+            <td th:text="${rental.pendingRentalId}"/>
+            <td th:text="${rental.customerCPR}"/>
+            <td th:text="${rental.model}"/>
+            <td th:text="${rental.color}"/>
+            <td th:text="${rental.afleveringsforsikring}"/>
+            <td th:text="${rental.selvrisiko}"/>
+            <td th:text="${rental.location}"/>
+            <td th:text="${rental.monthlyFee}"/>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
