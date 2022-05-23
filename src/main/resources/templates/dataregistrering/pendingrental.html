@@ -8,13 +8,27 @@
 </head>
 <body style="background-color: aliceblue">
 <p style="padding-left: 45%; padding-top: 15%; font-size: x-large;">Godkend lejeaftale</p>
-<p th:text="${prtest}" />
+<p style="color: #47AB11; font-family: 'Sketch 3D'" th:text="${prtest}" />
 
-<button type="button">Godkend</button>
+<form style="padding-left: 35%; padding-top: 10%; border: 1px solid black">
+  <label>
+  </label>
+  <label>
+    <input placeholder="Pris pr. km">
+  </label>
+  <label>
+    <input placeholder="Startdato">
+  </label>
+  <label>
+    <input placeholder="Slutdato">
+  </label>
+  <button type="button">Godkend</button>
+</form>
+
 <!--
 <div class="inputWithIcon">
   <p>Bestillings ID</p>
-  <input type="text" placeholder="ID">
+  <input type="text" placeholder= "ID">
   <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
 </div>
 
