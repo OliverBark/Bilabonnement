@@ -1,12 +1,10 @@
-package com.example.bilabonnement.controllers.PendingRental;
+package com.example.bilabonnement.controllers.Data.PendingRental;
 
 import com.example.bilabonnement.models.data.PendingRental;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.ArrayList;
 
 @Controller
 public class PendingController {
