@@ -28,6 +28,7 @@ public class DataController {
         model.addAttribute("rentals", pendingRentals);
         return "Data/view-pending-rentals";
     }
+
     @GetMapping("/data-menu-edit-pending-rental")
     public String editPendingRentals(HttpSession session, Model model){
         if(session.getAttribute("pending-rental") == null){
@@ -37,6 +38,7 @@ public class DataController {
         model.addAttribute("rentals", session.getAttribute("pending-rental"));
         return "Data/edit-pending-rental";
     }
+
     @PostMapping("activate-pending-rental")
     public String activatePendingRental(HttpSession session, WebRequest dataFromForm){
         if(session.getAttribute("pending-rental") == null){
@@ -54,6 +56,7 @@ public class DataController {
         session.removeAttribute("pending-rental");
         return "redirect:/data-menu";
     }
+
     @PostMapping("/choose-pending-rental")
     public String choosePendingRental(HttpSession session, WebRequest dataFromForm){
         PendingRentalManager pendingRentalManager = new PendingRentalManager();
