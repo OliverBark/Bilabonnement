@@ -30,12 +30,16 @@ public class DataController {
     }
     @GetMapping("/data-menu-edit-pending-rental")
     public String editPendingRentals(HttpSession session, Model model){
-        //edit some informations if needed
-        //an activate button
+        if(session.getAttribute("pending-rental") == null){
+            return "redirect:/data-menu";
+        }
         return "Data/edit-pending-rental";
     }
     @PostMapping("activate-pending-rental")
     public String activatePendingRental(HttpSession session, WebRequest dataFromForm){
+        if(session.getAttribute("pending-rental") == null){
+            return "redirect:/data-menu";
+        }
         RentalServices rentalServices = new RentalServices();
         PendingRental pendingRental = (PendingRental) session.getAttribute("pending-rental");
         System.out.println("start: " + dataFromForm.getParameter("start_date"));
@@ -44,7 +48,7 @@ public class DataController {
                 Double.parseDouble(dataFromForm.getParameter("price_pr_km")),
                 rentalServices.generateDate(dataFromForm.getParameter("start_date")),
                 rentalServices.generateDate(dataFromForm.getParameter("end_date")));
-        return "";
+        return "redirect:/data-menu";
     }
     @PostMapping("/choose-pending-rental")
     public String choosePendingRental(HttpSession session, WebRequest dataFromForm){
