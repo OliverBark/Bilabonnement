@@ -33,6 +33,8 @@ public class DataController {
         if(session.getAttribute("pending-rental") == null){
             return "redirect:/data-menu";
         }
+
+        model.addAttribute("rentals", session.getAttribute("pending-rental"));
         return "Data/edit-pending-rental";
     }
     @PostMapping("activate-pending-rental")
@@ -40,6 +42,7 @@ public class DataController {
         if(session.getAttribute("pending-rental") == null){
             return "redirect:/data-menu";
         }
+
         RentalServices rentalServices = new RentalServices();
         PendingRental pendingRental = (PendingRental) session.getAttribute("pending-rental");
         System.out.println("start: " + dataFromForm.getParameter("start_date"));
@@ -48,6 +51,7 @@ public class DataController {
                 Double.parseDouble(dataFromForm.getParameter("price_pr_km")),
                 rentalServices.generateDate(dataFromForm.getParameter("start_date")),
                 rentalServices.generateDate(dataFromForm.getParameter("end_date")));
+        session.removeAttribute("pending-rental");
         return "redirect:/data-menu";
     }
     @PostMapping("/choose-pending-rental")

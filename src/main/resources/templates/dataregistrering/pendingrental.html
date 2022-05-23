@@ -10,19 +10,27 @@
 <p style="padding-left: 45%; padding-top: 15%; font-size: x-large;">Godkend lejeaftale</p>
 <p style="color: #47AB11; font-family: 'Sketch 3D'" th:text="${prtest}" />
 
-<form style="padding-left: 35%; padding-top: 10%; border: 1px solid black">
-  <label>
-  </label>
-  <label>
-    <input placeholder="Pris pr. km">
-  </label>
-  <label>
-    <input placeholder="Startdato">
-  </label>
-  <label>
-    <input placeholder="Slutdato">
-  </label>
-  <button type="button">Godkend</button>
+<form method="POST" action="/activate-pending-rental">
+    <div style="width: 1000px;margin-right: 50%; margin-left: 50%; transform: translateX(-50%)">
+      <label for="price_pr_km">
+        <span class="hidden">Pris Pr Km</span></label>
+      <input id="price_pr_km" type="number" name="price_pr_km"
+             placeholder="Pris Pr Km" required>
+
+      <label for="start_date">
+        <span class="hidden">Skade navn</span></label>
+      <input id="start_date" type="date" name="start_date"
+             placeholder="Start Date" required>
+
+      <label for="end_date">
+        <span class="hidden">Skade navn</span></label>
+      <input id="end_date" type="date" name="end_date"
+             placeholder="End Date" required>
+    </div>
+  <button style="margin-right: 50%; margin-left: 50%; transform: translateX(-50%)" type="button">Godkend</button>
+
+  </form>
+
 </form>
 
 <!--

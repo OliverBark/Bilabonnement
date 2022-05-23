@@ -5,27 +5,68 @@
     <title>Title</title>
 </head>
 <body>
+
+<table class="prental">
+    <thead>
+    <th>
+        Pending Rental Id
+    </th>
+    <th>
+        Customer CPR
+    </th>
+    <th>
+        Car Model
+    </th>
+    <th>
+        Car Color
+    </th>
+    <th>
+        Afleveringsforsikring
+    </th>
+    <th>
+        Selvrisiko
+    </th>
+    <th>
+        Location
+    </th>
+    <th>
+        Monthly Fee
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each = "rental: ${rentals}">
+        <td th:text="${rental.pendingRentalId}"/>
+        <td th:text="${rental.customerCPR}"/>
+        <td th:text="${rental.model}"/>
+        <td th:text="${rental.color}"/>
+        <td th:text="${rental.afleveringsforsikring}"/>
+        <td th:text="${rental.selvrisiko}"/>
+        <td th:text="${rental.location}"/>
+        <td th:text="${rental.monthlyFee}"/>
+    </tr>
+    </tbody>
+</table>
 <div>
     <form method="POST" action="/activate-pending-rental">
         <div>
+
             <label for="price_pr_km">
-                <span class="hidden">Pris Pr Km</span></label>
-            <input id="price_pr_km" type="number" name="price_pr_km"
-                   placeholder="Pris Pr Km" required>
+                <input id="price_pr_km" type="number" name="price_pr_km"
+                       placeholder="Pris Pr Km" required>
+            </label>
 
             <label for="start_date">
-                <span class="hidden">Skade navn</span></label>
-            <input id="start_date" type="date" name="start_date"
-                   placeholder="Start Date" required>
+                <input id="start_date" type="date" name="start_date"
+                       placeholder="Start Date" required>
+            </label>
 
             <label for="end_date">
-                <span class="hidden">Skade navn</span></label>
-            <input id="end_date" type="date" name="end_date"
-                   placeholder="End Date" required>
-            <button type="submit" > Activate Rental</button>
+                <input id="end_date" type="date" name="end_date"
+                       placeholder="End Date" required>
+            </label>
+            <button type="submit"> Activate Rental</button>
         </div>
     </form>
 </div>
-
 </body>
 </html>
