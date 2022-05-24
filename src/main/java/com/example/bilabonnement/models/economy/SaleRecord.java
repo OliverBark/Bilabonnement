@@ -7,12 +7,14 @@ public class SaleRecord {
     private final double amount;
     private final String type;
     private final Date date;
+    private final String customer;
 
-    public SaleRecord(int paymentId, double amount, String type, Date date) {
+    public SaleRecord(int paymentId, double amount, String type, Date date, String customer) {
         this.paymentId = paymentId;
         this.amount = amount;
         this.type = type;
         this.date = date;
+        this.customer = customer;
     }
 
     public int getPaymentId() {
@@ -29,6 +31,10 @@ public class SaleRecord {
 
     public Date getDate() {
         return date;
+    }
+
+    public String getCustomer() {
+        return customer;
     }
 
     @Override

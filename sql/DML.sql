@@ -1,6 +1,5 @@
 -- USERS
 INSERT INTO Users (`username`,`password`)
-
 VALUES ('Oliver',
         'admin');
 

@@ -19,7 +19,8 @@ CREATE TABLE `Payments` (
                             `amount` double NOT NULL,
                             `date` DATETIME NOT NULL,
                             `rental_id` INT NOT NULL,
-                            PRIMARY KEY (`payment_id`));
+                            PRIMARY KEY (`payment_id`),
+                            FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
 
 CREATE TABLE `Rentals` (
                                  `rental_id` INT NOT NULL AUTO_INCREMENT,
@@ -34,7 +35,8 @@ CREATE TABLE `Rentals` (
                                  `end_date` DATETIME NOT NULL,
                                  `monthly_fee` DOUBLE NOT NULL,
                                  `active` BOOLEAN NOT NULL,
-                                 PRIMARY KEY (`rental_id`));
+                                 PRIMARY KEY (`rental_id`),
+                                 FOREIGN KEY(`customer_cpr`) REFERENCES Customers(`cpr_nr`));
 
 CREATE TABLE `Users` (
                          `username` varchar(45) NOT NULL,
@@ -47,7 +49,9 @@ CREATE TABLE `Sale_records` (
                          `amount` double NOT NULL,
                          `type` varchar(45),
                          `date` date,
-                         PRIMARY KEY (`payment_id`));
+                         `customer` varchar(45),
+                         PRIMARY KEY (`payment_id`),
+                         FOREIGN KEY (`customer`) REFERENCES Customers(`cpr_nr`));
 
 CREATE TABLE `Pending_rentals`(
                         `pending_rental_id` INT NOT NULL AUTO_INCREMENT ,
@@ -58,33 +62,20 @@ CREATE TABLE `Pending_rentals`(
                         `selvrisiko` BOOLEAN DEFAULT NULL,
                         `location` varchar(45) NOT NULL,
                         `monthly_fee` DOUBLE NOT NULL,
-                        PRIMARY KEY (`pending_rental_id`));
+                        PRIMARY KEY (`pending_rental_id`),
+                        FOREIGN KEY (`customer_cpr`) REFERENCES Customers(`cpr_nr`));
 
 CREATE TABLE `Damage_reports` (
                         `report_id` INT NOT NULL AUTO_INCREMENT,
                         `rental_id` INT NOT NULL,
                         `description` varchar(1000),
-                        PRIMARY KEY (`report_id`));
+                        PRIMARY KEY (`report_id`),
+                        FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
 
 CREATE TABLE `Damages`(
                         `damage_id` INT NOT NULL AUTO_INCREMENT,
                         `report_id` INT NOT NULL,
                         `damage` VARCHAR(100),
                         `price` DOUBLE,
-                        PRIMARY KEY (damage_id));
-
-INSERT INTO Users (`username`,`password`)
-
-VALUES ('Oliver',
-        'admin');
-INSERT INTO Users (`username`,`password`)
-VALUES ('Shaun',
-        'admin');
-
-INSERT INTO Users (`username`,`password`)
-VALUES ('Battal',
-        'admin');
-
-INSERT INTO Rentals (customer_cpr, model, color, afleveringsforsikring, selvrisiko, location, price_pr_km, start_date, end_date, monthly_fee, active)
-VALUES('testCPR','test','test',1,1,'test',100,'2010-01-01','2015-01-01', 150, 1);
-
+                        PRIMARY KEY (damage_id),
+                        FOREIGN KEY (`report_id`) REFERENCES Damage_reports(`report_id`));

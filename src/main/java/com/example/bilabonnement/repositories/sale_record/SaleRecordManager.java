@@ -16,7 +16,7 @@ public class SaleRecordManager {
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Sale_records";
     private final String primaryKey = "payment_id";
-    private final String sections = "(amount, type, date)";
+    private final String sections = "(amount, type, date, customer)";
 
     public SaleRecord getSaleRecord(int recordId){
         try {
@@ -69,7 +69,7 @@ public class SaleRecordManager {
     private SaleRecord generateSaleRecord(ResultSet rs){
         try {
             return new SaleRecord(rs.getInt("payment_id"), rs.getDouble("amount"), rs.getString("type"),
-                    rs.getDate("date"));
+                    rs.getDate("date"), rs.getString("customer"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
