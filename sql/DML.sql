@@ -1,4 +1,5 @@
 -- USERS
+
 USE `Bilabonnement`;
 
 INSERT INTO Users (`username`,`password`)
