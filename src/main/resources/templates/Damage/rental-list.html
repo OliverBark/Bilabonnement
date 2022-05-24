@@ -8,9 +8,10 @@
 </head>
 <body style="background-color: aliceblue">
 <img alt="K.W Bruun" src="/Images/kwbruun.png">
-<h1 style="padding-left: 40%; padding-top: 7%;"> Udlejede biler</h1>
+<div style="border: 2.5px solid cadetblue; margin-block: 5%; width: 85%; margin-left: 85px;">
+<h1 style="padding-left: 40%; padding-top: 3%; font-family: monospace"> Udlejede biler</h1>
 <form method="POST" action="/choosing-rental">
-    <div>
+    <div style="padding-left: 40%">
         <label for="rental_id">
             <span class="hidden">Skade navn</span></label>
         <input id="rental_id" type="text" name="rental_id"
@@ -18,7 +19,7 @@
         <button type="submit" > Vælg </button>
     </div>
 </form>
-<table>
+<table style="padding-left: 15%; padding-top: 40px;">
     <thead>
     <th>
         Leje ID
@@ -74,6 +75,6 @@
     </tr>
     </tbody>
 </table>
-
+</div>
 </body>
 </html>
