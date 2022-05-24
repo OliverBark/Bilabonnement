@@ -17,3 +17,6 @@ VALUES('test2', 'test2', 'test2', 0, 0, 'test2', 100);
 
 INSERT INTO pending_rentals(`customer_cpr`,`model`,`color`,`afleveringsforsikring`,`selvrisiko`,`location`,`monthly_fee`)
 VALUES('test3', 'test3', 'test3', 1, 0, 'test1', 500);
+
+INSERT INTO Rentals (customer_cpr, model, color, afleveringsforsikring, selvrisiko, location, price_pr_km, start_date, end_date, monthly_fee, active)
+VALUES('testCPR','test','test',1,1,'test',100,'2010-01-01','2015-01-01', 150, 1);

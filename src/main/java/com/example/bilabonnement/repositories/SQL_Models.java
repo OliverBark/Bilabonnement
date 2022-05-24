@@ -72,7 +72,8 @@ public class SQL_Models {
         return "('" + saleRecord.getPaymentId() + "', '" +
                 saleRecord.getAmount() + "', '" +
                 saleRecord.getType() + "', '" +
-                saleRecord.getDate() + "')";
+                saleRecord.getDate() + "', '" +
+                saleRecord.getCustomer() + "')";
     }
     public String generateRentalValues(Rental rental){
         return "('" + rental.getCustomerCPR() + "', '" +
