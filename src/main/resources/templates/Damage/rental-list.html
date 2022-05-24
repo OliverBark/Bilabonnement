@@ -2,33 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rental List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Udlejede biler</title>
+    <link rel="stylesheet" th:href="@{udleje.css}">
 </head>
-<body>
-<h1> List of Rentals</h1>
-<h2> Choose rental</h2>
+<body style="background-color: aliceblue">
+<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<h1 style="padding-left: 40%; padding-top: 7%;"> Udlejede biler</h1>
 <form method="POST" action="/choosing-rental">
     <div>
         <label for="rental_id">
             <span class="hidden">Skade navn</span></label>
         <input id="rental_id" type="text" name="rental_id"
-               placeholder="rental id " required>
-        <button type="submit" > vælg </button>
+               placeholder="Leje ID " required>
+        <button type="submit" > Vælg </button>
     </div>
 </form>
 <table>
     <thead>
     <th>
-        Rental ID
+        Leje ID
     </th>
     <th>
-        Customer CPR
+        Kunde CPR
     </th>
     <th>
-        Car Model
+        Bil Model
     </th>
     <th>
-        Color
+        Farve
     </th>
     <th>
         Afleveringsforsikring
@@ -37,22 +39,22 @@
         Selvrisiko
     </th>
     <th>
-        Location
+        Lokation
     </th>
     <th>
-        Price Pr Km
+        Pris pr km
     </th>
     <th>
-        Start Date
+        Startdato
     </th>
     <th>
-        End Date
+        Slutdato
     </th>
     <th>
-        Monthly Fee
+        Månedlig ydelse
     </th>
     <th>
-        Active
+        Aktiv
     </th>
     </thead>
     <tbody>
