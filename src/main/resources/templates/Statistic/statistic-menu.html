@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .links {
+            background-color: aqua;
+            text-decoration: none;
+            width: 250px;
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .table-section {
+            background-color: #00ecec;
+            width: 1000px;
+            padding-bottom: 25px;
+        }
+
+        .table-section h2 {
+            text-align: center;
+            margin-top: 5%;
+            padding-top: 25px;
+        }
+
+        .table-section th {
+            font-size: 18px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .table-section tr {
+            text-align: center;
+            background-color: #47ffff;
+        }
+
+        .section {
+            background-color: #00ecec;
+            width: 500px;
+            padding: 25px;
+            margin-top: 1%;
+            text-align: center;
+        }
+
+        .sub-section {
+            width: fit-content;
+            margin-top: 2%;
+            margin-left: 50%;
+            margin-right: 50%;
+            transform: translateX(-50%);
+        }
+
+        .sub-section-field {
+            background-color: #98f6f6;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .sub-section-field-subfield {
+            font-size: 18px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="links">
+    <a href=""> View pending payments </a>
+</div>
+
+<div class="links">
+    <a href=""> View Sale Records </a>
+</div>
+
+<div class="section">
+    <h2> Calculated Income for month </h2>
+    <div class="sub-section">
+        <td th:text="${incomemonthly}"/>
+        <d> DKK</d>
+    </div>
+</div>
+
+
+<div class="section">
+    <h2> Income During Given Period </h2>
+    <div class="sub-section">
+        <td th:text="${incomeduring}"/>
+        <d> DKK</d>
+    </div>
+
+    <div class="sub-section">
+        <form method="POST" action="/statistic-income-during-period">
+            <div>
+                <div class="sub-section-field">
+                    <div class="sub-section-field-subfield"><d> Start Date </d></div>
+                    <label for="start_date">
+                        <input id="start_date" type="date" name="start_date"
+                               placeholder="Start Date" required>
+                    </label>
+                </div>
+                <div class="sub-section-field">
+                    <div class="sub-section-field-subfield"><d> End Date </d></div>
+                    <label for="end_date">
+                        <input id="end_date" type="date" name="end_date"
+                               placeholder="End Date" required>
+                    </label>
+                </div>
+                <div class="sub-section-field">
+                    <button type="submit"> View Income During Period</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="table-section">
+    <h2> Active Rentals </h2>
+    <table style="margin: auto">
+        <thead>
+        <div>
+            <th>
+                Rental ID
+            </th>
+        </div>
+        <th>
+            Monthly Income
+        </th>
+        <th>
+            Active till
+        </th>
+        </thead>
+        <tbody>
+        <tr th:each="rental: ${rentals}">
+            <td th:text="${rental.rentalId}"/>
+            <td th:text="${rental.monthlyFee}"/>
+            <td th:text="${rental.endDate}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

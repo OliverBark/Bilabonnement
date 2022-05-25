@@ -19,6 +19,23 @@ public class RentalManager {
     private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
             "location, price_pr_km, start_date, end_date, monthly_fee, active)";
 
+    public ArrayList<Rental> getActiveRentals(){
+        ArrayList<Rental> activeRentals = new ArrayList<>();
+        try {
+            Statement stmt = sqlManager.establishConnection();
+            ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
+            while(rs.next()){
+                Rental temp = generateSubscription(rs);
+                if(temp.isActive()){
+                    activeRentals.add(temp);
+                }
+            }
+            return activeRentals;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Rental getRental(int rentalId){
         try {
             Statement stmt = sqlManager.establishConnection();
