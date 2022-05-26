@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <table>
+        <thead>
+        <th>
+            Payment ID
+        </th>
+
+        <th>
+            Amount
+        </th>
+        <th>
+            Rental ID
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Type
+        </th>
+
+        </thead>
+        <tbody>
+        <tr th:each="salerecord: ${salerecords}">
+            <td th:text="${salerecord.paymentId}"/>
+            <td th:text="${salerecord.amount}"/>
+            <td th:text="${salerecord.rentalId}"/>
+            <td th:text="${salerecord.date}"/>
+            <td th:text="${salerecord.type}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

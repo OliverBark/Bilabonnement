@@ -19,4 +19,20 @@ INSERT INTO pending_rentals(`customer_cpr`,`model`,`color`,`afleveringsforsikrin
 VALUES('test3', 'test3', 'test3', 1, 0, 'test1', 500);
 
 INSERT INTO Rentals (customer_cpr, model, color, afleveringsforsikring, selvrisiko, location, price_pr_km, start_date, end_date, monthly_fee, active)
-VALUES('testCPR','test','test',1,1,'test',100,'2010-01-01','2015-01-01', 150, 1);
+VALUES('test3','test','test',1,1,'test',100,'2010-01-01','2015-01-01', 150, 1);
+
+
+INSERT INTO sale_records(amount, type, date, rental_id)
+VALUES(2000, 'monthly fee', '2022-05-26', 1);
+
+INSERT INTO sale_records(amount, type, date, rental_id)
+VALUES(5000, 'prepayment', '2020-05-26', 1);
+
+INSERT INTO sale_records(amount, type, date, rental_id)
+VALUES(2500, 'monthly fee', '2022-05-15', 1);
+
+INSERT INTO payments(amount, date, rental_id)
+VALUES(2000, '2022-06-26', 1);
+
+INSERT INTO payments(amount, date, rental_id)
+VALUES(5000, '2021-05-05', 1);

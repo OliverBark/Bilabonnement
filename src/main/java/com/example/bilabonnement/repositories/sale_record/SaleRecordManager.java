@@ -16,7 +16,7 @@ public class SaleRecordManager {
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Sale_records";
     private final String primaryKey = "payment_id";
-    private final String sections = "(amount, type, date, customer)";
+    private final String sections = "(amount, type, date, rental_id)";
 
     public SaleRecord getSaleRecord(int recordId){
         try {
@@ -43,8 +43,10 @@ public class SaleRecordManager {
     }
     public void createSaleRecord(SaleRecord saleRecord){
         try {
+            System.out.println("creating sale record repor");
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(saleRecord)));
+            System.out.println("stmt executed");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -69,7 +71,7 @@ public class SaleRecordManager {
     private SaleRecord generateSaleRecord(ResultSet rs){
         try {
             return new SaleRecord(rs.getInt("payment_id"), rs.getDouble("amount"), rs.getString("type"),
-                    rs.getDate("date"), rs.getString("customer"));
+                    rs.getDate("date"), rs.getInt("rental_id"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

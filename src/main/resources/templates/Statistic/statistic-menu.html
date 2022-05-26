@@ -58,20 +58,20 @@
             border-radius: 10px;
             margin-top: 15px;
         }
-        .sub-section-field-subfield {
+
+        .sub-section-field-title {
             font-size: 18px;
-            padding-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
 <div class="links">
-    <a href=""> View pending payments </a>
+    <a href="/statistic-view-payments"> View pending payments </a>
 </div>
 
 <div class="links">
-    <a href=""> View Sale Records </a>
+    <a href="/statistic-view-sale-records"> View Sale Records </a>
 </div>
 
 <div class="section">
@@ -92,24 +92,26 @@
 
     <div class="sub-section">
         <form method="POST" action="/statistic-income-during-period">
-            <div>
-                <div class="sub-section-field">
-                    <div class="sub-section-field-subfield"><d> Start Date </d></div>
-                    <label for="start_date">
-                        <input id="start_date" type="date" name="start_date"
-                               placeholder="Start Date" required>
-                    </label>
+            <div class="sub-section-field">
+                <div class="sub-section-field-title">
+                    <h4> Start Date</h4>
                 </div>
-                <div class="sub-section-field">
-                    <div class="sub-section-field-subfield"><d> End Date </d></div>
-                    <label for="end_date">
-                        <input id="end_date" type="date" name="end_date"
-                               placeholder="End Date" required>
-                    </label>
+                <label for="start_date">
+                    <input id="start_date" type="date" name="start_date"
+                           placeholder="Start Date" required>
+                </label>
+            </div>
+            <div class="sub-section-field">
+                <div class="sub-section-field-title">
+                    <h4> End Date</h4>
                 </div>
-                <div class="sub-section-field">
-                    <button type="submit"> View Income During Period</button>
-                </div>
+                <label for="end_date">
+                    <input id="end_date" type="date" name="end_date"
+                           placeholder="End Date" required>
+                </label>
+            </div>
+            <div class="sub-section-field">
+                <button type="submit"> View Income During Period</button>
             </div>
         </form>
     </div>
@@ -119,11 +121,9 @@
     <h2> Active Rentals </h2>
     <table style="margin: auto">
         <thead>
-        <div>
-            <th>
-                Rental ID
-            </th>
-        </div>
+        <th>
+            Rental ID
+        </th>
         <th>
             Monthly Income
         </th>

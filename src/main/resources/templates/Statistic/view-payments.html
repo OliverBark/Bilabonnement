@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create-new-payment"> Create New Payment </a>
+
+<form method="POST" action="/confirm-payment">
+    <div>
+        <label for="payment_id">
+            <input id="payment_id" type="number" name="payment_id"
+                   placeholder=" Payment ID " required>
+        </label>
+
+        <label for="type">
+            <input id="type" type="text" name="type"
+                   placeholder="Payment Type" required>
+        </label>
+
+        <label for="date">
+            <input id="date" type="date" name="date"
+                   placeholder=" Date " required>
+        </label>
+
+        <button type="submit"> Confirm Payment </button>
+    </div>
+</form>
+<div>
+    <table>
+        <thead>
+        <th>
+            Payment ID
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Rental ID
+        </th>
+        </thead>
+        <tbody>
+        <tr th:each="payment: ${payments}">
+            <td th:text="${payment.paymentId}"/>
+            <td th:text="${payment.amount}"/>
+            <td th:text="${payment.date}"/>
+            <td th:text="${payment.rentalId}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

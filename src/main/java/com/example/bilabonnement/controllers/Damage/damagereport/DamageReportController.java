@@ -1,11 +1,10 @@
-package com.example.bilabonnement.controllers.Damage;
+package com.example.bilabonnement.controllers.Damage.damagereport;
 
 import com.example.bilabonnement.models.damage.Damage;
 import com.example.bilabonnement.models.damage.DamageReport;
 import com.example.bilabonnement.models.data.Rental;
 import com.example.bilabonnement.repositories.damage.DamageManager;
 import com.example.bilabonnement.repositories.damage_report.DamageReportManager;
-import com.example.bilabonnement.repositories.rental.RentalManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,53 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
-public class DamageController {
-    /*
-    session - 'rental' : The current subscription worked on
-    session - 'damage-rapport' : The current damage-rapport worked on
-     */
-
-    @GetMapping("/damage")
-    public String damage(HttpSession session) {
-        if (session.getAttribute("rental") == null) {
-            return "redirect:/choose-rental";
-        }
-        session.removeAttribute("damage-report");
-        return "redirect:/damage-page";
-    }
-
-    @GetMapping("/damage-test")
-    public String damageTest(HttpSession session) {
-        RentalManager rentalManager = new RentalManager();
-        session.setAttribute("rental", rentalManager.getRental(1));
-        return "redirect:/damage";
-    }
-
-    @GetMapping("/damage-page")
-    public String damagePage(HttpSession session, Model model) {
-        DamageReportManager damageReportManager = new DamageReportManager();
-        ArrayList<DamageReport> reports =
-                damageReportManager.findRentalDamageReports(((Rental) session.getAttribute("rental")).getRentalId());
-        model.addAttribute("reports", reports);
-        System.out.println("page found");
-        return "Damage/damage-page";
-    }
-
-    @GetMapping("/choose-rental")
-    public String chooseRental(HttpSession session, Model model) {
-        RentalManager rentalManager = new RentalManager();
-        ArrayList<Rental> rentals = rentalManager.getRentalList();
-        model.addAttribute("rentals", rentals);
-        return "Damage/rental-list";
-    }
-
-    @PostMapping("/choosing-rental")
-    public String choosingRental(HttpSession session, WebRequest dataFromForm) {
-        RentalManager rentalManager = new RentalManager();
-        Rental rental = rentalManager.getRental(Integer.parseInt(dataFromForm.getParameter("rental_id")));
-        session.setAttribute("rental", rental);
-        return "redirect:/damage";
-    }
+public class DamageReportController {
 
     @GetMapping("/damage-report-page")
     public String damageReportPage(HttpSession session, Model model) {
@@ -80,7 +33,6 @@ public class DamageController {
         return "Damage/damage-report-create";
     }
 
-    //Post Mappings
     @PostMapping("/create-damage-report")
     public String creatingDamageReport(HttpSession session, WebRequest dataFromForm){
         if(session.getAttribute("rental")==null){
@@ -92,6 +44,7 @@ public class DamageController {
         damageReportManager.createDamageReport(report);
         return "redirect:/damage-page";
     }
+
     @PostMapping("/choosing-damage-report")
     public String choosingDamageReport(HttpSession session, WebRequest dataFromForm) {
         System.out.println("post start");
@@ -124,4 +77,6 @@ public class DamageController {
         }
         return "redirect:/damage-report-page";
     }
+
+
 }

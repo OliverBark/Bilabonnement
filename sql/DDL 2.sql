@@ -72,9 +72,9 @@ CREATE TABLE `Sale_records` (
                          `amount` double NOT NULL,
                          `type` varchar(45),
                          `date` date,
-                         `customer` varchar(45),
+                         `rental_id` INT NOT NULL,
                          PRIMARY KEY (`payment_id`),
-                         FOREIGN KEY (`customer`) REFERENCES Customers(`cpr_nr`));
+                         FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
 
 CREATE TABLE `Users` (
                          `username` varchar(45) NOT NULL,

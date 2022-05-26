@@ -88,13 +88,4 @@ public class StatisticService {
         int month2 = date2.getYear() * 12 + date2.getMonth();
         return month2-month1+1;
     }
-
-    public LocalDate generateDate(String date){
-        String[] data = date.split("-");
-        int[] dataINT = new int[3];
-        for (int i = 0; i < dataINT.length; i++) {
-            dataINT[i] = Integer.parseInt(data[i]);
-        }
-        return LocalDate.of(dataINT[0], dataINT[1], dataINT[2]);
-    }
 }

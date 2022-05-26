@@ -69,11 +69,10 @@ public class SQL_Models {
                 pendingRental.getMonthlyFee() + "')";
     }
     public String generateSaleRecordValues(SaleRecord saleRecord){
-        return "('" + saleRecord.getPaymentId() + "', '" +
-                saleRecord.getAmount() + "', '" +
+        return "('" + saleRecord.getAmount() + "', '" +
                 saleRecord.getType() + "', '" +
                 saleRecord.getDate() + "', '" +
-                saleRecord.getCustomer() + "')";
+                saleRecord.getRentalId() + "')";
     }
     public String generateRentalValues(Rental rental){
         return "('" + rental.getCustomerCPR() + "', '" +

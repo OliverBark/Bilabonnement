@@ -13,3 +13,5 @@ VALUES ('Shaun',
 INSERT INTO Users (`username`,`password`)
 VALUES ('Battal',
         'admin');
+
+

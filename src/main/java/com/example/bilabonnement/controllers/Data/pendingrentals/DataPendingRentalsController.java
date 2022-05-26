@@ -1,24 +1,21 @@
-package com.example.bilabonnement.controllers.Data;
+package com.example.bilabonnement.controllers.Data.pendingrentals;
 
 import com.example.bilabonnement.models.data.PendingRental;
 import com.example.bilabonnement.repositories.pending_rental.PendingRentalManager;
+import com.example.bilabonnement.services.ControllerService;
 import com.example.bilabonnement.services.rental.RentalServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
-public class DataController {
-    @GetMapping("/data-menu")
-    public String dataMenu(HttpSession session){
-        return "Data/data-menu";
-    }
+public class DataPendingRentalsController {
+    ControllerService controllerService = new ControllerService();
 
     @GetMapping("/data-menu-view-pending-rentals")
     public String viewPendingRentals(HttpSession session, Model model){
@@ -51,8 +48,8 @@ public class DataController {
         System.out.println("end: " + dataFromForm.getParameter("end_date"));
         rentalServices.activatePendingRental(pendingRental,
                 Double.parseDouble(dataFromForm.getParameter("price_pr_km")),
-                rentalServices.generateDate(dataFromForm.getParameter("start_date")),
-                rentalServices.generateDate(dataFromForm.getParameter("end_date")));
+                controllerService.generateDate(dataFromForm.getParameter("start_date")),
+                controllerService.generateDate(dataFromForm.getParameter("end_date")));
         session.removeAttribute("pending-rental");
         return "redirect:/data-menu";
     }
