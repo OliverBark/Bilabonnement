@@ -42,16 +42,6 @@ CREATE TABLE `Pending_rentals`(
                                   PRIMARY KEY (`pending_rental_id`),
                                   FOREIGN KEY (`customer_cpr`) REFERENCES Customers(`cpr_nr`));
 
-
-
-CREATE TABLE `Payments` (
-                            `payment_id` INT NOT NULL AUTO_INCREMENT,
-                            `amount` double NOT NULL,
-                            `date` DATETIME NOT NULL,
-                            `rental_id` INT NOT NULL,
-                            PRIMARY KEY (`payment_id`),
-                            FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
-
 CREATE TABLE `Damage_reports` (
                                   `report_id` INT NOT NULL AUTO_INCREMENT,
                                   `rental_id` INT NOT NULL,
@@ -75,6 +65,16 @@ CREATE TABLE `Sale_records` (
                          `rental_id` INT NOT NULL,
                          PRIMARY KEY (`payment_id`),
                          FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
+
+CREATE TABLE `Payments` (
+                            `payment_id` INT NOT NULL AUTO_INCREMENT,
+                            `amount` double NOT NULL,
+                            `date` DATETIME NOT NULL,
+                            `rental_id` INT NOT NULL,
+                            PRIMARY KEY (`payment_id`),
+                            FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
+
+
 
 CREATE TABLE `Users` (
                          `username` varchar(45) NOT NULL,

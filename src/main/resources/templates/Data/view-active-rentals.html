@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="POST" action="/data-end-active-rental">
+    <div>
+        <label for="rental_id">
+            <span class="hidden">Skade navn</span></label>
+        <input id="rental_id" type="text" name="rental_id"
+               placeholder="Rental ID" required>
+        <button type="submit" > Færdiggør Abonnement </button>
+    </div>
+</form>
+
+<table>
+    <thead>
+    <th>
+        Rental Id
+    </th>
+    <th>
+        Customer CPR
+    </th>
+    <th>
+        Car Model
+    </th>
+    <th>
+        Car Color
+    </th>
+    <th>
+        Afleveringsforsikring
+    </th>
+    <th>
+        Selvrisiko
+    </th>
+    <th>
+        Location
+    </th>
+    <th>
+        Monthly Fee
+    </th>
+    <th>
+        Price Per Km
+    </th>
+    <th>
+        Start Date
+    </th>
+    <th>
+        End Date
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each="rental: ${activerentals}">
+        <td th:text="${rental.rentalId}"/>
+        <td th:text="${rental.customerCPR}"/>
+        <td th:text="${rental.model}"/>
+        <td th:text="${rental.color}"/>
+        <td th:text="${rental.afleveringsforsikring}"/>
+        <td th:text="${rental.selvrisiko}"/>
+        <td th:text="${rental.location}"/>
+        <td th:text="${rental.monthlyFee}"/>
+        <td th:text="${rental.pricePrKm}"/>
+        <td th:text="${rental.startDate}"/>
+        <td th:text="${rental.endDate}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

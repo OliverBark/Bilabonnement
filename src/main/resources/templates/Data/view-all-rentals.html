@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th>
+        Rental Id
+    </th>
+    <th>
+        Customer CPR
+    </th>
+    <th>
+        Car Model
+    </th>
+    <th>
+        Car Color
+    </th>
+    <th>
+        Afleveringsforsikring
+    </th>
+    <th>
+        Selvrisiko
+    </th>
+    <th>
+        Location
+    </th>
+    <th>
+        Monthly Fee
+    </th>
+    <th>
+        Price Per Km
+    </th>
+    <th>
+        Start Date
+    </th>
+    <th>
+        End Date
+    </th>
+    <th>
+        Active
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each="rental: ${rentals}">
+        <td th:text="${rental.rentalId}"/>
+        <td th:text="${rental.customerCPR}"/>
+        <td th:text="${rental.model}"/>
+        <td th:text="${rental.color}"/>
+        <td th:text="${rental.afleveringsforsikring}"/>
+        <td th:text="${rental.selvrisiko}"/>
+        <td th:text="${rental.location}"/>
+        <td th:text="${rental.monthlyFee}"/>
+        <td th:text="${rental.pricePrKm}"/>
+        <td th:text="${rental.startDate}"/>
+        <td th:text="${rental.endDate}"/>
+        <td th:text="${rental.active}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
