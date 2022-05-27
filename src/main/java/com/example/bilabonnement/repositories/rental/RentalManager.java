@@ -16,7 +16,7 @@ public class RentalManager {
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Rentals";
     private final String primaryKey = "rental_id";
-    private final String sections = "(customer_cpr, model, color, afleveringsforsikring, selvrisiko, " +
+    private final String sections = "(cpr_nr, model, color, afleveringsforsikring, selvrisiko, " +
             "location, price_pr_km, start_date, end_date, monthly_fee, active)";
 
     public ArrayList<Rental> getActiveRentals(){
@@ -86,7 +86,7 @@ public class RentalManager {
 
     private Rental generateSubscription(ResultSet rs){
         try {
-            return new Rental(rs.getInt("rental_id"), rs.getString("customer_cpr"), rs.getString("model"),
+            return new Rental(rs.getInt("rental_id"), rs.getString("cpr_nr"), rs.getString("model"),
                     rs.getString("color"), rs.getBoolean("afleveringsforsikring"), rs.getBoolean("selvrisiko"),
                     rs.getString("location"), rs.getDouble("price_pr_km"), rs.getDate("start_date"),
                     rs.getDate("end_date"), rs.getDouble("monthly_fee"), rs.getBoolean("active"));

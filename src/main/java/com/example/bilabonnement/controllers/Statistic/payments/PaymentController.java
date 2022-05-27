@@ -2,9 +2,11 @@ package com.example.bilabonnement.controllers.Statistic.payments;
 
 import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.models.economy.SaleRecord;
+import com.example.bilabonnement.models.economy.Type;
 import com.example.bilabonnement.repositories.payment.PaymentManager;
 import com.example.bilabonnement.repositories.sale_record.SaleRecordManager;
 import com.example.bilabonnement.services.ControllerService;
+import com.example.bilabonnement.services.StartUpService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,13 @@ import java.util.ArrayList;
 @Controller
 public class PaymentController {
     ControllerService controllerService = new ControllerService();
+
+    @GetMapping("/statistic-register-new-month")
+    public String registerNewMonth(){
+        StartUpService startUpService = new StartUpService();
+        startUpService.newMonth();
+        return "redirect:/statistic-view-payments";
+    }
 
     @GetMapping("/statistic-view-payments")
     public String viewPendingPayments(HttpSession session, Model model){
@@ -38,6 +47,7 @@ public class PaymentController {
 
         Payment payment = new Payment(0, Double.parseDouble(dataFromForm.getParameter("amount")),
                 Date.valueOf(controllerService.generateDate(dataFromForm.getParameter("date"))),
+                dataFromForm.getParameter("type"),
                 Integer.parseInt(dataFromForm.getParameter("rental_id")));
         try {
             paymentManager.createPayment(payment);

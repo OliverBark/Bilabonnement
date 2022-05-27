@@ -56,15 +56,15 @@ public class SQL_Models {
     public String generatePaymentValues(Payment payment){
         return "('" + payment.getAmount() + "', '" +
                 payment.getDate() + "', '" +
+                String.valueOf(payment.getType()) + "', '" +
                 payment.getRentalId() + "')";
     }
     public String generatePendingRentalValues(PendingRental pendingRental){
-        return "('" + pendingRental.getPendingRentalId() + "', '" +
-                pendingRental.getCustomerCPR() + "', '" +
+        return "('" + pendingRental.getCustomerCPR() + "', '" +
                 pendingRental.getModel() + "', '" +
                 pendingRental.getColor() + "', '" +
-                pendingRental.isAfleveringsforsikring() + "', '" +
-                pendingRental.isSelvrisiko() + "', '" +
+                booleanConversion(pendingRental.isAfleveringsforsikring()) + "', '" +
+                booleanConversion(pendingRental.isSelvrisiko()) + "', '" +
                 pendingRental.getLocation() + "', '" +
                 pendingRental.getMonthlyFee() + "')";
     }

@@ -1,6 +1,8 @@
 package com.example.bilabonnement.services.statistic;
 
 import com.example.bilabonnement.models.data.Rental;
+import com.example.bilabonnement.models.economy.Payment;
+import com.example.bilabonnement.repositories.payment.PaymentManager;
 import com.example.bilabonnement.repositories.rental.RentalManager;
 
 import java.time.LocalDate;
@@ -88,4 +90,5 @@ public class StatisticService {
         int month2 = date2.getYear() * 12 + date2.getMonth();
         return month2-month1+1;
     }
+
 }

@@ -16,7 +16,7 @@ CREATE TABLE `Customers` (
 
 CREATE TABLE `Rentals` (
                            `rental_id` INT NOT NULL AUTO_INCREMENT,
-                           `customer_cpr` varchar(15) NOT NULL,
+                           `cpr_nr` varchar(15) NOT NULL,
                            `model` varchar(45) NOT NULL,
                            `color` varchar(45) NOT NULL,
                            `afleveringsforsikring` BOOLEAN DEFAULT NULL,
@@ -28,11 +28,11 @@ CREATE TABLE `Rentals` (
                            `monthly_fee` DOUBLE NOT NULL,
                            `active` BOOLEAN NOT NULL,
                            PRIMARY KEY (`rental_id`),
-                           FOREIGN KEY(`customer_cpr`) REFERENCES Customers(`cpr_nr`));
+                           FOREIGN KEY(cpr_nr) REFERENCES Customers(`cpr_nr`));
 
 CREATE TABLE `Pending_rentals`(
                                   `pending_rental_id` INT NOT NULL AUTO_INCREMENT ,
-                                  `customer_cpr` varchar(15) NOT NULL,
+                                  `cpr_nr` varchar(15) NOT NULL,
                                   `model` varchar(45) NOT NULL,
                                   `color` varchar(45) NOT NULL,
                                   `afleveringsforsikring` BOOLEAN DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `Pending_rentals`(
                                   `location` varchar(45) NOT NULL,
                                   `monthly_fee` DOUBLE NOT NULL,
                                   PRIMARY KEY (`pending_rental_id`),
-                                  FOREIGN KEY (`customer_cpr`) REFERENCES Customers(`cpr_nr`));
+                                  FOREIGN KEY (cpr_nr) REFERENCES Customers(`cpr_nr`));
 
 CREATE TABLE `Damage_reports` (
                                   `report_id` INT NOT NULL AUTO_INCREMENT,
@@ -70,6 +70,7 @@ CREATE TABLE `Payments` (
                             `payment_id` INT NOT NULL AUTO_INCREMENT,
                             `amount` double NOT NULL,
                             `date` DATETIME NOT NULL,
+                            `type` varchar(45) NOT NULL,
                             `rental_id` INT NOT NULL,
                             PRIMARY KEY (`payment_id`),
                             FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
