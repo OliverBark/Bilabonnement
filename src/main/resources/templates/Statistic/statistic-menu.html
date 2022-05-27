@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forretning</title>
+    <link rel="stylesheet" th:href="@{statistik.css}">
     <style>
         .links {
-            background-color: aqua;
+            background-color: #97b9bb;
             text-decoration: none;
             width: 250px;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 15px;
             padding: 10px;
+            border-radius: 4px;
+            margin-left: auto;
         }
 
         .table-section {
@@ -37,10 +41,12 @@
         }
 
         .section {
-            background-color: #00ecec;
-            width: 500px;
+            background-color: #97b9bb;
+            width: 400px;
             padding: 25px;
-            margin-top: 1%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -50px;
             text-align: center;
         }
 
@@ -53,9 +59,8 @@
         }
 
         .sub-section-field {
-            background-color: #98f6f6;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin-top: 15px;
         }
 
@@ -65,17 +70,25 @@
     </style>
 </head>
 <body>
+<img alt="K.W Bruun" src="/Images/kwbruun.png" style="
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 40%;
+    height: 40%;
+">
 
 <div class="links">
-    <a href="/statistic-view-payments"> View pending payments </a>
+    <a href="/statistic-view-payments" style="font-family: monospace; color: black">AFVENTENDE BETALINGER</a>
 </div>
 
 <div class="links">
-    <a href="/statistic-view-sale-records"> View Sale Records </a>
+    <a href="/statistic-view-sale-records" style="font-family: monospace; color: black">SALGSREKORDER</a>
 </div>
 
-<div class="section">
-    <h2> Calculated Income for month </h2>
+<div class="section" style="position:absolute">
+    <h2>FORVENTEDE INDKOMST FOR MÅNEDEN </h2>
     <div class="sub-section">
         <td th:text="${incomemonthly}"/>
         <d> DKK</d>
@@ -84,7 +97,7 @@
 
 
 <div class="section">
-    <h2> Income During Given Period </h2>
+    <h2 style="font-family: monospace"> INDKOMST FOR PERIODEN </h2>
     <div class="sub-section">
         <td th:text="${incomeduring}"/>
         <d> DKK</d>
@@ -94,7 +107,7 @@
         <form method="POST" action="/statistic-income-during-period">
             <div class="sub-section-field">
                 <div class="sub-section-field-title">
-                    <h4> Start Date</h4>
+                    <h4 style="font-family: monospace; font-size: initial" >STARTDATO</h4>
                 </div>
                 <label for="start_date">
                     <input id="start_date" type="date" name="start_date"
@@ -103,7 +116,7 @@
             </div>
             <div class="sub-section-field">
                 <div class="sub-section-field-title">
-                    <h4> End Date</h4>
+                    <h4 style="font-family: monospace; font-size: initial">SLUTDATO</h4>
                 </div>
                 <label for="end_date">
                     <input id="end_date" type="date" name="end_date"
@@ -111,24 +124,30 @@
                 </label>
             </div>
             <div class="sub-section-field">
-                <button type="submit"> View Income During Period</button>
+                <button type="submit;" style="border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    color: cadetblue;">Se indkomst</button>
             </div>
         </form>
     </div>
 </div>
 
 <div class="table-section">
-    <h2> Active Rentals </h2>
+    <h2 style="font-family: monospace"> AKTIVE LEJEAFTALER </h2>
     <table style="margin: auto">
         <thead>
-        <th>
-            Rental ID
+        <th style="font-family: monospace">
+            Leje ID
         </th>
         <th>
-            Monthly Income
+            Månedlig indkomst
         </th>
         <th>
-            Active till
+            Aktiv til
         </th>
         </thead>
         <tbody>
