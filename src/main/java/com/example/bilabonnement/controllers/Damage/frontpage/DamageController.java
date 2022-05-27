@@ -6,6 +6,7 @@ import com.example.bilabonnement.models.data.Rental;
 import com.example.bilabonnement.repositories.damage.DamageManager;
 import com.example.bilabonnement.repositories.damage_report.DamageReportManager;
 import com.example.bilabonnement.repositories.rental.RentalManager;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -13,71 +13,73 @@
     margin-top: 30px;
     background-color: #8fb2bb;
     border-radius: 3px;">
-<h1 style="padding-left: 40%; padding-top: 3%; font-family: monospace"> Udlejede biler</h1>
-<form method="POST" action="/choosing-rental">
-    <div style="padding-left: 40%">
-        <label for="rental_id">
-        <input id="rental_id" type="text" name="rental_id"
-               placeholder="Leje-ID" required>
-        <button type="submit" > Vælg </button>
+    <h1 style="padding-left: 40%; padding-top: 3%; font-family: monospace"> Udlejede biler</h1>
+    <form method="POST" action="/choosing-rental">
+        <div style="padding-left: 40%">
+            <label for="rental_id">
+                <input id="rental_id" type="text" name="rental_id"
+                       placeholder="Leje-ID" required>
+                <button type="submit"> Vælg</button>
+            </label>
+        </div>
+    </form>
+
+        <table>
+            <thead class="text">
+            <th>
+                Leje ID /
+            </th>
+            <th>
+                Kunde CPR /
+            </th>
+            <th>
+                Bil Model /
+            </th>
+            <th>
+                Farve /
+            </th>
+            <th>
+                Afleveringsforsikring /
+            </th>
+            <th>
+                Selvrisiko /
+            </th>
+            <th>
+                Lokation /
+            </th>
+            <th>
+                Pris pr km /
+            </th>
+            <th>
+                Startdato /
+            </th>
+            <th>
+                Slutdato /
+            </th>
+            <th>
+                Månedlig ydelse /
+            </th>
+            <th>
+                Aktiv
+            </th>
+            </thead>
+            <tbody>
+            <tr th:each="rental: ${rentals}">
+                <td th:text="${rental.rentalId}"/>
+                <td th:text="${rental.customerCPR}"/>
+                <td th:text="${rental.model}"/>
+                <td th:text="${rental.color}"/>
+                <td th:text="${rental.afleveringsforsikring}"/>
+                <td th:text="${rental.selvrisiko}"/>
+                <td th:text="${rental.location}"/>
+                <td th:text="${rental.pricePrKm}"/>
+                <td th:text="${rental.startDate}"/>
+                <td th:text="${rental.endDate}"/>
+                <td th:text="${rental.monthlyFee}"/>
+                <td th:text="${rental.active}"/>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</form>
-<table style="padding-left: 125px; padding-top: 40px; font-family: monospace; ">
-    <thead>
-    <th>
-         Leje ID /
-    </th>
-    <th>
-         Kunde CPR /
-    </th>
-    <th>
-         Bil Model /
-    </th>
-    <th>
-         Farve /
-    </th>
-    <th>
-         Afleveringsforsikring /
-    </th>
-    <th>
-         Selvrisiko /
-    </th>
-    <th>
-         Lokation /
-    </th>
-    <th>
-         Pris pr km /
-    </th>
-    <th>
-         Startdato /
-    </th>
-    <th>
-         Slutdato /
-    </th>
-    <th>
-         Månedlig ydelse /
-    </th>
-    <th>
-         Aktiv
-    </th>
-    </thead>
-    <tbody>
-    <tr th:each = "rental: ${rentals}">
-        <td th:text="${rental.rentalId}"/>
-        <td th:text="${rental.customerCPR}"/>
-        <td th:text="${rental.model}"/>
-        <td th:text="${rental.color}"/>
-        <td th:text="${rental.afleveringsforsikring}"/>
-        <td th:text="${rental.selvrisiko}"/>
-        <td th:text="${rental.location}"/>
-        <td th:text="${rental.pricePrKm}"/>
-        <td th:text="${rental.startDate}"/>
-        <td th:text="${rental.endDate}"/>
-        <td th:text="${rental.monthlyFee}"/>
-        <td th:text="${rental.active}"/>
-    </tr>
-    </tbody>
-</table>
-</div>
 </body>
 </html>
