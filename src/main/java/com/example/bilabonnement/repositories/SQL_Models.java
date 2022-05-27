@@ -56,7 +56,7 @@ public class SQL_Models {
     public String generatePaymentValues(Payment payment){
         return "('" + payment.getAmount() + "', '" +
                 payment.getDate() + "', '" +
-                String.valueOf(payment.getType()) + "', '" +
+                payment.getTypeValue() + "', '" +
                 payment.getRentalId() + "')";
     }
     public String generatePendingRentalValues(PendingRental pendingRental){

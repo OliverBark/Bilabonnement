@@ -31,10 +31,31 @@ public class Payment {
     }
 
     public Type getType() {
-        return getType();
+        return type;
     }
 
     public int getRentalId() {
         return rentalId;
+    }
+
+    public String getTypeValue(){
+        if(type.equals(Type.MONTHLY)){
+            return "MONTHLY";
+        }
+        if(type.equals(Type.ONETIME)){
+            return "ONETIME";
+        }
+        return "null";
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "paymentId=" + paymentId +
+                ", amount=" + amount +
+                ", date=" + date +
+                ", type=" + type +
+                ", rentalId=" + rentalId +
+                '}';
     }
 }

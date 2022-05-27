@@ -25,7 +25,10 @@ public class StartUpService {
                     Date.valueOf(LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), 1)),
                     "MONTHLY",
                     activeRentals.get(i).getRentalId());
-            paymentManager.createPayment(payment);
+            System.out.println(payment);
+            if(!paymentManager.alreadyExistsPayment(payment)) {
+                paymentManager.createPayment(payment);
+            }
         }
     }
 

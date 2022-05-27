@@ -18,11 +18,19 @@ public class PaymentManager {
     private final String primaryKey = "payment_id";
     private final String sections = "(amount, date, type,  rental_id)";
 
-    public boolean alreadyExistsPayment(Payment payment){
+    public boolean alreadyExistsPayment(Payment payment) {
+        ArrayList<Payment> payments = getPaymentList();
+        for (Payment tempPayment : payments) {
+            if (tempPayment.getRentalId() == payment.getRentalId() &&
+                    tempPayment.getType() == payment.getType() &&
+                    tempPayment.getDate().equals(payment.getDate())) {
+                return true;
+            }
+        }
         return false;
     }
 
-    public Payment getPayment(int paymentID){
+    public Payment getPayment(int paymentID) {
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getData(database, primaryKey, String.valueOf(paymentID)));
@@ -32,12 +40,13 @@ public class PaymentManager {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<Payment> getPaymentList(){
+
+    public ArrayList<Payment> getPaymentList() {
         ArrayList<Payment> payments = new ArrayList<>();
         try {
             Statement stmt = sqlManager.establishConnection();
             ResultSet rs = stmt.executeQuery(sqlString.getDataList(database, primaryKey));
-            while(rs.next()){
+            while (rs.next()) {
                 payments.add(generatePayment(rs));
             }
             return payments;
@@ -45,15 +54,19 @@ public class PaymentManager {
             throw new RuntimeException(e);
         }
     }
-    public void createPayment(Payment payment){
+
+    public void createPayment(Payment payment) {
         try {
             Statement stmt = sqlManager.establishConnection();
+            System.out.println("establieshed");
             stmt.executeUpdate(sqlString.createData(database, sections, sqlModels.generateValues(payment)));
+            System.out.println("updated");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void deletePayment(int paymentID){
+
+    public void deletePayment(int paymentID) {
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.deleteData(database, primaryKey, String.valueOf(paymentID)));
@@ -61,7 +74,8 @@ public class PaymentManager {
             throw new RuntimeException(e);
         }
     }
-    public void updatePayment(int paymentId, String field, String newValue){
+
+    public void updatePayment(int paymentId, String field, String newValue) {
         try {
             Statement stmt = sqlManager.establishConnection();
             stmt.executeUpdate(sqlString.updateData(database, field, newValue, primaryKey, String.valueOf(paymentId)));
@@ -70,7 +84,7 @@ public class PaymentManager {
         }
     }
 
-    private Payment generatePayment(ResultSet rs){
+    private Payment generatePayment(ResultSet rs) {
         try {
             return new Payment(rs.getInt("payment_id"), rs.getDouble("amount"),
                     rs.getDate("date"), rs.getString("type"), rs.getInt("rental_id"));
