@@ -1,9 +1,11 @@
 package com.example.bilabonnement.repositories.payment;
 
 import com.example.bilabonnement.models.economy.Payment;
+import com.example.bilabonnement.models.economy.SaleRecord;
 import com.example.bilabonnement.repositories.SQL_Manager;
 import com.example.bilabonnement.repositories.SQL_Models;
 import com.example.bilabonnement.repositories.SQL_String;
+import com.example.bilabonnement.repositories.sale_record.SaleRecordManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
