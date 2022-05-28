@@ -9,27 +9,27 @@
 <body>
 <img alt="K.W Bruun" src="/Images/kwbruun.png">
 <div class="choose-prental">
-    <h1> Confirm Pending Rental </h1>
+    <h1> Bekræft lejeaftaler </h1>
     <form method="POST" action="/choose-pending-rental">
         <div>
             <label for="pending_rental_id">
-                <span class="hidden">Rental ID </span></label>
+                <span class="hidden">Leje-ID </span></label>
             <input id="pending_rental_id" type="number" name="pending_rental_id"
-                   placeholder="Rental Id" required>
-            <button type="submit" >+</button>
+                   placeholder="Leje ID" required>
+            <button type="submit" >Bekræft leje</button>
         </div>
     </form>
 </div>
     <table class="prental">
         <thead>
         <th>
-            Pending Rental Id
+            Leje ID
         </th>
         <th>
-            Customer CPR
+            CPR-NR
         </th>
         <th>
-            Car Model
+            Bil model
         </th>
         <th>
             Car Color
@@ -41,10 +41,10 @@
             Selvrisiko
         </th>
         <th>
-            Location
+            Lokation
         </th>
         <th>
-            Monthly Fee
+            Månedlig ydelse
         </th>
         </thead>
         <tbody>

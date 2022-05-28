@@ -44,7 +44,7 @@ form .form-field {
     position: relative;
 }
 form input {
-    font-family: inherit;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
     width: 100%;
     outline: none;
     background-color: #fff;

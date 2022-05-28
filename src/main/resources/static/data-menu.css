@@ -8,7 +8,7 @@ a{
     margin-left: auto;
     border: #8fb2bb 1px solid;
     color: black;
-    font-family: monospace;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 body{
     background-color: aliceblue;
@@ -49,9 +49,9 @@ input{
 }
 
 table,th,td {
-    font-family: Monospaced,sans-serif;
-    border: 1px solid;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    border: 0.5px dashed #5f9ba0;
     text-align: center;
-    margin: 20px auto auto;
+    margin: 25px auto auto;
     width: fit-content;
 }
