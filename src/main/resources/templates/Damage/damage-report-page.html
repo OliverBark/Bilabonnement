@@ -31,7 +31,7 @@
 <form method="POST" action="/add-damage">
     <div style="margin-bottom: 50px;">
         <input autocomplete="damage_name" id="damage_name" type="text" name="damage_name"
-               placeholder="Navn" required>
+               placeholder="Skadenavn" required>
 
 
         <input autocomplete="damage_price" id="damage_price" type="number" name="damage_price" class="damage_price"
@@ -48,27 +48,25 @@
     text-decoration-color: darkcyan;">Slet skade</h1>
 <form method="POST" action="/remove-damage">
     <div>
-        <label for="damage_name_remove">
-            <span class="hidden">Skade navn</span></label>
         <input id="damage_name_remove" type="text" name="damage_name_remove"
-               placeholder="Navn" required>
+               placeholder="Skadenavn" required>
         <button type="submit">SLET RAPPORT</button>
     </div>
 </form>
 <div style="
   margin-top: 20px;
     font-family: monospace;
-    font-size: large;
+    font-size: x-large;
     color: #435b5d;
     text-decoration-line: overline;
     text-decoration-color: darkcyan;">
     <table>
         <thead>
         <th>
-            ∙ Skade
+            Skade
         </th>
         <th>
-            ∙ Pris
+            Pris
         </th>
         </thead>
         <tbody>

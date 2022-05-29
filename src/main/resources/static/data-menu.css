@@ -63,12 +63,12 @@ select {
 
 table, th, td {
     font-family: monospace;
-    border: 0.6px solid #5f9ba0;
+    border: 0.9px solid darkcyan;
     text-align: center;
     margin: 25px auto auto;
     font-size: inherit;
     color: #435b5d;
-    padding: 10px;
+    padding: 8px;
     width: 90%;
 }
 

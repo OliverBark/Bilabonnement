@@ -15,13 +15,17 @@
     margin-top: 30px;
     border-radius: 3px;
 width: 90%;">
-    <h1 style="text-align: center; padding-top: 3%; font-family: monospace;
-     margin-bottom: 35px; font-size: larger; color: aliceblue">Udlejede biler</h1>
+    <h1 style="color: #435b5d;
+    font: inherit;
+    margin-top: 50px;
+    font-size: xx-large;
+    font-family: monospace;
+    text-align: center; text-decoration: underline; text-decoration-color: darkcyan;">VÆLG ABONNEMENT</h1>
     <form method="POST" action="/choosing-rental">
         <div style="padding-left: 40%">
             <label for="rental_id">
                 <input id="rental_id" type="text" name="rental_id"
-                       placeholder="Leje-ID" required>
+                       placeholder="Indtast Leje-ID" required>
                 <button type="submit">Vælg</button>
             </label>
         </div>
@@ -63,7 +67,7 @@ width: 90%;">
             ∙ Månedlig ydelse/DKK
         </th>
         <th>
-            ∙ Aktiv
+            ∙ Aktiv/Inaktiv
         </th>
         </thead>
         <tbody>

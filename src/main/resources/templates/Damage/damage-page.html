@@ -11,18 +11,18 @@
     <img alt="K.W Bruun" src="/Images/kwbruun.png">
 </a>
 
-<a href="/choose-rental">Vælg nyt abonnement </a>
+
 
 <h3 style="text-align: center">SKADE RAPPORTER </h3>
 
-<a href="/damage-report-create">Opret ny skaderapport </a>
+
 
 <form method="POST" action="/choosing-damage-report">
     <div style="text-align: center;">
         <label for="report_id">
             <input id="report_id" type="number" name="report_id"
                    placeholder="Rapport-Id" required>
-            <button type="submit"> Vælg</button>
+            <button type="submit">SE/ÆNDRE RAPPORT</button>
     </div>
 
 </form>
@@ -30,10 +30,10 @@
 <table>
     <thead>
     <th>
-        ∙ Leje/Rapport-Id
+        Rapport-Id
     </th>
     <th>
-        ∙ Beskrivelse
+        Beskrivelse
     </th>
     </thead>
     <tbody>
@@ -43,5 +43,24 @@
     </tr>
     </tbody>
 </table>
+<a href="/damage-report-create" style="margin-left: 35%;
+    font-family: monospace;
+    color: #435b5d;
+    border: 1px solid #bbd4db;
+    background-color: #bbd4db;
+    border-radius: 3px;
+    padding: 6px;
+    font:inherit;
+    font-size: large;">Opret skadesrapport</a>
+<a href="/choose-rental" style="margin-left: 1%;
+    font-family: monospace;
+    color: #435b5d;
+    border: 1px solid #bbd4db;
+    background-color: #bbd4db;
+    border-radius: 3px;
+    padding: 6px;
+    font: inherit;
+    font-size: large;">Vælg nyt abonnement</a>
+
 </body>
 </html>

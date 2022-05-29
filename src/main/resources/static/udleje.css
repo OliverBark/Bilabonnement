@@ -27,12 +27,15 @@ font-family: monospace;
 
 table,th,td {
     font-family: monospace;
-    border: 1px solid;
+    border: 1px solid darkcyan;
     text-align: center;
     margin: auto;
     margin-top: 15px;
-    width: fit-content;
+    margin-bottom: 2%;
+    width: 90%;
     color: #435b5d;
+    padding: 10px;
+
 }
 
 h3{
