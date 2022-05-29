@@ -12,11 +12,18 @@
 <form method="POST" action="/create-damage-report">
     <div style="text-align: center;">
         <label for="report_description">
-            <span class="hidden"; style="font-family: monospace; text-align: center;">Rapport beskrivelse</span></label>
-        <input id="report_description" type="text" name="report_description"
-               placeholder="Description" required>
+            <span class="hidden"; style="font-family: monospace;">Rapport beskrivelse</span>
+        <label for="report_description">
+            <select name="report_description" id="report_description">
+                <option selected hidden> Rapportbeskrivelse </option>
+                <option>Matrix</option>
+                <option>Registered</option>
+            </select>
+        </label>
         <button type="submit" >+</button>
     </div>
+
+
 </form>
 </body>
 </html>

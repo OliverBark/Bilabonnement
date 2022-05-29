@@ -15,17 +15,19 @@
                    placeholder=" Payment ID " required>
         </label>
 
-        <label for="type">
-            <input id="type" type="text" name="type"
-                   placeholder="Payment Type" required>
-        </label>
-
+            <label for="payment_type">
+                <select name="payment_type" id="payment_type">
+                    <option value="payment_type" selected hidden> Payment Type </option>
+                    <option value="Månedlig betaling">Månedlig betaling</option>
+                    <option value="Engangsbetaling">Engangsbetaling</option>
+                </select>
+            </label>
         <label for="date">
             <input id="date" type="date" name="date"
                    placeholder=" Date " required>
         </label>
 
-        <button type="submit"> Confirm Payment </button>
+        <button type="submit"> Confirm Payment</button>
     </div>
 </form>
 <div>
