@@ -20,9 +20,12 @@
                    placeholder="Betalings-ID" required>
         </label>
 
-        <label for="type">
-            <input id="type" type="text" name="type"
-                   placeholder="Betalings type" required>
+        <label for="payment_type">
+            <select name="payment_type" id="payment_type">
+                <option value="payment_type" selected hidden> Betalingsmetode</option>
+                <option value="Månedlig betaling">Månedlig betaling</option>
+                <option value="Engangsbetaling">Engangsbetaling</option>
+            </select>
         </label>
 
         <label for="date">
