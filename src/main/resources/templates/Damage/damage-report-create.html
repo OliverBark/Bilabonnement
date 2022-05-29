@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Damage Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create damage rapport</title>
+    <link rel="stylesheet" th:href="@{udleje.css}">
 </head>
 <body>
 <img alt="K.W Bruun" src="/Images/kwbruun.png">
-<h1>Rapport Beskrivelse</h1>
+<h1 style="text-align: center; font-family: monospace;">Rapport Beskrivelse</h1>
 <form method="POST" action="/create-damage-report">
-    <div>
+    <div style="text-align: center;">
         <label for="report_description">
-            <span class="hidden">Rapport beskrivelse</span></label>
+            <span class="hidden"; style="font-family: monospace; text-align: center;">Rapport beskrivelse</span></label>
         <input id="report_description" type="text" name="report_description"
                placeholder="Description" required>
         <button type="submit" >+</button>

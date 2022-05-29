@@ -37,3 +37,7 @@ h3{
     font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
     border: 1px solid cadetblue;
 }
+
+body{
+    background-color: aliceblue;
+}
