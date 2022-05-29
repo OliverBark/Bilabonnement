@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 @Controller
 public class StatisticController {
-    ControllerService controllerService = new ControllerService();
 
     @GetMapping("/statistic")
     public String statistic(HttpSession session, Model model){
@@ -40,12 +39,11 @@ public class StatisticController {
 
     @PostMapping("/statistic-income-during-period")
     public String statisticMonthlyIncome(HttpSession session, WebRequest dataFromForm) {
+        ControllerService controllerService = new ControllerService();
         StatisticService statisticService = new StatisticService();
         double income = statisticService.calculatePriceDuring(Date.valueOf(controllerService.generateDate(dataFromForm.getParameter("start_date"))),
                 Date.valueOf(controllerService.generateDate(dataFromForm.getParameter("end_date"))));
         session.setAttribute("income-during", income);
         return "redirect:/statistic";
     }
-
-
 }

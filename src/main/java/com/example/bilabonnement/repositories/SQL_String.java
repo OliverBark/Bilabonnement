@@ -9,14 +9,14 @@ public class SQL_String {
         return "SELECT * FROM " + database + " ORDER BY " + primary_key;
     }
     public String createData(String database, String sections, String values){
-        return "INSERT INTO " + database + sections +
-                "VALUES" + values;
+        return "INSERT INTO " + database + sections + "VALUES" + values;
     }
     public String deleteData(String database, String primary_key, String value){
         return "DELETE FROM " + database + " WHERE " + primary_key + " = '" + value + "'";
     }
 
     public String updateData(String database, String field, String value, String primaryKey, String objectPrimaryKey){
-        return "UPDATE " + database + " SET " + field + " = '" + value + "' WHERE (" + primaryKey + " = '" + objectPrimaryKey + "')";
+        return "UPDATE " + database + " SET " + field + " = '" + value +
+                "' WHERE (" + primaryKey + " = '" + objectPrimaryKey + "')";
     }
 }

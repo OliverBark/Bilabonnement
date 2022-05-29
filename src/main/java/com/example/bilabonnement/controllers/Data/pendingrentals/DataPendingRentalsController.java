@@ -15,13 +15,11 @@ import java.util.ArrayList;
 
 @Controller
 public class DataPendingRentalsController {
-    ControllerService controllerService = new ControllerService();
 
     @GetMapping("/data-menu-view-pending-rentals")
-    public String viewPendingRentals(HttpSession session, Model model){
+    public String viewPendingRentals(Model model){
         PendingRentalManager pendingRentalManager = new PendingRentalManager();
-        ArrayList<PendingRental> pendingRentals = new ArrayList<>();
-        pendingRentals = pendingRentalManager.getPendingRentalList();
+        ArrayList<PendingRental> pendingRentals = pendingRentalManager.getPendingRentalList();
         model.addAttribute("rentals", pendingRentals);
         return "Data/view-pending-rentals";
     }
@@ -38,14 +36,13 @@ public class DataPendingRentalsController {
 
     @PostMapping("activate-pending-rental")
     public String activatePendingRental(HttpSession session, WebRequest dataFromForm){
+        ControllerService controllerService = new ControllerService();
         if(session.getAttribute("pending-rental") == null){
             return "redirect:/data-menu";
         }
 
         RentalServices rentalServices = new RentalServices();
         PendingRental pendingRental = (PendingRental) session.getAttribute("pending-rental");
-        System.out.println("start: " + dataFromForm.getParameter("start_date"));
-        System.out.println("end: " + dataFromForm.getParameter("end_date"));
         rentalServices.activatePendingRental(pendingRental,
                 Double.parseDouble(dataFromForm.getParameter("price_pr_km")),
                 controllerService.generateDate(dataFromForm.getParameter("start_date")),
@@ -59,7 +56,6 @@ public class DataPendingRentalsController {
         PendingRentalManager pendingRentalManager = new PendingRentalManager();
         PendingRental temp = pendingRentalManager.getPendingRental(Integer.parseInt(dataFromForm.getParameter("pending_rental_id")));
         session.setAttribute("pending-rental", temp);
-        System.out.println(temp);
         return "redirect:/data-menu-edit-pending-rental";
     }
 }

@@ -29,7 +29,7 @@ public class DamageReportController {
     }
 
     @GetMapping("/damage-report-create")
-    public String damageReportCreate(HttpSession session){
+    public String damageReportCreate(){
         return "Damage/damage-report-create";
     }
 
@@ -47,12 +47,9 @@ public class DamageReportController {
 
     @PostMapping("/choosing-damage-report")
     public String choosingDamageReport(HttpSession session, WebRequest dataFromForm) {
-        System.out.println("post start");
         DamageReportManager damageReportManager = new DamageReportManager();
         DamageReport temp = damageReportManager.getDamageReport(Integer.parseInt(dataFromForm.getParameter("report_id")));
-        System.out.println("damage report : " + temp);
         session.setAttribute("damage-report", temp);
-        System.out.println("redirect");
         return "redirect:/damage-report-page";
     }
 
@@ -72,11 +69,8 @@ public class DamageReportController {
         for (int i = 0; i < damages.size(); i++) {
             if(damages.get(i).getDamage().equalsIgnoreCase(dataFromForm.getParameter("damage_name_remove"))){
                 damageManager.deleteDamage(damages.get(i).getDamageId());
-                System.out.println("deleting: " + damages.get(i));
             }
         }
         return "redirect:/damage-report-page";
     }
-
-
 }

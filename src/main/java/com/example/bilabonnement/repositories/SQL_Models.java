@@ -35,7 +35,7 @@ public class SQL_Models {
             return "oof";
         }
     }
-    public String generateCustomerValues(Customer customer){
+    private String generateCustomerValues(Customer customer){
         return "('" + customer.getFirstName() + "', '" +
                 customer.getLastName() + "', '" +
                 customer.getAddress() + "', '" +
@@ -44,22 +44,22 @@ public class SQL_Models {
                 customer.getRegNr() + "', '" +
                 customer.getAccountNr() + "')";
     }
-    public String generateDamageValues(Damage damage){
+    private String generateDamageValues(Damage damage){
         return "('" + damage.getReportId() + "', '" +
                 damage.getDamage() + "', '" +
                 damage.getAmount() + "')";
     }
-    public String generateDamageReportValues(DamageReport damageReport){
+    private String generateDamageReportValues(DamageReport damageReport){
         return "('" + damageReport.getRentalId() + "', '" +
                 damageReport.getDescription() + "')";
     }
-    public String generatePaymentValues(Payment payment){
+    private String generatePaymentValues(Payment payment){
         return "('" + payment.getAmount() + "', '" +
                 payment.getDate() + "', '" +
                 payment.getTypeValue() + "', '" +
                 payment.getRentalId() + "')";
     }
-    public String generatePendingRentalValues(PendingRental pendingRental){
+    private String generatePendingRentalValues(PendingRental pendingRental){
         return "('" + pendingRental.getCustomerCPR() + "', '" +
                 pendingRental.getModel() + "', '" +
                 pendingRental.getColor() + "', '" +
@@ -68,13 +68,13 @@ public class SQL_Models {
                 pendingRental.getLocation() + "', '" +
                 pendingRental.getMonthlyFee() + "')";
     }
-    public String generateSaleRecordValues(SaleRecord saleRecord){
+    private String generateSaleRecordValues(SaleRecord saleRecord){
         return "('" + saleRecord.getAmount() + "', '" +
                 saleRecord.getType() + "', '" +
                 saleRecord.getDate() + "', '" +
                 saleRecord.getRentalId() + "')";
     }
-    public String generateRentalValues(Rental rental){
+    private String generateRentalValues(Rental rental){
         return "('" + rental.getCustomerCPR() + "', '" +
                 rental.getModel() + "', '" +
                 rental.getColor() + "', '" +
@@ -87,7 +87,6 @@ public class SQL_Models {
                 rental.getMonthlyFee() + "', '" +
                 booleanConversion(rental.isActive()) + "')";
     }
-
     private int booleanConversion(boolean input){
         if(input){
             return 1;

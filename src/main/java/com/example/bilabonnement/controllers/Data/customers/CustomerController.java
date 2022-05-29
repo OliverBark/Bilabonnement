@@ -1,12 +1,7 @@
 package com.example.bilabonnement.controllers.Data.customers;
 
 import com.example.bilabonnement.models.data.Customer;
-import com.example.bilabonnement.models.data.Rental;
-import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.repositories.customer.CustomerManager;
-import com.example.bilabonnement.repositories.payment.PaymentManager;
-import com.example.bilabonnement.repositories.pending_rental.PendingRentalManager;
-import com.example.bilabonnement.repositories.rental.RentalManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,14 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 @Controller
 public class CustomerController {
 
     @GetMapping("/data-view-customers")
     public String viewCustomers(Model model){
-        System.out.println("started=");
         CustomerManager customerManager = new CustomerManager();
         model.addAttribute("customers", customerManager.getCustomerList());
         System.out.println("started");
@@ -42,7 +35,6 @@ public class CustomerController {
     public String chooseCustomer(HttpSession session, WebRequest dataFromForm){
         CustomerManager customerManager = new CustomerManager();
         Customer customer = customerManager.getCustomer(dataFromForm.getParameter("customer_cpr"));
-        System.out.println(customer);
         session.setAttribute("customer", customer);
         return "redirect:/data-edit-customer";
     }
@@ -71,7 +63,6 @@ public class CustomerController {
         Customer customer = (Customer) session.getAttribute("customer");
         Customer updatedCustomer = customerManager.getCustomer(customer.getCprNr());
         session.setAttribute("customer", updatedCustomer);
-
     }
 
 }

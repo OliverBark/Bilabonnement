@@ -31,7 +31,6 @@ public class SaleRecordController {
                 return o1.getDate().compareTo(o2.getDate());
             }
         });
-
         session.setAttribute("sale-records", records);
     }
 }

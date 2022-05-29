@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 @Controller
 public class PaymentController {
-    ControllerService controllerService = new ControllerService();
 
     @GetMapping("/statistic-register-new-month")
     public String registerNewMonth(){
@@ -35,12 +34,12 @@ public class PaymentController {
     }
 
     @GetMapping("/create-new-payment")
-    public String createPayment(HttpSession session){
+    public String createPayment(){
         return "Statistic/create-payment";
     }
 
     @PostMapping("/creating-payment")
-    public String createPayment(HttpSession session, WebRequest dataFromForm){
+    public String createPayment(WebRequest dataFromForm){
         ControllerService controllerService = new ControllerService();
         PaymentManager paymentManager = new PaymentManager();
 
@@ -58,20 +57,16 @@ public class PaymentController {
 
     @PostMapping("/confirm-payment")
     public String confirmPayment(WebRequest dataFromForm){
+        ControllerService controllerService = new ControllerService();
         PaymentManager paymentManager = new PaymentManager();
         SaleRecordManager saleRecordManager = new SaleRecordManager();
-        System.out.println("managers");
         Payment payment = paymentManager.getPayment(Integer.parseInt(dataFromForm.getParameter("payment_id")));
-        System.out.println("managers2");
         SaleRecord saleRecord = new SaleRecord(0, payment.getAmount(),
                 dataFromForm.getParameter("type"),
                 Date.valueOf(controllerService.generateDate(dataFromForm.getParameter("date"))),
                 payment.getRentalId());
-        System.out.println("salerecord made");
         saleRecordManager.createSaleRecord(saleRecord);
-        System.out.println("creating sale record");
         paymentManager.deletePayment(payment.getPaymentId());
-        System.out.println("deleting payment");
         return "redirect:/statistic-view-payments";
     }
 
