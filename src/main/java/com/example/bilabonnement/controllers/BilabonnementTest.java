@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class TestController {
+public class BilabonnementTest {
+    //Skal forestille sig at deres side tager brug af vores side gennem nu, /bilabonnement-test?data=.
 
-
-    @GetMapping("/testsha")
+    @GetMapping("/bilabonnement-test")
     public String testNewRental(){
         String data = "";
         //customer
@@ -24,7 +24,7 @@ public class TestController {
         return "redirect:/simulate-new-rental?data=" + data;
     }
 
-    @GetMapping("/simulate-new-rental")
+    @GetMapping("/bilabonnement-test-new-pending-rental")
     private String testNewRental2(@RequestParam String data){
         String[] dataSplit = data.split(";;");
         String customer = dataSplit[0];
