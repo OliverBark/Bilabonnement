@@ -10,25 +10,30 @@
 <a href="/forside">
     <img alt="K.W Bruun" src="/Images/kwbruun.png">
 </a>
-<div class="links">
-    <a href="/statistic-view-payments" style="font-family: monospace; color: black">AFVENTENDE BETALINGER</a>
-</div>
+<h1 style="color: #435b5d; font: inherit; margin-top:
+ 50px; font-size: xx-large; font-family: monospace; text-align: center;
+  text-decoration: underline; text-decoration-color: darkcyan;">STATISTIK</h1>
 
-<div class="links">
-    <a href="/statistic-view-sale-records" style="font-family: monospace; color: black">SALGSREKORDER</a>
-</div>
 
-<div class="section" style="position:absolute">
-    <h2 style="font-family: monospace;">FORVENTEDE INDKOMST FOR MÅNEDEN </h2>
+
+<div class="section" style="">
+    <h2 style="font-family: monospace; color: #435b5d;">FORVENTEDE INDKOMST FOR MÅNEDEN </h2>
     <div class="sub-section">
         <td th:text="${incomemonthly}"/>
-        <d> DKK</d>
+        <d>DKK</d>
     </div>
 </div>
 
+<div class="links">
+    <a href="/statistic-view-payments" style="font-family: monospace; color: #435b5d">AFVENTENDE BETALINGER</a>
+</div>
 
-<div class="section">
-    <h2 style="font-family: monospace"> INDKOMST FOR PERIODEN </h2>
+<div class="links">
+    <a href="/statistic-view-sale-records" style="font-family: monospace; color: #435b5d">SALGSREKORDER</a>
+</div>
+
+<div class="section" style="margin-top: -100px;">
+    <h2 style="font-family: monospace; color: #435b5d;">INDKOMST FOR PERIODEN </h2>
     <div class="sub-section">
         <td th:text="${incomeduring}"/>
         <d> DKK</d>
@@ -38,7 +43,7 @@
         <form method="POST" action="/statistic-income-during-period">
             <div class="sub-section-field">
                 <div class="sub-section-field-title">
-                    <h4 style="font-family: monospace; font-size: initial">STARTDATO</h4>
+                    <h4 style="font-family: monospace; font-size: initial; color: #435b5d;">STARTDATO</h4>
                 </div>
                 <label for="start_date">
                     <input id="start_date" type="date" name="start_date"
@@ -47,7 +52,7 @@
             </div>
             <div class="sub-section-field">
                 <div class="sub-section-field-title">
-                    <h4 style="font-family: monospace; font-size: initial">SLUTDATO</h4>
+                    <h4 style="font-family: monospace; font-size: initial; color: #435b5d;">SLUTDATO</h4>
                 </div>
                 <label for="end_date">
                     <input id="end_date" type="date" name="end_date"
@@ -69,8 +74,8 @@
 </div>
 
 <div class="table-section">
-    <h2 style="font-family: monospace"> AKTIVE LEJEAFTALER </h2>
-    <table style="margin: auto">
+    <h2 style="font-family: monospace; color: #435b5d"> AKTIVE LEJEAFTALER </h2>
+    <table style="margin: auto; color: #435b5d;">
         <thead>
         <th style="font-family: monospace">
             ∙ Leje-ID

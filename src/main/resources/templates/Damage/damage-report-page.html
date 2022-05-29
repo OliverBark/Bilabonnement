@@ -21,35 +21,47 @@
 
 
 <h3 th:text="${damage_name}"></h3>
-<h1> Damage Report : Navnet ?</h1>
 
-<h1>Tilføj Skade</h1>
+<h1 style="margin: auto;
+    font-family: monospace;
+    font-size: large;
+    color: #435b5d;
+    text-decoration: underline;
+    text-decoration-color: darkcyan; ">Tilføj Skade</h1>
 <form method="POST" action="/add-damage">
-    <div>
-        <label for="damage_name">
-            <span class="hidden">Skade navn</span></label>
+    <div style="margin-bottom: 50px;">
         <input autocomplete="damage_name" id="damage_name" type="text" name="damage_name"
                placeholder="Navn" required>
 
-        <label for="damage_price">
-            <span class="hidden">Skade pris</span></label>
+
         <input autocomplete="damage_price" id="damage_price" type="number" name="damage_price" class="damage_price"
                placeholder="Pris" required>
-        <button type="submit">+</button>
+        <button type="submit">OPRET RAPPORT</button>
     </div>
 </form>
 
-<h1>Slet skade</h1>
+<h1 style="margin: auto;
+    font-family: monospace;
+    font-size: large;
+    color: #435b5d;
+    text-decoration: underline;
+    text-decoration-color: darkcyan;">Slet skade</h1>
 <form method="POST" action="/remove-damage">
     <div>
         <label for="damage_name_remove">
             <span class="hidden">Skade navn</span></label>
         <input id="damage_name_remove" type="text" name="damage_name_remove"
                placeholder="Navn" required>
-        <button type="submit">+</button>
+        <button type="submit">SLET RAPPORT</button>
     </div>
 </form>
-<div>
+<div style="
+  margin-top: 20px;
+    font-family: monospace;
+    font-size: large;
+    color: #435b5d;
+    text-decoration-line: overline;
+    text-decoration-color: darkcyan;">
     <table>
         <thead>
         <th>

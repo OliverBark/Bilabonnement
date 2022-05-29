@@ -31,8 +31,19 @@ margin: auto;
 }
 
 input {
-    width: 25%;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-color: cadetblue;
+    border: solid 1.5px #8fb2bb;
+    font-size: 1rem;
+    color: cadetblue;
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: monospace;
+}
+
+button{
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 3.7px 15px;
+    text-transform: uppercase;
+    color: #8fb2bb;
 }
