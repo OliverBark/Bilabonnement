@@ -29,6 +29,7 @@ a {
 .place-items-center {
     place-items: center;
     padding: 10%;
+    text-align: center;
 }
 
 .text-5xl {

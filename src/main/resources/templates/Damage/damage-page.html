@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Udlejede biler</title>
-    <link rel="stylesheet"
+    <title>Damage page</title>
+    <link rel="stylesheet" th:href="@{udleje.css}">
 </head>
 <body style="background-color: aliceblue">
+<img alt="K.W Bruun" src="/Images/kwbruun.png">
 
 <a href="/choose-rental"> Vælg nyt abonnement </a>
 
-<h3> Skadesrapporter </h3>
+<h3 style="text-align: center"> Skadesrapporter </h3>
 
 <a href="/damage-report-create"> Opret ny skaderapport </a>
 
 <form method="POST" action="/choosing-damage-report">
-    <div>
+    <div style="text-align: center;">
         <label for="report_id">
             <span class="hidden">Skade navn</span></label>
         <input id="report_id" type="number" name="report_id"
