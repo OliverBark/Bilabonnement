@@ -2,11 +2,10 @@ package com.example.bilabonnement.controllers.Statistic.payments;
 
 import com.example.bilabonnement.models.economy.Payment;
 import com.example.bilabonnement.models.economy.SaleRecord;
-import com.example.bilabonnement.models.economy.Type;
 import com.example.bilabonnement.repositories.payment.PaymentManager;
 import com.example.bilabonnement.repositories.sale_record.SaleRecordManager;
 import com.example.bilabonnement.services.ControllerService;
-import com.example.bilabonnement.services.StartUpService;
+import com.example.bilabonnement.services.statistic.MonthlyFeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +22,8 @@ public class PaymentController {
 
     @GetMapping("/statistic-register-new-month")
     public String registerNewMonth(){
-        StartUpService startUpService = new StartUpService();
-        startUpService.newMonth();
+        MonthlyFeeService monthlyFeeService = new MonthlyFeeService();
+        monthlyFeeService.newMonth();
         return "redirect:/statistic-view-payments";
     }
 

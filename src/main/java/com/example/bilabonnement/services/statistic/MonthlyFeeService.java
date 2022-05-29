@@ -1,8 +1,7 @@
-package com.example.bilabonnement.services;
+package com.example.bilabonnement.services.statistic;
 
 import com.example.bilabonnement.models.data.Rental;
 import com.example.bilabonnement.models.economy.Payment;
-import com.example.bilabonnement.models.economy.Type;
 import com.example.bilabonnement.repositories.payment.PaymentManager;
 import com.example.bilabonnement.repositories.rental.RentalManager;
 
@@ -10,7 +9,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class StartUpService {
+public class MonthlyFeeService {
 
     public void newMonth(){
         RentalManager rentalManager = new RentalManager();
@@ -33,7 +32,7 @@ public class StartUpService {
     }
 
     public static void main(String[] args) {
-        StartUpService startUpService = new StartUpService();
-        startUpService.newMonth();
+        MonthlyFeeService monthlyFeeService = new MonthlyFeeService();
+        monthlyFeeService.newMonth();
     }
 }
