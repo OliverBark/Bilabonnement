@@ -7,21 +7,22 @@
     <link rel="stylesheet" th:href="@{udleje.css}">
 </head>
 <body style="background-color: aliceblue">
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
 
-<a href="/choose-rental"> Vælg nyt abonnement </a>
+<a href="/choose-rental">Vælg nyt abonnement </a>
 
-<h3 style="text-align: center"> Skadesrapporter </h3>
+<h3 style="text-align: center">SKADE RAPPORTER </h3>
 
-<a href="/damage-report-create"> Opret ny skaderapport </a>
+<a href="/damage-report-create">Opret ny skaderapport </a>
 
 <form method="POST" action="/choosing-damage-report">
     <div style="text-align: center;">
         <label for="report_id">
-            <span class="hidden">Skade navn</span></label>
-        <input id="report_id" type="number" name="report_id"
-               placeholder="Report Id" required>
-        <button type="submit" > Vælg </button>
+            <input id="report_id" type="number" name="report_id"
+                   placeholder="Rapport-Id" required>
+            <button type="submit"> Vælg</button>
     </div>
 
 </form>
@@ -29,14 +30,14 @@
 <table>
     <thead>
     <th>
-        Leje/Rapport ID
+        ∙ Leje/Rapport-Id
     </th>
     <th>
-        Beskrivelse
+        ∙ Beskrivelse
     </th>
     </thead>
     <tbody>
-    <tr th:each = "report: ${reports}">
+    <tr th:each="report: ${reports}">
         <td th:text="${report.reportId}"/>
         <td th:text="${report.description}"/>
     </tr>

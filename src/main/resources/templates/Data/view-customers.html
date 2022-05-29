@@ -7,41 +7,42 @@
     <link rel="stylesheet" th:href="@{data-menu.css}">
 </head>
 <body>
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
+<h1 style="color: #435b5d; font: inherit; margin-top:
+ 50px; font-size: xx-large; font-family: monospace; text-align: center;
+  text-decoration: underline; text-decoration-color: darkcyan;">KUNDER</h1>
 <form method="POST" action="/data-choose-customer">
     <label for="customer_cpr">
-        <span class="hidden"> CPR-NR </span></label>
-    <input id="customer_cpr" type="text" name="customer_cpr"
-           placeholder="Kunde-CPR " required>
-    <button type="submit">Rediger kunde</button>
+        <input id="customer_cpr" type="text" name="customer_cpr"
+               placeholder="Kunde-CPR " required>
+        <button type="submit">Rediger kunde</button>
 </form>
-<h1 style="font-family: monospace; text-align: center"> Kunder </h1>
-<div>
-    <table>
-        <thead>
-        <th>
-            Fornavn
-        </th>
-        <th>
-            Efternavn
-        </th>
-        <th>
-            Tlf
-        </th>
-        <th>
-            CPR-Nr
-        </th>
-        </thead>
-        <tbody>
-        <tr th:each="customer: ${customers}">
-            <td th:text="${customer.firstName}"/>
-            <td th:text="${customer.lastName}"/>
-            <td th:text="${customer.mobile}"/>
-            <td th:text="${customer.cprNr}"/>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<table>
+    <thead>
+    <th>
+        ∙ Fornavn
+    </th>
+    <th>
+        ∙ Efternavn
+    </th>
+    <th>
+        ∙ Tlf
+    </th>
+    <th>
+        ∙ CPR-Nr
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each="customer: ${customers}">
+        <td th:text="${customer.firstName}"/>
+        <td th:text="${customer.lastName}"/>
+        <td th:text="${customer.mobile}"/>
+        <td th:text="${customer.cprNr}"/>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

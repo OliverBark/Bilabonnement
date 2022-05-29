@@ -7,52 +7,60 @@
     <link rel="stylesheet" th:href="@{data-menu.css}">
 </head>
 <body>
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
+<h1 style="color: #435b5d;
+    font: inherit;
+    margin-top: 50px;
+    font-size: xx-large;
+    font-family: monospace;
+    text-align: center; text-decoration: underline; text-decoration-color: darkcyan;">AKTIVE LEJEAFTALER
+</h1>
 
 <form method="POST" action="/data-end-active-rental">
     <div style="margin-left: auto;">
         <label for="rental_id">
-            <span class="hidden;" style="font-size: initial">Skade navn</span></label>
-        <input id="rental_id" type="text" name="rental_id"
-               placeholder="Leje-ID" required>
-        <button type="submit" > Færdiggør Abonnement </button>
+            <input id="rental_id" type="text" name="rental_id"
+                   placeholder="Leje-ID" required>
+            <button type="submit">Deaktiver Abonnement</button>
     </div>
 </form>
 
 <table>
     <thead>
     <th>
-        Leje-ID
+        ∙ Leje-ID
     </th>
     <th>
-        Kunde-CPR
+        ∙ Kunde-CPR
     </th>
     <th>
-        Bil model
+        ∙ Bil model
     </th>
     <th>
-        Bil farve
+        ∙ Bil farve
     </th>
     <th>
-        Afleveringsforsikring
+        ∙ Afleveringsforsikring
     </th>
     <th>
-        Selvrisiko
+        ∙ Selvrisiko
     </th>
     <th>
-        Lokation
+        ∙ Lokation
     </th>
     <th>
-        Månedlig ydelse
+        ∙ Månedlig ydelse
     </th>
     <th>
-        Pris Pr Km
+        ∙ Pris pr.km /DKK
     </th>
     <th>
-        StartDato
+        ∙ Startdato
     </th>
     <th>
-        Slutdato
+        ∙ Slutdato
     </th>
     </thead>
     <tbody>

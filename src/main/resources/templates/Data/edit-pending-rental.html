@@ -7,37 +7,38 @@
     <link rel="stylesheet" th:href="@{data-menu.css}">
 </head>
 <body>
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
-
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
 <table>
     <thead>
     <th>
-        Leje-ID
+        ∙ Leje-ID
     </th>
     <th>
-        Kunde-CPR
+        ∙ Kunde-CPR
     </th>
     <th>
-        Model
+        ∙ Model
     </th>
     <th>
-        Farve
+        ∙ Farve
     </th>
     <th>
-        Afleveringsforsikring
+        ∙ Afleveringsforsikring
     </th>
     <th>
-        Selvrisiko
+        ∙ Selvrisiko
     </th>
     <th>
-        Lokation
+        ∙ Lokation
     </th>
     <th>
-        Månedlig ydelse
+        ∙ Månedlig ydelse
     </th>
     </thead>
     <tbody>
-    <tr th:each = "rental: ${rentals}">
+    <tr th:each="rental: ${rentals}">
         <td th:text="${rental.pendingRentalId}"/>
         <td th:text="${rental.customerCPR}"/>
         <td th:text="${rental.model}"/>

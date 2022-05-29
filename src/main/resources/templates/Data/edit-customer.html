@@ -7,45 +7,47 @@
     <link rel="stylesheet" th:href="@{data-menu.css}">
 </head>
 <body>
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
 Customer
 <form method="POST" action="/data-editing-customer">
     <label for="first_name">
-        <span class="hidden"> First Name </span></label>
+        <span class="hidden"> Fornavn </span></label>
     <input id="first_name" type="text" name="first_name"
            placeholder="First Name" required>
-    <button type="submit"> Update </button>
+    <button type="submit"> Opdater</button>
 </form>
 <form method="POST" action="/data-editing-customer">
     <label for="last_name">
-        <span class="hidden"> Last Name </span></label>
+        <span class="hidden"> Efternavn </span></label>
     <input id="last_name" type="text" name="last_name"
            placeholder="Last Name" required>
-    <button type="submit"> Update </button>
+    <button type="submit"> Updater</button>
 </form>
 <form method="POST" action="/data-editing-customer">
     <label for="mobile">
-        <span class="hidden"> Mobile </span></label>
+        <span class="hidden"> Mobil </span></label>
     <input id="mobile" type="text" name="mobile"
            placeholder="Mobile" required>
-    <button type="submit"> Update </button>
+    <button type="submit"> Opdater</button>
 </form>
 
 <table>
     <thead>
     <div>
         <th>
-            First Name
+            ∙ Fornavn
         </th>
     </div>
     <th>
-        Last Name
+        ∙ Efternavn
     </th>
     <th>
-        Mobile Number
+        ∙ Tlf
     </th>
     <th>
-        Cpr Number
+        ∙ Kunde-CPR
     </th>
     </thead>
     <tbody>

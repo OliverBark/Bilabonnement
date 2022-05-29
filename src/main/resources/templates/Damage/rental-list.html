@@ -7,79 +7,82 @@
     <link rel="stylesheet" th:href="@{udleje.css}">
 </head>
 <body style="background-color: aliceblue">
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
-<div style="    border: 2.5px solid cadetblue;
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
+<div style="border: 1.4px solid cadetblue;
     margin: auto;
     margin-top: 30px;
-    background-color: #8fb2bb;
-    border-radius: 3px;">
-    <h1 style="padding-left: 40%; padding-top: 3%; font-family: monospace; margin-bottom: 35px;"> Udlejede biler</h1>
+    border-radius: 3px;
+width: 90%;">
+    <h1 style="text-align: center; padding-top: 3%; font-family: monospace;
+     margin-bottom: 35px; font-size: larger; color: aliceblue">Udlejede biler</h1>
     <form method="POST" action="/choosing-rental">
         <div style="padding-left: 40%">
             <label for="rental_id">
                 <input id="rental_id" type="text" name="rental_id"
                        placeholder="Leje-ID" required>
-                <button type="submit"> Vælg</button>
+                <button type="submit">Vælg</button>
             </label>
         </div>
     </form>
 
-        <table>
-            <thead class="text">
-            <th>
-                Leje ID /
-            </th>
-            <th>
-                Kunde CPR /
-            </th>
-            <th>
-                Bil Model /
-            </th>
-            <th>
-                Farve /
-            </th>
-            <th>
-                Afleveringsforsikring /
-            </th>
-            <th>
-                Selvrisiko /
-            </th>
-            <th>
-                Lokation /
-            </th>
-            <th>
-                Pris pr km /
-            </th>
-            <th>
-                Startdato /
-            </th>
-            <th>
-                Slutdato /
-            </th>
-            <th>
-                Månedlig ydelse /
-            </th>
-            <th>
-                Aktiv
-            </th>
-            </thead>
-            <tbody>
-            <tr th:each="rental: ${rentals}">
-                <td th:text="${rental.rentalId}"/>
-                <td th:text="${rental.customerCPR}"/>
-                <td th:text="${rental.model}"/>
-                <td th:text="${rental.color}"/>
-                <td th:text="${rental.afleveringsforsikring}"/>
-                <td th:text="${rental.selvrisiko}"/>
-                <td th:text="${rental.location}"/>
-                <td th:text="${rental.pricePrKm}"/>
-                <td th:text="${rental.startDate}"/>
-                <td th:text="${rental.endDate}"/>
-                <td th:text="${rental.monthlyFee}"/>
-                <td th:text="${rental.active}"/>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <table>
+        <thead class="text">
+        <th>
+            ∙ Leje-ID
+        </th>
+        <th>
+            ∙ Kunde-CPR
+        </th>
+        <th>
+            ∙ Bil Model
+        </th>
+        <th>
+            ∙ Farve
+        </th>
+        <th>
+            ∙ Afleveringsforsikring
+        </th>
+        <th>
+            ∙ Selvrisiko
+        </th>
+        <th>
+            ∙ Lokation
+        </th>
+        <th>
+            ∙ Pris pr.km/DKK
+        </th>
+        <th>
+            ∙ Startdato
+        </th>
+        <th>
+            ∙ Slutdato
+        </th>
+        <th>
+            ∙ Månedlig ydelse/DKK
+        </th>
+        <th>
+            ∙ Aktiv
+        </th>
+        </thead>
+        <tbody>
+        <tr th:each="rental: ${rentals}">
+            <td th:text="${rental.rentalId}"/>
+            <td th:text="${rental.customerCPR}"/>
+            <td th:text="${rental.model}"/>
+            <td th:text="${rental.color}"/>
+            <td th:text="${rental.afleveringsforsikring}"/>
+            <td th:text="${rental.selvrisiko}"/>
+            <td th:text="${rental.location}"/>
+            <td th:text="${rental.pricePrKm}"/>
+            <td th:text="${rental.startDate}"/>
+            <td th:text="${rental.endDate}"/>
+            <td th:text="${rental.monthlyFee}"/>
+            <td th:text="${rental.active}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

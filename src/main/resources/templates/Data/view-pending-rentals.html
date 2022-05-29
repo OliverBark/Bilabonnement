@@ -7,58 +7,59 @@
     <link rel="stylesheet" th:href="@{data-menu.css}">
 </head>
 <body>
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
 <div class="choose-prental">
-    <h1> Bekræft lejeaftaler </h1>
+    <h1 style="font-size: larger; margin: auto; color: #435b5d; font: inherit; text-decoration: underline; text-decoration-color: darkcyan;">INAKTIVE LEJEFTALER</h1>
     <form method="POST" action="/choose-pending-rental">
         <div>
             <label for="pending_rental_id">
-                <span class="hidden">Leje-ID </span></label>
-            <input id="pending_rental_id" type="number" name="pending_rental_id"
-                   placeholder="Leje ID" required>
-            <button type="submit" >Bekræft leje</button>
+                <input id="pending_rental_id" type="number" name="pending_rental_id" style="font-family: monospace"
+                       placeholder="Leje ID" required>
+                <button type="submit" style="color: cadetblue">Bekræft leje</button>
         </div>
     </form>
 </div>
-    <table class="prental">
-        <thead>
-        <th>
-            Leje ID
-        </th>
-        <th>
-            CPR-NR
-        </th>
-        <th>
-            Bil model
-        </th>
-        <th>
-            Farve
-        </th>
-        <th>
-            Afleveringsforsikring
-        </th>
-        <th>
-            Selvrisiko
-        </th>
-        <th>
-            Lokation
-        </th>
-        <th>
-            Månedlig ydelse
-        </th>
-        </thead>
-        <tbody>
-        <tr th:each = "rental: ${rentals}">
-            <td th:text="${rental.pendingRentalId}"/>
-            <td th:text="${rental.customerCPR}"/>
-            <td th:text="${rental.model}"/>
-            <td th:text="${rental.color}"/>
-            <td th:text="${rental.afleveringsforsikring}"/>
-            <td th:text="${rental.selvrisiko}"/>
-            <td th:text="${rental.location}"/>
-            <td th:text="${rental.monthlyFee}"/>
-        </tr>
-        </tbody>
-    </table>
+<table class="prental">
+    <thead>
+    <th>
+        ∙ Leje-ID
+    </th>
+    <th>
+        ∙ Kunde-CPR
+    </th>
+    <th>
+        ∙ Model
+    </th>
+    <th>
+        ∙ Farve
+    </th>
+    <th>
+        ∙ Afleveringsforsikring
+    </th>
+    <th>
+        ∙ Selvrisiko
+    </th>
+    <th>
+        ∙ Lokation
+    </th>
+    <th>
+        ∙ Månedlig ydelse
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each="rental: ${rentals}">
+        <td th:text="${rental.pendingRentalId}"/>
+        <td th:text="${rental.customerCPR}"/>
+        <td th:text="${rental.model}"/>
+        <td th:text="${rental.color}"/>
+        <td th:text="${rental.afleveringsforsikring}"/>
+        <td th:text="${rental.selvrisiko}"/>
+        <td th:text="${rental.location}"/>
+        <td th:text="${rental.monthlyFee}"/>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

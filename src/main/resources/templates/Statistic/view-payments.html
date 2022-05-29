@@ -2,48 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View-payments</title>
+    <link rel="stylesheet" th:href="@{data-menu.css}">
 </head>
 <body>
-<a href="/statistic-register-new-month"> Register New Month </a>
-<a href="/create-new-payment"> Create New Payment </a>
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
+<a href="/statistic-register-new-month">Ny måned </a>
+<a href="/create-new-payment" style="margin-left: 10px;">Ny betaling </a>
 
 <form method="POST" action="/confirm-payment">
     <div>
         <label for="payment_id">
             <input id="payment_id" type="number" name="payment_id"
-                   placeholder=" Payment ID " required>
+                   placeholder="Betalings-ID" required>
         </label>
 
-            <label for="payment_type">
-                <select name="payment_type" id="payment_type">
-                    <option value="payment_type" selected hidden> Payment Type </option>
-                    <option value="Månedlig betaling">Månedlig betaling</option>
-                    <option value="Engangsbetaling">Engangsbetaling</option>
-                </select>
-            </label>
+        <label for="type">
+            <input id="type" type="text" name="type"
+                   placeholder="Betalings type" required>
+        </label>
+
         <label for="date">
             <input id="date" type="date" name="date"
-                   placeholder=" Date " required>
+                   placeholder="Dato" required>
         </label>
 
-        <button type="submit"> Confirm Payment</button>
+        <button type="submit">Bekræft betaling</button>
     </div>
 </form>
 <div>
     <table>
         <thead>
         <th>
-            Payment ID
+            ∙ Betalings-ID
         </th>
         <th>
-            Amount
+            ∙ Beløb
         </th>
         <th>
-            Date
+            ∙ Dato
         </th>
         <th>
-            Rental ID
+            ∙ Leje-ID
         </th>
         </thead>
         <tbody>

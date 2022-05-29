@@ -16,7 +16,7 @@ public class DamageRentalController {
     @GetMapping("/choose-rental")
     public String chooseRental(HttpSession session, Model model) {
         RentalManager rentalManager = new RentalManager();
-        ArrayList<Rental> rentals = rentalManager.getActiveRentals();
+        ArrayList<Rental> rentals = rentalManager.getRentalList();
         model.addAttribute("rentals", rentals);
         return "Damage/rental-list";
     }

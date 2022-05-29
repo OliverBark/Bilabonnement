@@ -14,28 +14,36 @@ button {
     font-weight: bold;
     padding: 3.7px 15px;
     text-transform: uppercase;
-    color: cadetblue;
+    color: #8fb2bb;
 }
 
 input{
     border: solid 1.5px cadetblue;
     font-size: 1rem;
-    color: cadetblue;
+    color: #8fb2bb;
     transition: border 150ms cubic-bezier(0.4,0,0.2,1);
-font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;}
+font-family: monospace;
+}
 
 table,th,td {
-    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: monospace;
     border: 1px solid;
     text-align: center;
-    margin: 20px auto auto;
+    margin: auto;
+    margin-top: 15px;
     width: fit-content;
+    color: #435b5d;
 }
 
 h3{
+    color: #435b5d;
+    font: inherit;
+    margin-top: 50px;
+    font-size: xx-large;
+    font-family: monospace;
     text-align: center;
-    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    border: 1px solid cadetblue;
+    text-decoration: underline;
+    text-decoration-color: darkcyan;
 }
 
 body{

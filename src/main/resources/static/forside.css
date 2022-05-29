@@ -1,6 +1,6 @@
 
 body {
-    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: monospace;
     margin: 0;
 }
 
@@ -28,8 +28,11 @@ a {
 
 .place-items-center {
     place-items: center;
-    padding: 10%;
+    padding: 13.5%;
     text-align: center;
+vertical-align: middle;
+    display: flex;
+    justify-content: center;
 }
 
 .text-5xl {
@@ -50,17 +53,19 @@ a {
 }
 
 .app {
+    place-items: center;
     background-color: #fff;
-    border: 0.15rem solid #000;
+    border: 0.15rem solid #8fb2bb;
     border-radius: 3px;
     color: black;
     padding: 1.3rem;
     position: relative;
     top: 10%;
+    width: 100%;
 }
 
 .app:after {
-    background-color: cadetblue;
+    background-color: #8fb2bb;
     border-radius: 1px;
     content: "";
     height: 100%;
@@ -82,7 +87,7 @@ a {
     }
 
     .md\:gap-1 {
-        gap: 1rem;
+        gap: 2rem;
     }
 
 }
@@ -92,14 +97,14 @@ a {
 }
 
 .xl\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     position: absolute;
 }
+
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 40%;
     height: 40%;
 }

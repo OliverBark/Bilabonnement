@@ -7,23 +7,24 @@
     <link rel="stylesheet" th:href="@{udleje.css}">
 </head>
 <body>
-<img alt="K.W Bruun" src="/Images/kwbruun.png">
-<h1 style="text-align: center; font-family: monospace;">Rapport Beskrivelse</h1>
+<a href="/forside">
+    <img alt="K.W Bruun" src="/Images/kwbruun.png">
+</a>
+<h1 style="color: #435b5d;
+    font: inherit;
+    margin-top: 50px;
+    font-size: xx-large;
+    font-family: monospace;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: darkcyan;">Rapport beskrivelse</h1>
 <form method="POST" action="/create-damage-report">
     <div style="text-align: center;">
         <label for="report_description">
-            <span class="hidden"; style="font-family: monospace;">Rapport beskrivelse</span>
-        <label for="report_description">
-            <select name="report_description" id="report_description">
-                <option selected hidden> Rapportbeskrivelse </option>
-                <option>Matrix</option>
-                <option>Registered</option>
-            </select>
-        </label>
-        <button type="submit" >+</button>
+        <input id="report_description" type="text" name="report_description"
+               placeholder="Beskrivelse" required>
+        <button type="submit">+</button>
     </div>
-
-
 </form>
 </body>
 </html>
