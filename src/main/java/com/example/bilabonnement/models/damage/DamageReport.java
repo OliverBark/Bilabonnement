@@ -1,3 +1,4 @@
+// @Author Battal Roni Özcan
 package com.example.bilabonnement.models.damage;
 
 public class DamageReport {
