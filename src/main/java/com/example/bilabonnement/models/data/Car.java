@@ -1,5 +1,5 @@
 package com.example.bilabonnement.models.data;
-
+//
 public class Car {
     private final String vehicleNumber;
     private final String stelNumber;
