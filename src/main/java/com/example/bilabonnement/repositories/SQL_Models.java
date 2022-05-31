@@ -2,6 +2,7 @@ package com.example.bilabonnement.repositories;
 
 import com.example.bilabonnement.models.damage.Damage;
 import com.example.bilabonnement.models.damage.DamageReport;
+import com.example.bilabonnement.models.data.Car;
 import com.example.bilabonnement.models.data.Customer;
 import com.example.bilabonnement.models.data.PendingRental;
 import com.example.bilabonnement.models.data.Rental;
@@ -30,6 +31,9 @@ public class SQL_Models {
         }
         if(object instanceof Rental){
             return generateRentalValues((Rental) object);
+        }
+        if(object instanceof Car){
+            return generateCarValues((Car) object);
         }
         else {
             return "oof";
@@ -86,6 +90,16 @@ public class SQL_Models {
                 rental.getEndDate() + "', '" +
                 rental.getMonthlyFee() + "', '" +
                 booleanConversion(rental.isActive()) + "')";
+    }
+    private String generateCarValues(Car car){
+        return "('" + car.getVehicleNumber() + "', '" +
+                car.getStelNumber() + "', '" +
+                car.getBrand() + "', '" +
+                car.getModel() + "', '" +
+                car.getEquipmentLevel() + "', '" +
+                car.getSteelPrice() + "', '" +
+                car.getCo2Exhaust() + "', '" +
+                car.getRentalId() + "')";
     }
     private int booleanConversion(boolean input){
         if(input){

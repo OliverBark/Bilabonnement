@@ -74,8 +74,17 @@ CREATE TABLE `Payments` (
                             `rental_id` INT NOT NULL,
                             PRIMARY KEY (`payment_id`),
                             FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
-
-
+CREATE TABLE `Cars` (
+                        `vehicle_number` VARCHAR(45) NOT NULL,
+                        `stel_number` VARCHAR(45) NOT NULL,
+                        `brand` VARCHAR(45) NOT NULL,
+                        `model` VARCHAR(45) NOT NULL,
+                        `equipment_level` VARCHAR(45) NOT NULL,
+                        `steel_price` DOUBLE NOT NULL,
+                        `co2_exhaust` DOUBLE NOT NULL,
+                        `rental_id` INT,
+                        PRIMARY KEY (`vehicle_number`),
+                        FOREIGN KEY (`rental_id`) REFERENCES Rentals(`rental_id`));
 
 CREATE TABLE `Users` (
                          `username` varchar(45) NOT NULL,
