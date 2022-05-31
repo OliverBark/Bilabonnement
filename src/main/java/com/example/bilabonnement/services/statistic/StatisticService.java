@@ -1,11 +1,8 @@
 package com.example.bilabonnement.services.statistic;
 
 import com.example.bilabonnement.models.data.Rental;
-import com.example.bilabonnement.models.economy.Payment;
-import com.example.bilabonnement.repositories.payment.PaymentManager;
 import com.example.bilabonnement.repositories.rental.RentalManager;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
