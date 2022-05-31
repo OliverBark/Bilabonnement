@@ -3,7 +3,7 @@ package com.example.bilabonnement.models.data;
 public class PendingRental {
     private final int pendingRentalId;
     private final String customerCPR;
-    private final String model;
+    private final String carModel;
     private final String color;
     private final boolean afleveringsforsikring;
     private final boolean selvrisiko;
@@ -11,11 +11,11 @@ public class PendingRental {
     private final double monthlyFee;
 
 
-    public PendingRental(int pendingRentalId, String customerCPR, String model, String color, boolean afleveringsforsikring,
+    public PendingRental(int pendingRentalId, String customerCPR, String carModel, String color, boolean afleveringsforsikring,
                          boolean selvrisiko, String location, double monthlyFee) {
         this.pendingRentalId = pendingRentalId;
         this.customerCPR = customerCPR;
-        this.model = model;
+        this.carModel = carModel;
         this.color = color;
         this.afleveringsforsikring = afleveringsforsikring;
         this.selvrisiko = selvrisiko;
@@ -31,8 +31,8 @@ public class PendingRental {
         return customerCPR;
     }
 
-    public String getModel() {
-        return model;
+    public String getCarModel() {
+        return carModel;
     }
 
     public String getColor() {
@@ -60,7 +60,7 @@ public class PendingRental {
         return "PendingSubscription{" +
                 "id=" + pendingRentalId +
                 ", customerCPR='" + customerCPR + '\'' +
-                ", model='" + model + '\'' +
+                ", model='" + carModel + '\'' +
                 ", color='" + color + '\'' +
                 ", afleveringsforsikring=" + afleveringsforsikring +
                 ", selvrisiko=" + selvrisiko +

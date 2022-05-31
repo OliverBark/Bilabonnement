@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Rental {
     private final int rentalId;
     private final String customerCPR;
-    private final String model;
+    private final String carModel;
     private final String color;
     private final boolean afleveringsforsikring;
     private final boolean selvrisiko;
@@ -16,12 +16,12 @@ public class Rental {
     private final double monthlyFee;
     private final boolean active;
 
-    public Rental(int rentalId, String customerCPR, String model, String color, boolean afleveringsforsikring,
+    public Rental(int rentalId, String customerCPR, String carModel, String color, boolean afleveringsforsikring,
                   boolean selvrisiko, String location, double pricePrKm, Date startDate, Date endDate,
                   double monthlyFee, boolean active) {
         this.rentalId = rentalId;
         this.customerCPR = customerCPR;
-        this.model = model;
+        this.carModel = carModel;
         this.color = color;
         this.afleveringsforsikring = afleveringsforsikring;
         this.selvrisiko = selvrisiko;
@@ -41,8 +41,8 @@ public class Rental {
         return customerCPR;
     }
 
-    public String getModel() {
-        return model;
+    public String getCarModel() {
+        return carModel;
     }
 
     public String getColor() {
@@ -86,7 +86,7 @@ public class Rental {
         return "Rental{" +
                 "rentalId=" + rentalId +
                 ", customerCPR='" + customerCPR + '\'' +
-                ", model='" + model + '\'' +
+                ", model='" + carModel + '\'' +
                 ", color='" + color + '\'' +
                 ", afleveringsforsikring=" + afleveringsforsikring +
                 ", selvrisiko=" + selvrisiko +

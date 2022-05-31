@@ -14,7 +14,7 @@ public class RentalServices {
         RentalManager rentalManager = new RentalManager();
         System.out.println(pendingRental);
         PendingRentalManager pendingRentalManager = new PendingRentalManager();
-        Rental rental = new Rental(0, pendingRental.getCustomerCPR(), pendingRental.getModel(),
+        Rental rental = new Rental(0, pendingRental.getCustomerCPR(), pendingRental.getCarModel(),
                 pendingRental.getColor(), pendingRental.isAfleveringsforsikring(), pendingRental.isSelvrisiko(),
                 pendingRental.getLocation(), pricePrKm, Date.valueOf(startDate), Date.valueOf(endDate), pendingRental.getMonthlyFee(), true);
         rentalManager.createRental(rental);

@@ -17,7 +17,7 @@ CREATE TABLE `Customers` (
 CREATE TABLE `Rentals` (
                            `rental_id` INT NOT NULL AUTO_INCREMENT,
                            `cpr_nr` varchar(15) NOT NULL,
-                           `model` varchar(45) NOT NULL,
+                           `car_model` varchar(45) NOT NULL,
                            `color` varchar(45) NOT NULL,
                            `afleveringsforsikring` BOOLEAN DEFAULT NULL,
                            `selvrisiko` BOOLEAN DEFAULT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `Rentals` (
 CREATE TABLE `Pending_rentals`(
                                   `pending_rental_id` INT NOT NULL AUTO_INCREMENT ,
                                   `cpr_nr` varchar(15) NOT NULL,
-                                  `model` varchar(45) NOT NULL,
+                                  `car_model` varchar(45) NOT NULL,
                                   `color` varchar(45) NOT NULL,
                                   `afleveringsforsikring` BOOLEAN DEFAULT NULL,
                                   `selvrisiko` BOOLEAN DEFAULT NULL,

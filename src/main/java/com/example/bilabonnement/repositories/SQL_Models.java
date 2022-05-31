@@ -61,7 +61,7 @@ public class SQL_Models {
     }
     private String generatePendingRentalValues(PendingRental pendingRental){
         return "('" + pendingRental.getCustomerCPR() + "', '" +
-                pendingRental.getModel() + "', '" +
+                pendingRental.getCarModel() + "', '" +
                 pendingRental.getColor() + "', '" +
                 booleanConversion(pendingRental.isAfleveringsforsikring()) + "', '" +
                 booleanConversion(pendingRental.isSelvrisiko()) + "', '" +
@@ -76,7 +76,7 @@ public class SQL_Models {
     }
     private String generateRentalValues(Rental rental){
         return "('" + rental.getCustomerCPR() + "', '" +
-                rental.getModel() + "', '" +
+                rental.getCarModel() + "', '" +
                 rental.getColor() + "', '" +
                 booleanConversion(rental.isAfleveringsforsikring()) + "', '" +
                 booleanConversion(rental.isSelvrisiko()) + "', '" +

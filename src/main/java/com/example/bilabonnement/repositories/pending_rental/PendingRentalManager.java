@@ -16,7 +16,7 @@ public class PendingRentalManager {
     SQL_Models sqlModels = new SQL_Models();
     private final String database = "Pending_rentals";
     private final String primaryKey = "pending_rental_id";
-    private final String sections = "(cpr_nr, model, color, afleveringsforsikring, selvrisiko, " +
+    private final String sections = "(cpr_nr, car_model, color, afleveringsforsikring, selvrisiko, " +
         "location, monthly_fee)";
 
     public PendingRental getPendingRental(int pendingRentalId){
@@ -69,7 +69,7 @@ public class PendingRentalManager {
 
     private PendingRental generatePendingRental(ResultSet rs){
         try {
-            return new PendingRental(rs.getInt("pending_rental_id"), rs.getString("cpr_nr"), rs.getString("model"),
+            return new PendingRental(rs.getInt("pending_rental_id"), rs.getString("cpr_nr"), rs.getString("car_model"),
                     rs.getString("color"), rs.getBoolean("afleveringsforsikring"), rs.getBoolean("selvrisiko"),
                     rs.getString("location"), rs.getDouble("monthly_fee"));
         } catch (SQLException e) {
