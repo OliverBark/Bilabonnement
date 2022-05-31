@@ -18,7 +18,7 @@
 <div class="section" style="">
     <h2 style="font-family: monospace; color: #435b5d;">FORVENTEDE INDKOMST FOR MÅNEDEN </h2>
     <div class="sub-section">
-        <td th:text="${incomemonthly}"/>
+        <td th:text="${incomemonthly}"></td>
         <d>DKK</d>
     </div>
 </div>
@@ -34,7 +34,7 @@
 <div class="section" style="margin-top: -100px;">
     <h2 style="font-family: monospace; color: #435b5d;">INDKOMST FOR PERIODEN </h2>
     <div class="sub-section">
-        <td th:text="${incomeduring}"/>
+        <td th:text="${incomeduring}"></td>
         <d> DKK</d>
     </div>
 
@@ -96,9 +96,9 @@
         </thead>
         <tbody>
         <tr th:each="rental: ${rentals}">
-            <td th:text="${rental.rentalId}"/>
-            <td th:text="${rental.monthlyFee}"/>
-            <td th:text="${rental.endDate}"/>
+            <td th:text="${rental.rentalId}"></td>
+            <td th:text="${rental.monthlyFee}"></td>
+            <td th:text="${rental.endDate}"></td>
         </tr>
         </tbody>
     </table>

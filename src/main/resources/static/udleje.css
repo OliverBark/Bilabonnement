@@ -50,3 +50,17 @@ h3{
 body{
     background-color: aliceblue;
 }
+
+a {
+    font-family: monospace;
+    color: #435b5d;
+    border: 1px solid #bbd4db;
+    background-color: #bbd4db;
+    border-radius: 3px;
+    padding: 6px;
+    font-size: large;
+}
+
+.middle{
+    text-align: center;
+}

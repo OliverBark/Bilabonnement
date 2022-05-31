@@ -24,6 +24,7 @@
             <input id="report_id" type="number" name="report_id"
                    placeholder="Rapport-Id" required>
             <button type="submit">SE/ÆNDRE RAPPORT</button>
+        </label>
     </div>
 
 </form>
@@ -39,29 +40,14 @@
     </thead>
     <tbody>
     <tr th:each="report: ${reports}">
-        <td th:text="${report.reportId}"/>
-        <td th:text="${report.description}"/>
+        <td th:text="${report.reportId}"></td>
+        <td th:text="${report.description}"></td>
     </tr>
     </tbody>
 </table>
-<a href="/damage-report-create" style="margin-left: 35%;
-    font-family: monospace;
-    color: #435b5d;
-    border: 1px solid #bbd4db;
-    background-color: #bbd4db;
-    border-radius: 3px;
-    padding: 6px;
-    font:inherit;
-    font-size: large;">Opret skadesrapport</a>
-<a href="/choose-rental" style="margin-left: 1%;
-    font-family: monospace;
-    color: #435b5d;
-    border: 1px solid #bbd4db;
-    background-color: #bbd4db;
-    border-radius: 3px;
-    padding: 6px;
-    font: inherit;
-    font-size: large;">Vælg nyt abonnement</a>
-
+<div class="middle">
+<a href="/damage-report-create" style=>Opret skadesrapport </a>
+<a href="/choose-rental" style="margin-left: 10px">Vælg nyt abonnement</a>
+</div>
 </body>
 </html>

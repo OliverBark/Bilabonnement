@@ -24,6 +24,7 @@
             <input id="rental_id" type="text" name="rental_id"
                    placeholder="Leje-ID" required>
             <button type="submit">Deaktiver Abonnement</button>
+        </label>
     </div>
 </form>
 
@@ -65,17 +66,17 @@
     </thead>
     <tbody>
     <tr th:each="rental: ${activerentals}">
-        <td th:text="${rental.rentalId}"/>
-        <td th:text="${rental.customerCPR}"/>
-        <td th:text="${rental.model}"/>
-        <td th:text="${rental.color}"/>
-        <td th:text="${rental.afleveringsforsikring}"/>
-        <td th:text="${rental.selvrisiko}"/>
-        <td th:text="${rental.location}"/>
-        <td th:text="${rental.monthlyFee}"/>
-        <td th:text="${rental.pricePrKm}"/>
-        <td th:text="${rental.startDate}"/>
-        <td th:text="${rental.endDate}"/>
+        <td th:text="${rental.rentalId}"></td>
+        <td th:text="${rental.customerCPR}"></td>
+        <td th:text="${rental.model}"></td>
+        <td th:text="${rental.color}"></td>
+        <td th:text="${rental.afleveringsforsikring}"></td>
+        <td th:text="${rental.selvrisiko}"></td>
+        <td th:text="${rental.location}"></td>
+        <td th:text="${rental.monthlyFee}"></td>
+        <td th:text="${rental.pricePrKm}"></td>
+        <td th:text="${rental.startDate}"></td>
+        <td th:text="${rental.endDate}"></td>
     </tr>
     </tbody>
 </table>
