@@ -30,12 +30,15 @@
     text-decoration-color: darkcyan; ">Tilføj Skade</h1>
 <form method="POST" action="/add-damage">
     <div style="margin-bottom: 50px;">
-        <input autocomplete="damage_name" id="damage_name" type="text" name="damage_name"
-               placeholder="Skadenavn" required>
+        <label for="damage_name">
+            <input autocomplete="damage_name" id="damage_name" type="text" name="damage_name"
+                   placeholder="Skadenavn" required>
+        </label>
 
-
-        <input autocomplete="damage_price" id="damage_price" type="number" name="damage_price" class="damage_price"
-               placeholder="Pris" required>
+        <label for="damage_price">
+            <input autocomplete="damage_price" id="damage_price" type="number" name="damage_price" class="damage_price"
+                   placeholder="Pris" required>
+        </label>
         <button type="submit">OPRET RAPPORT</button>
     </div>
 </form>
@@ -48,8 +51,11 @@
     text-decoration-color: darkcyan;">Slet skade</h1>
 <form method="POST" action="/remove-damage">
     <div>
-        <input id="damage_name_remove" type="text" name="damage_name_remove"
-               placeholder="Skadenavn" required>
+        <label for="damage_name_remove">
+            <input id="damage_name_remove" type="text" name="damage_name_remove"
+                   placeholder="Skadenavn" required>
+        </label>
+
         <button type="submit">SLET RAPPORT</button>
     </div>
 </form>
@@ -71,8 +77,8 @@
         </thead>
         <tbody>
         <tr th:each="damage: ${damages}">
-            <td th:text="${damage.damage}"/>
-            <td th:text="${damage.amount}"/>
+            <td th:text="${damage.damage}"></td>
+            <td th:text="${damage.amount}"></td>
         </tr>
         </tbody>
     </table>

@@ -32,7 +32,7 @@ div {
 }
 
 button {
-    font-family: auto, inherit;
+    font-family: auto, inherit, serif;
     border: none;
     border-radius: 4px;
     cursor: pointer;

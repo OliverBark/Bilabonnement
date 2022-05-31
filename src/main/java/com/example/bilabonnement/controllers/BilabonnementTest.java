@@ -74,7 +74,7 @@ public class BilabonnementTest {
         CustomerManager customerManager = new CustomerManager();
         try {
             customerManager.deleteCustomer(customer.getCprNr());
-            System.out.println("cusomter deleted");
+            System.out.println("customer deleted");
             customerManager.createCustomer(customer);
         } catch (Exception e) {
             customerManager.createCustomer(customer);

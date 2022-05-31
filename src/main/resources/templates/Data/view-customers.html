@@ -18,6 +18,7 @@
         <input id="customer_cpr" type="text" name="customer_cpr"
                placeholder="Kunde-CPR " required>
         <button type="submit">Rediger kunde</button>
+    </label>
 </form>
 <table>
     <thead>
@@ -36,10 +37,10 @@
     </thead>
     <tbody>
     <tr th:each="customer: ${customers}">
-        <td th:text="${customer.firstName}"/>
-        <td th:text="${customer.lastName}"/>
-        <td th:text="${customer.mobile}"/>
-        <td th:text="${customer.cprNr}"/>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td th:text="${customer.mobile}"></td>
+        <td th:text="${customer.cprNr}"></td>
     </tr>
     </tbody>
 </table>

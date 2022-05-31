@@ -11,13 +11,14 @@
     <img alt="K.W Bruun" src="/Images/kwbruun.png">
 </a>
 <div class="choose-prental">
-    <h1 style="font-size: larger; margin: auto; color: #435b5d; font: inherit; text-decoration: underline; text-decoration-color: darkcyan;">INAKTIVE LEJEFTALER</h1>
+    <h1 style="margin: auto; color: #435b5d; font: inherit; text-decoration: underline; text-decoration-color: darkcyan;">INAKTIVE LEJEFTALER</h1>
     <form method="POST" action="/choose-pending-rental">
         <div>
             <label for="pending_rental_id">
                 <input id="pending_rental_id" type="number" name="pending_rental_id" style="font-family: monospace"
                        placeholder="Leje-ID" required>
                 <button type="submit" style="color: cadetblue">Bekræft leje</button>
+            </label>
         </div>
     </form>
 </div>
@@ -50,14 +51,14 @@
     </thead>
     <tbody>
     <tr th:each="rental: ${rentals}">
-        <td th:text="${rental.pendingRentalId}"/>
-        <td th:text="${rental.customerCPR}"/>
-        <td th:text="${rental.model}"/>
-        <td th:text="${rental.color}"/>
-        <td th:text="${rental.afleveringsforsikring}"/>
-        <td th:text="${rental.selvrisiko}"/>
-        <td th:text="${rental.location}"/>
-        <td th:text="${rental.monthlyFee}"/>
+        <td th:text="${rental.pendingRentalId}"></td>
+        <td th:text="${rental.customerCPR}"></td>
+        <td th:text="${rental.model}"></td>
+        <td th:text="${rental.color}"></td>
+        <td th:text="${rental.afleveringsforsikring}"></td>
+        <td th:text="${rental.selvrisiko}"></td>
+        <td th:text="${rental.location}"></td>
+        <td th:text="${rental.monthlyFee}"></td>
     </tr>
     </tbody>
 </table>
