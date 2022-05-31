@@ -17,6 +17,14 @@
                placeholder="Date" required>
     </label>
 
+    <label for="type">
+        <select name="type" id="type">
+            <option value="type" selected hidden> Betalings Type</option>
+            <option value="MONTHLY"> Månedlig betaling </option>
+            <option value="ONETIME"> Engangsbetaling </option>
+        </select>
+    </label>
+
     <label for="rental_id">
         <input id="rental_id" type="number" name="rental_id"
                placeholder="Leje-ID" required>

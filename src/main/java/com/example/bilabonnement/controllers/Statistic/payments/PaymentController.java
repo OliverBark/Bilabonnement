@@ -42,7 +42,6 @@ public class PaymentController {
     public String createPayment(WebRequest dataFromForm){
         ControllerService controllerService = new ControllerService();
         PaymentManager paymentManager = new PaymentManager();
-
         Payment payment = new Payment(0, Double.parseDouble(dataFromForm.getParameter("amount")),
                 Date.valueOf(controllerService.generateDate(dataFromForm.getParameter("date"))),
                 dataFromForm.getParameter("type"),
